@@ -1,57 +1,91 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-03
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+# FIRST CLOUD AI JOURNEY (FCAJ)
 
-### Week 2 Objectives:
+## 1. Overview of Week 02 Objectives and Plans
+Starting the second week, students dive deep into studying **Amazon Virtual Private Cloud (VPC)** and reinforcing cost management skills with **AWS Budgets**. Shifting from a default cloud environment to a strictly controlled custom network environment is a prerequisite to ensure data safety and cost optimization. Additionally, this week marks the completion of the official internship registration and preparing to work at the office.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+> **So What:** Understanding network partitioning and traffic control helps students grasp the backbone of system design on AWS. Configuring VPC correctly prevents info leakage risks right from the baseline network layer.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+---
 
+## 2. Detailed Worklog
+Below is the summary of activities performed from 24/04/2026 - 03/05/2026:
 
-### Week 2 Achievements:
+| Day / Date | Work Content | Task Details | Results Achieved | Reference Sources |
+| --- | --- | --- | --- | --- |
+| Fri (Apr 24) | Info Registration | Completed the internship survey link and received guidelines for office onboarding. | Completed administrative procedures; ready for office presence. | AWS Registration Link |
+| Sat (Apr 25) | VPC Basics Research | Watched AWS training videos; studied IP addressing, CIDR blocks, and Subnets. | Grasped IP address allocation and network partitioning in VPC. | Provided Videos |
+| Sun (Apr 26) | Network Schema Draft | Sketched a network model consisting of Public and Private Subnets. | Visualized traffic flow from the Internet to the internal network. | AWS Documentation |
+| Mon (May 27) | Budget Management | Configured advanced AWS Budgets alerts for networking resources. | Set up cost thresholds to control potential NAT Gateway or VPN costs. | AWS Billing Console |
+| Tue (Apr 28) | VPC Initialization | Created Custom VPC with CIDR `10.0.0.0/16` and custom subnets. | Successfully established an isolated private network partition. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Wed (Apr 29) | Network Routing | Configured Route Tables and Internet Gateway (IGW) for Public Subnet. | Enabled public internet connectivity for resources in the Public Subnet. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Thu (Apr 30) | Network Security Study | Studied the differences between Security Groups (Stateful) and NACLs (Stateless). | Mastered the two primary firewalls protecting EC2 instances and subnets. | AWS Security Guide |
+| Fri (May 01) | International Labor Day | Self-studied High Availability (HA) best practices for VPC design. | Understood how to distribute subnets across multiple Availability Zones. | AWS Architecture Center |
+| Sat (May 02) | EC2 & VPC Verification | Launched EC2 in Public Subnet (SSH verified) and EC2 in Private Subnet. | Verified routing and security configurations were working correctly. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Sun (May 03) | Weekly Reporting | Compiled Week 2 worklog and prepared the plan for the upcoming week. | Finalized internship progress documentation. | Personal Records |
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+> **So What:** This week's work concentrated on networking and onboarding setup. This preparation provides a robust foundation to implement advanced VPC Peering and Hybrid DNS next week.
 
-* Successfully created and configured an AWS Free Tier account.
+---
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### 3. Deep Dive Analysis: VPC Structure and Routing
+Amazon Virtual Private Cloud (VPC) enables Builders to spin up a private virtual network in the cloud.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Operation of Public & Private Subnets:**
+* **Public Subnet:** Associated with a Route Table routing `0.0.0.0/0` traffic through the **Internet Gateway (IGW)**. Suitable for resources needing direct internet communication like Load Balancers or Web Servers.
+* **Private Subnet:** Route Table does not point to an Internet Gateway. Resources (like Databases, Backend Services) are isolated and can only access the internet indirectly via a **NAT Gateway** located in a Public Subnet.
 
-* Used AWS CLI to perform basic operations such as:
+![Basic VPC Schema](/images/1-Worklog/Week2/vpc-schema.png)
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+> **So What:** Clear separation of Public and Private Subnets minimizes the external attack surface, isolating sensitive databases completely from the public internet.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+---
+
+### 4. Cost Management (FinOps) using AWS Budgets
+When working with VPCs, resources like NAT Gateways accrue charges per hour and per GB of data processed. Thus, configuring AWS Budgets is vital.
+
+**Cost Monitoring Strategy:**
+* **Threshold Alerts:** Set alerts at 50%, 80%, and 100% of the monthly budget (e.g., $10).
+* **Instant Notifications:** Send email alerts as soon as actual or forecasted costs exceed thresholds, enabling prompt termination of idle resources.
+
+> **So What:** Applying FinOps enables Builders to combine technical skills with cost-awareness, managing cloud spend efficiently.
+
+---
+
+### 5. AWS CLI for VPC (Advanced Practice)
+Using CLI commands accelerates network infrastructure deployment.
+
+**Useful CLI Commands:**
+* Create a VPC: `aws ec2 create-vpc --cidr-block 10.0.0.0/16`
+* List Subnets: `aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-xxxxx"`
+* Inspect Route Tables: `aws ec2 describe-route-tables`
+
+> **Pro Tip:** Script your VPC creation using Bash or PowerShell to eliminate manual configuration errors.
+
+---
+
+### 6. Summary and Evaluation of Week 2 Results
+
+#### 6.1. Soft Skills & Communication
+* **Team Synergy:** Kept active engagement on WhatsApp/Zalo to help teammates debug VPC configuration errors.
+* **Onboarding admin:** Completed official internship registration documents accurately and on time.
+
+#### 6.2. Resource & Cost Management (FinOps)
+* **Cost Controls:** Created specific Budgets for VPC and EC2 resources, monitoring NAT Gateway costs actively during exercises.
+
+#### 6.3. Security & Infrastructure
+* **Network Security:** Mastered configuring Security Groups to allow only required ports (Port 22 for SSH, Port 80/443 for HTTP/HTTPS).
+* **Infrastructure Design:** Successfully provisioned a Custom VPC and understood cloud routing tables.
+
+#### 6.4. Technical & AI Mindset
+* **Networking Mindset:** Shifted my technical perspective from on-premises local networking to elastic virtualized networking.
+
+---
+**Overall Assessment:** Successfully met all Week 2 goals. The VPC infrastructure is configured properly and ready for multi-VPC networking.
