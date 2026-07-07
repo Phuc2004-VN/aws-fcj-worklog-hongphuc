@@ -1,57 +1,48 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-28
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+# FIRST CLOUD AI JOURNEY (FCAJ)
 
-### Week 10 Objectives:
+## 1. Overview of Week 10 Goals and Plan
+This week, I focused on researching serverless architectures, drafting the dashboard interface, setting up API endpoints, and building a fully functional demo flow for data ingestion and AI processing:
+* Studying serverless architectures (AWS Lambda, Amazon API Gateway) and writing a technical experience sharing article for the AWS Study Group VN community.
+* Designing and drafting the dashboard UI, configuring API endpoints, and defining the AWS service architecture for our graduation project.
+* Implementing the ingestion Lambda function combined with Amazon EventBridge to automatically scrape and store data in Amazon S3.
+* Integrating AWS Bedrock for AI/NLP processing, combined with an asynchronous message queue via Amazon SQS to prevent data loss, and successfully testing the end-to-end demo flow.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## 2. Tasks to Implement in the Week
+Below is the summary of activities performed from June 22nd to June 28th, 2026:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day / Date | Work Content | Task Details | Results Achieved | Reference Sources |
+| --- | --- | --- | --- | --- |
+| Mon (Jun 22) | Serverless Research | - Serverless architecture study: <br> &emsp; + Learned how AWS Lambda and Amazon API Gateway work <br> &emsp; + Analyzed benefits in scalability and cost savings | Acquired a deep understanding of Serverless and cloud resource optimization. | AWS Documentation |
+| Tue (Jun 23) | Technical Sharing Blog | - Writing a technical article: <br> &emsp; + Summarized core serverless concepts and best practices <br> &emsp; + Published the sharing article on AWS Study Group VN | Shared valuable knowledge with the community and received constructive feedback. | AWS Study Group VN |
+| Wed (Jun 24) | Dashboard UI Design | - Dashboard wireframing: <br> &emsp; + Sketched wireframes to display parsed data and AI results <br> &emsp; + Mapped out main application pages | Created a low-fidelity UI layout to guide front-end development. | Figma / Draw.io |
+| Thu (Jun 25) | Architecture & API Spec | - AWS Services & API mapping: <br> &emsp; + Defined API endpoints connecting front-end and back-end <br> &emsp; + Confirmed graduation project's AWS cloud architecture | Completed the specification of API endpoints and optimized the AWS design. | Project Specifications |
+| Fri (Jun 26) | Ingestion Lambda Code | - Programming the ingestion pipeline: <br> &emsp; + Developed a Lambda function to scrape external data source <br> &emsp; + Configured Amazon EventBridge rules for cron scheduling | Enabled automated data ingestion Lambda saving raw files to S3. | AWS Lambda Guide |
+| Sat (Jun 27) | AWS Bedrock & SQS | - Asynchronous AI integration: <br> &emsp; + Connected AWS Bedrock to process ingested data via AI <br> &emsp; + Configured Amazon SQS queue to orchestrate workloads | Prevented backend bottlenecks and guaranteed message delivery under high load. | AWS Bedrock Guide |
+| Sun (Jun 28) | Demo Test & Summary | - End-to-End testing: <br> &emsp; + Verified the entire flow: scraping, queuing with SQS, and Bedrock AI calls <br> &emsp; + Wrote Week 10 report and summary | Checked off a fully functional demo flow; ready for comprehensive testing in Week 11. | Demo Project |
 
+## 3. Results Achieved
+During this week's serverless design, API configurations, and AI-integrated pipeline prototype development, I gained several key takeaways:
 
-### Week 10 Achievements:
+* **Serverless Architecture & Community Sharing:**
+  + Gained hands-on knowledge of AWS Lambda (FaaS) and API Gateway. Mastered routing requests from API Gateway to Lambda, configuring CORS, and setting up Authorizers.
+  + Takeaway: Writing and sharing technical articles on AWS Study Group VN helps solidify theoretical concepts through community discussions and peer feedback.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **API Specification & Dashboard Design:**
+  + Successfully defined all necessary API Endpoints (CRUD operations, AI trigger endpoints, dashboard statistics queries) and sketched out a user-friendly frontend dashboard.
+  + Takeaway: Designing API specifications early ensures parallel front-end and back-end development works smoothly without data structure conflicts.
 
-* Successfully created and configured an AWS Free Tier account.
+* **Automated Data Ingestion via EventBridge & S3:**
+  + Programmed a Lambda function to automatically scrape data on a scheduled basis (Cron pattern) triggered by EventBridge rules, writing raw JSON payloads directly into an S3 bucket.
+  + Takeaway: EventBridge rules are a perfect serverless substitute for traditional OS-level cronjobs running on EC2 instances, eliminating 24/7 active infrastructure costs.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **AWS Bedrock Integration & Asynchronous Messaging via Amazon SQS:**
+  + Integrated AWS Bedrock (utilizing large language models like Claude) to parse crawled data. Implemented an SQS queue between ingestion and AI processing to buffer and decouple the services.
+  + Takeaway: SQS acts as a crucial buffer, ensuring the system is highly fault-tolerant. Even if Bedrock hits request limits (Rate Limit exceptions), tasks remain safely queued and will retry automatically without data loss.

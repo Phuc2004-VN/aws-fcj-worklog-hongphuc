@@ -1,57 +1,36 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-05
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+# FIRST CLOUD AI JOURNEY (FCAJ)
 
-### Week 11 Objectives:
+## 1. Overview of Week 11 Goals and Plan
+This week, I focused on system testing, troubleshooting data flow errors, and consolidating my personal worklog documentation compiled throughout the bootcamp:
+* Performing comprehensive end-to-end testing and patching bugs within the data pipeline.
+* Consolidating and finalizing the personal weekly worklogs covering my learning journey.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## 2. Tasks to Implement in the Week
+Below is the summary of activities performed from June 29th to July 5th, 2026:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day / Date | Work Content | Task Details | Results Achieved | Reference Sources |
+| --- | --- | --- | --- | --- |
+| Mon (Jun 29) | Ingestion Testing | - Executed the ingestion Lambda function manually <br> - Verified raw JSON files are written correctly to the S3 bucket | Confirmed data is properly scraped and stored in S3. | AWS Lambda Console |
+| Tue (Jun 30) | AI & SQS Integration Test | - Sent test inputs through SQS to trigger Bedrock AI processing <br> - Audited processing logs on CloudWatch to track failures | Pinpointed data serialization errors and occasional API rate limit warnings. | Amazon SQS / CloudWatch Logs |
+| Thu (Jul 2) | Troubleshooting & Retries | - Patched Lambda to handle runtime exceptions during Bedrock API calls <br> - Configured backoff retry rules for API endpoints | Protected the pipeline from failing on transient network exceptions. | AWS Bedrock Guide |
+| Fri (Jul 3) | Performance Optimization | - Adjusted Lambda memory allocations and tuned SQS Visibility Timeouts | Minimized runtime execution overhead and prevented duplicate message processing. | AWS Lambda Guide |
+| Sun (Jul 5) | Personal Summary | - Compiled and polished all individual weekly worklogs from Week 1 to Week 11 | Created a uniform, comprehensive technical journal of the internship. | Project Directory |
 
+## 3. Results Achieved
+During this week's testing, bug resolution, and personal archive consolidation, I gained several key takeaways:
 
-### Week 11 Achievements:
+* **Troubleshooting and Resilient Architecture (Bug Fixing):**
+  + Comprehensive integration testing coupled with structured logging makes locating serverless stack failures simple and fast.
+  + Takeaway: Implementing proper error retry configurations on SQS queues provides high resilience against transient network anomalies.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Internship Archive Consolidation:**
+  + Reviewing my weekly logs systematically offers a great opportunity to track my technical growth from first AWS steps to advanced architecture.
+  + Takeaway: Maintaining structured logs cuts down reporting overhead when submitting final results to university evaluators.

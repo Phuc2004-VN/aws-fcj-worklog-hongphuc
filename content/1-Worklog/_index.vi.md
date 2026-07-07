@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 Nhật ký công việc này ghi lại tiến trình và chi tiết các hoạt động thực tập của sinh viên **Hà Nguyễn Hồng Phúc** trong thời gian làm việc với vai trò **FCJ Cloud Intern** tại **Công ty TNHH Amazon Web Services Vietnam** từ ngày **17/04/2026 đến ngày 10/07/2026**.
 
 Chương trình thực tập được hoàn thành trong vòng **12 tuần** (khoảng 3 tháng) tập trung vào việc thiết lập hạ tầng đám mây, thiết kế mạng hybrid, tự động hóa hệ thống, kiểm toán tuân thủ bảo mật và tích hợp mô hình máy học trên AWS.
@@ -34,8 +30,8 @@ Nội dung và kết quả đạt được trong các tuần được tóm tắt
 
 **Tuần 9:** [Thiết kế sơ đồ luồng dữ liệu DFD và nghiên cứu tích hợp quy trình máy học với AWS SageMaker](1.9-week9/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Tuần 10:** [Tìm hiểu kiến trúc Serverless, phác thảo giao diện Dashboard, cấu hình API và triển khai luồng Demo cào dữ liệu tích hợp Bedrock AI qua hàng đợi SQS](1.10-week10/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
+**Tuần 11:** [Kiểm thử liên thông hệ thống, khắc phục các lỗi phát sinh (bug fixes) và hoàn thiện hệ thống tài liệu nhật ký công việc](1.11-week11/)
 
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Tuần 12:** [Hoàn thiện mã nguồn dự án tốt nghiệp, viết báo cáo tổng kết thực tập và tiếp nhận đánh giá xác nhận từ đại diện AWS Việt Nam](1.12-week12/)

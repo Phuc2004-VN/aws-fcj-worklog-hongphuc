@@ -8,83 +8,38 @@ pre: " <b> 1.7. </b> "
 
 # FIRST CLOUD AI JOURNEY (FCAJ)
 
-## 1. Overview of Week 07 Objectives and Plans
-Week 7 represents a crucial transition phase from basic technical labs to planning the final Project. Key activities included: attending sharing sessions featuring guest speakers; researching and deploying **AWS WAF (Web Application Firewall)** to protect web applications against SQL Injection and XSS; reviewing previously studied AWS services; and gathering user feedback to select a viable Project topic.
+## 1. Overview of Week 07 Goals and Plan
+This week marks a major transition as I began preparing for the final graduation project while continuing to acquire technical skills:
+* Attending the guest speaker workshop to learn from their real-world experience.
+* Studying and deploying AWS WAF (Web Application Firewall) to protect web applications at the application layer (Layer 7) against SQL Injection and XSS.
+* Systematically reviewing all AWS services learned over the last 6 weeks.
+* Conducting a quick user survey and collaborating with my team to select a final graduation project topic.
 
-> **So What:** Shielding applications at the application layer (Layer 7) with WAF protects workloads against common web exploits, while gathering real-world feedback ensures the final project solves actual user problems.
-
----
-
-## 2. Detailed Worklog
-Below is the summary of activities performed from 01/06/2026 - 07/06/2026:
+## 2. Tasks to Implement in the Week
+Below is the summary of activities performed from June 1st to June 7th, 2026:
 
 | Day / Date | Work Content | Task Details | Results Achieved | Reference Sources |
 | --- | --- | --- | --- | --- |
-| Mon (Jun 01) | Speaker Workshop | Attended a sharing session; listened to stories regarding project operations and soft skills. | Gained insights into crisis resolution and career path planning. | Guest Speakers |
-| Tue (Jun 02) | AWS WAF Research | Studied Web Application Firewall mechanics; analyzed SQL Injection and Cross-Site Scripting (XSS) threats. | Understood how WAF inspects HTTP/HTTPS traffic at Layer 7. | AWS Security Guide |
-| Wed (Jun 03) | WAF Configuration | Created Web ACL; configured AWS Managed Rules; associated WAF with CloudFront or ALB. | Blocked malicious payloads from hitting backend servers. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
-| Thu (Jun 04) | Exploit Simulation | Simulated SQLi and XSS payloads against the web app; verified blocks in WAF logs. | WAF successfully intercepted malicious queries, returning 403 Forbidden errors. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
-| Fri (Jun 05) | Knowledge Review | Systematic review of previously studied services (VPC, EC2, IAM, Backup, TGW, Docker, Lambda). | Synthesized architectural blocks to prepare for final system design. | Personal Notes |
-| Sat (Jun 06) | User Research | Interviewed small business owners/users regarding data management and AI needs. | Identified real-world business challenges solvable with cloud technology. | Target Users |
-| Sun (Jun 07) | Topic Selection | Team meeting; analyzed project feasibility and aligned on final Project topic. | Agreed on an AI-driven data processing pipeline on AWS. | Team Meeting Notes |
+| Mon (Jun 01) | Speaker Workshop | - Speaker workshop: <br> &emsp; + Attended guest speaker presentations <br> &emsp; + Gained career advice and soft skills tips | Học hỏi tư duy giải quyết khủng hoảng và định hướng nghề nghiệp. | Guest Speakers |
+| Tue (Jun 02) | AWS WAF Research | - L7 security study: <br> &emsp; + Studied Web Application Firewall mechanics <br> &emsp; + Investigated SQL Injection and XSS threats | Hiểu cách WAF lọc lưu lượng HTTP/HTTPS ở Lớp 7 (Application Layer). | AWS Security Guide |
+| Wed (Jun 03) | WAF Configuration | - WAF deployment: <br> &emsp; + Created Web ACL <br> &emsp; + Configured AWS Managed Rules <br> &emsp; + Associated WAF with CloudFront or ALB | Thiết lập hàng rào bảo mật chặn đứng các request độc hại trước khi tới server. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Thu (Jun 04) | Exploit Simulation | - Testing security: <br> &emsp; + Simulated SQLi and XSS payloads against the web app <br> &emsp; + Checked blocks in WAF logs | WAF phát hiện và trả về mã lỗi 403 Forbidden chính xác đối với các request tấn công. | [AWS Study Group](https://cloudjourney.awsstudygroup.com/) |
+| Fri (Jun 05) | Knowledge Review | - Overview review: <br> &emsp; + Reviewed VPC, EC2, IAM, Backup, TGW, Docker, Lambda | Tổng hợp các mảnh ghép kiến trúc để chuẩn bị thiết kế hệ thống lớn. | Personal Notes |
+| Sat (Jun 06) | User Research | - Customer research: <br> &emsp; + Interviewed small business owners/users <br> &emsp; + Profiled data management and AI needs | Xác định các bài toán thực tế cần giải quyết bằng công nghệ. | Target Users |
+| Sun (Jun 07) | Topic Selection | - Project scoping: <br> &emsp; + Held team meeting to evaluate feasibility <br> &emsp; + Selected graduation project topic | Thống nhất chọn đề tài ứng dụng AI kết hợp AWS để xử lý dữ liệu thông minh. | Team Meeting Notes |
 
-> **So What:** Studying Layer 7 security alongside conducting market research prepares students both technically and business-wise to architect the best solution for their Project.
+## 3. Results Achieved
+During this week's L7 security hardening and final project scoping activities, I gained several key takeaways:
 
----
+* **Real-World Insights from Guest Speakers:**
+  + Attended the workshop and listened to stories regarding production incident resolution, infrastructure risk management, soft skills development, and CV writing.
+  + Takeaway: Hearing directly from specialists bridges the gap between classroom theory and industry reality, helping interns understand the professional standards expected of active Cloud Engineers.
 
-### 3. Application Shielding with AWS WAF
-Unlike Security Groups and Network ACLs which inspect traffic at Layers 3 & 4, **AWS WAF** operates at Layer 7 (Application Layer) to protect web apps from malicious traffic.
+* **Application-Layer Web Protection (AWS WAF):**
+  + Deployed a Web ACL associated with CloudFront/ALB, enabled AWS Managed Rulesets (Common Rule Set, SQL Database Set), and simulated SQL Injection and XSS exploit attempts.
+  + Takeaway: AWS WAF intercepts malicious payloads before they can reach the backend servers. Testing successfully with **403 Forbidden** status codes verified that the application was hardened against common OWASP Top 10 vulnerabilities.
+  + FinOps: Deleted the Web ACL immediately after validating the configuration to avoid hourly running fees.
 
-**Key Features:**
-* **AWS Managed Rules:** Pre-configured rule sets maintained by AWS security teams (e.g., Common Rule Set, SQL database rule set) for immediate protection.
-* **Custom Rules:** Allow custom rules like geo-blocking, rate limiting (to mitigate DDoS), or filtering specific patterns in HTTP headers and request bodies.
-* **Target Associations:** Integrates with Amazon CloudFront, Application Load Balancers (ALBs), and Amazon API Gateway.
-
-> **So What:** Implementing AWS WAF blocks application-level exploits, protecting vulnerable code pathways and maintaining high service availability.
-
----
-
-### 4. Customer Obsession: Gathering User Requirements
-A cloud architecture, no matter how modern, is obsolete if it fails to address actual customer problems.
-
-**Topic Selection Pipeline:**
-1. **Discover Pain Points:** Interviewed users to discover operational challenges (e.g., manual data extraction, expensive custom AI compute).
-2. **Map Cloud Solutions:** Matched challenges with AWS services studied (Lambda for automation, S3 for cheap storage, SageMaker for predictions).
-3. **Feasibility Checks:** Ensured the scope solved the problem while remaining doable within skills and the $200 credit limit.
-
-> **So What:** Aligning project design with customer needs (Customer Obsession) ensures practical, business-ready applications rather than simple code exercises.
-
----
-
-### 5. Architectural Review of Studied AWS Services
-To design a holistic solution, Builders must recall the role of each component:
-
-| Category | Primary Service | Role in Final Project |
-| --- | --- | --- |
-| **Compute** | EC2, Lambda | Runs backend applications; handles serverless processing tasks. |
-| **Storage** | S3, Storage Gateway | Stores raw datasets; syncs local office directory data to the cloud. |
-| **Database** | RDS | Hosts structured application data and transaction logs. |
-| **Networking** | VPC, Transit Gateway | Secures communication paths between application tiers. |
-| **Security** | IAM, Security Hub, WAF | Governs access; audit configurations; filters malicious web requests. |
-
-> **So What:** Reviewing these concepts enables the synthesis of individual services into a cohesive, production-grade cloud architecture.
-
----
-
-### 6. Summary and Evaluation of Week 7 Results
-
-#### 6.1. Soft Skills & Communication
-* **Active Listening:** Absorbed experiences from guest speakers, reflecting on professional adaptability.
-* **Consensus Building:** Guided team discussions productively to align on the final project direction.
-
-#### 6.2. Resource & Cost Management (FinOps)
-* **WAF Cost Awareness:** Recognized that WAF charges are hourly per Web ACL. Removed test Web ACLs immediately after verification.
-
-#### 6.3. Security & Infrastructure
-* **App Layer Defense:** Deployed AWS WAF configured with rules defending against SQLi and XSS, completing the security perimeter.
-
-#### 6.4. Technical & AI Mindset
-* **Solution-Oriented Mindset:** Transitioned from executing guided labs to designing custom architectures addressing real-world user problems.
-
----
-**Overall Assessment:** Week 7 completed successfully. The final project topic is confirmed, and the team is ready for detailed design.
+* **Graduation Project Business Scoping:**
+  + Surveyed target users regarding document management challenges, assessed technical feasibility within credit limits, and agreed to build an AI-driven intelligent document processing pipeline on AWS.
+  + Takeaway: Choosing a topic based on real-world requirements ensures the final project holds functional value. Collaboration helps develop requirements analysis and engineering roadmap skills.

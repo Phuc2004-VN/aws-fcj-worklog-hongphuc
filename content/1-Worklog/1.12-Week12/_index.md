@@ -1,57 +1,39 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-10
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+# FIRST CLOUD AI JOURNEY (FCAJ)
 
-### Week 12 Objectives:
+## 1. Overview of Week 12 Goals and Plan
+This week, I focused on finalizing our graduation project, drafting the final internship report, and completing the evaluation and stamping procedures with AWS Vietnam:
+* Finalizing the project codebase, packaging the demo app, and writing hand-off documentation.
+* Compiling and formatting the final internship graduation report following HUTECH University guidelines.
+* Receiving professional feedback, reviews, and obtaining the official corporate stamp from AWS Vietnam.
+* Consolidating all internship paperwork and preparing the final submission for the IT Faculty at HUTECH.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+## 2. Tasks to Implement in the Week
+Below is the summary of activities performed from July 6th to July 10th, 2026:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day / Date | Work Content | Task Details | Results Achieved | Reference Sources |
+| --- | --- | --- | --- | --- |
+| Mon (Jul 6) | Project Hand-off | - Refactored and cleaned the project codebase <br> - Drafted setup instructions and updated the repository README.md | Demo codebase and handover guide are packaged and ready. | GitHub Repository |
+| Fri (Jul 10) | Evaluation & Final Submission | - Gathered feedback and reviews from the AWS mentor <br> - Acquired signatures and the corporate stamp on evaluation sheets, preparing the final dossier for HUTECH | Received official signed evaluations with corporate stamp, ready for university submission. | HUTECH Dossier |
 
+## 3. Results Achieved
+During this final week of wrap-up, corporate evaluations, and academic preparation, I gained several key takeaways:
 
-### Week 12 Achievements:
+* **Code Hand-off and Technical Documentation:**
+  + Refactoring code, adding clear inline comments, and writing a comprehensive README.md ensure that the project is maintainable by others.
+  + Takeaway: Proper packaging and documentation are crucial for the lifecycle of any software product.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Receptiveness to Professional Feedback:**
+  + Meeting with AWS mentors for review sessions highlighted my technical strengths and illuminated areas I should focus on post-graduation.
+  + Takeaway: Embracing feedback-driven growth is essential for transition from a student to a professional engineer.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Bootcamp Reflection & Future Outlook:**
+  + Wrapping up this internship at AWS Vietnam marks a significant milestone, solidifying my AWS Cloud skills and polishing teamwork, communication, and troubleshooting abilities.
+  * Takeaway: The professional culture at AWS has strongly motivated me to pursue a career path as a Cloud/DevOps Engineer.

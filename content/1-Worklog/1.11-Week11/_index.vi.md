@@ -1,59 +1,36 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+date: 2026-07-05
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+# FIRST CLOUD AI JOURNEY (FCAJ)
 
-### Mục tiêu tuần 11:
+## 1. Tổng quan Mục tiêu và Kế hoạch Tuần 11
+Tuần này mình tập trung vào hoạt động tối ưu hóa hạ tầng, thực hiện kiểm thử liên thông hệ thống để xử lý các lỗi phát sinh (bug fixes) và chuẩn bị tổng kết cá nhân kết thúc kỳ thực tập:
+* Kiểm thử toàn diện và sửa các lỗi (bug fix) phát sinh trong luồng xử lý dữ liệu.
+* Tổng kết, hoàn thiện bộ tài liệu nhật ký công việc (Worklog) cá nhân trong suốt quá trình tham gia bootcamp.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+## 2. Nhật ký Công việc Chi tiết (Worklog)
+Dưới đây là bảng tổng hợp các hoạt động đã thực hiện từ ngày 29/06/2026 - 05/07/2026:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ / Ngày | Nội dung công việc | Chi tiết nhiệm vụ | Kết quả đạt được | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| Thứ 2 (29/06) | Kiểm thử Ingestion | - Chạy thử nghiệm Lambda cào dữ liệu <br> - Xác minh dữ liệu được ghi đúng định dạng JSON vào S3 | Đảm bảo dữ liệu đầu vào được thu thập và lưu trữ an toàn trong S3. | AWS Lambda Console |
+| Thứ 3 (30/06) | Kiểm thử tích hợp AI | - Gửi dữ liệu qua hàng đợi SQS để kích hoạt xử lý Bedrock AI <br> - Kiểm tra lỗi nghẽn hoặc mất mát tin nhắn | Phát hiện một số lỗi phân tích cú pháp ký tự đặc biệt và giới hạn API. | Amazon SQS / CloudWatch Logs |
+| Thứ 5 (02/07) | Khắc phục lỗi (Bug Fix) | - Sửa mã nguồn Lambda để xử lý các biệt lệ (Exceptions) khi gọi AI Bedrock <br> - Định cấu hình cơ chế tự động thử lại (Retry logic) | Tránh việc luồng xử lý bị gián đoạn khi gặp lỗi kết nối tạm thời. | AWS Bedrock Guide |
+| Thứ 6 (03/07) | Tối ưu hóa hiệu năng | - Điều chỉnh dung lượng bộ nhớ Lambda và cấu hình thời gian Visibility Timeout cho SQS | Giảm thời gian chờ của Lambda và ngăn ngừa việc xử lý trùng lặp. | AWS Lambda Guide |
+| Chủ Nhật (05/07) | Tổng kết cá nhân | - Tổng hợp và hoàn thiện bộ tài liệu nhật ký công việc (Worklog) cá nhân từ Tuần 1 đến Tuần 11 | Hệ thống hóa toàn bộ quá trình học tập và hoàn thành bộ tài liệu Worklog. | Thư mục dự án |
 
+## 3. Kết quả đạt được
+Qua tuần thực hiện kiểm thử tối ưu hệ thống và tổng kết cá nhân, mình đã đúc kết được các kết quả và bài học sau:
 
-### Kết quả đạt được tuần 11:
+* **Công tác kiểm thử và sửa lỗi hệ thống (Bug Fixing):**
+  + Việc kiểm thử liên thông (End-to-End Testing) kết hợp giám sát qua CloudWatch Logs giúp nhanh chóng khoanh vùng các lỗi xử lý dữ liệu bất đồng bộ.
+  + Đúc kết: Định cấu hình cơ chế tự động thử lại (Retry) trên SQS là phương án hiệu quả giúp xử lý các sự cố mạng tạm thời một cách mượt mà.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Hoàn thiện tài liệu tổng kết cá nhân:**
+  + Tổng hợp lại toàn bộ quá trình tham gia chương trình bootcamp giúp đánh giá được tiến độ học tập và hệ thống hóa các kiến thức AWS đã tích lũy.
+  + Đúc kết: Việc lưu trữ nhật ký kỹ thuật một cách khoa học giúp tiết kiệm thời gian đáng kể khi lập báo cáo tổng kết thực tập nộp cho nhà trường.
