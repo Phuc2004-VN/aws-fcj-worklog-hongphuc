@@ -133,42 +133,5 @@ The event at the AWS office in Bitexco was packed and full of energy. During the
 
 Here are some real photos capturing memorable moments during the AWS FC Community Day event at the AWS Vietnam office:
 
-````carousel
-![Opening slide introducing the monthly AWS FC Community Day event series at Bitexco](/images/4-EventParticipated/4.3-Event3/IMG20260620130023.jpg)
-<!-- slide -->
-![Founder Steve Tran sharing his career path and the dedicated Multi-Agent system architecture](/images/4-EventParticipated/4.3-Event3/IMG20260620131540.jpg)
-<!-- slide -->
-![Slide summarizing the core problem of automated FinOps cost optimization using AI by Cloud Thinker](/images/4-EventParticipated/4.3-Event3/IMG20260620134512.jpg)
-<!-- slide -->
-![Session on designing Voice AI systems and core components for real-time Vietnamese speech processing](/images/4-EventParticipated/4.3-Event3/IMG20260620140506.jpg)
-<!-- slide -->
-![Architecture diagram of the 3-step STT-LLM-TTS voice pipeline integrated with banking Tool Calling](/images/4-EventParticipated/4.3-Event3/IMG20260620141830.jpg)
-<!-- slide -->
-![Kiet running the Live Demo of the intelligent voice assistant querying Apple MacBook Pro configurations](/images/4-EventParticipated/4.3-Event3/IMG20260620144520.jpg)
-<!-- slide -->
-![Slide analyzing interruption handling and regional accents by R AI CEO Trung Do](/images/4-EventParticipated/4.3-Event3/IMG20260620150212.jpg)
-<!-- slide -->
-![Slide introducing the DevOps AI Agent session to reduce infrastructure MTTR/MTTD by Cloud Kinetics](/images/4-EventParticipated/4.3-Event3/IMG20260620153045.jpg)
-<!-- slide -->
-![Diagram illustrating the six core pillars of an enterprise-grade DevOps Agent system](/images/4-EventParticipated/4.2-Event2/IMG20260620154812.jpg)
-<!-- slide -->
-![Topology interface showing the system automatically mapping nearly 300 resource relationships for the DevOps Agent](/images/4-EventParticipated/4.3-Event3/IMG20260620160230.jpg)
-<!-- slide -->
-![Table showing three successful real-world use cases of WGU, Zenchef, and KDDI Japan](/images/4-EventParticipated/4.3-Event3/IMG20260620161559.jpg)
-<!-- slide -->
-![Slide presenting traditional HR challenges and intelligent automation solutions from Noventics](/images/4-EventParticipated/4.3-Event3/IMG20260620163506.jpg)
-<!-- slide -->
-![Demonstration of Amazon Q parsing CV data and outputting a visual Talent Review Report in HTML](/images/4-EventParticipated/4.3-Event3/IMG20260620165040.jpg)
-<!-- slide -->
-![Title slide of the Private Security for AI Agents connecting to MCP Servers session](/images/4-EventParticipated/4.3-Event3/IMG20260620170012.jpg)
-<!-- slide -->
-![Comprehensive security architecture integrating Route 53 Resolver, PrivateLink, Cognito, and TLS-encrypted ALB](/images/4-EventParticipated/4.3-Event3/IMG20260620171545.jpg)
-<!-- slide -->
-![Screen showing real-time latency query command execution over the private network by Toan Nguyen](/images/4-EventParticipated/4.3-Event3/IMG20260620172530.jpg)
-<!-- slide -->
-![Photo of my personal notebook summarizing the flows and key terms from the event](/images/4-EventParticipated/4.3-Event3/event3_note.png)
-<!-- slide -->
-![Group photo of all speakers and attendees at the AWS Bitexco office lounge](/images/4-EventParticipated/4.3-Event3/event3_group.jpg)
-````
 
-> The event provided valuable engineering lessons and a wonderful networking opportunity, helping me confidently shape my path and develop my skills in cloud computing and AI.
+![Opening slide introducing the monthly AWS FC Community Day event series at Bitexco](/images/4-EventParticipated/4.3-Event3/IMG20260620130023.jpg)

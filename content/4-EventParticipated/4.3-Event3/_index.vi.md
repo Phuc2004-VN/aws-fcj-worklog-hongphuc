@@ -133,42 +133,8 @@ Không gian sự kiện tại văn phòng AWS Bitexco vô cùng náo nhiệt và
 
 Dưới đây là một số hình ảnh thực tế ghi lại những khoảnh khắc đáng nhớ của bản thân khi tham gia sự kiện AWS FC Community Day 2026 tại văn phòng AWS Việt Nam:
 
-````carousel
+
 ![Slide mở màn giới thiệu chuỗi sự kiện định kỳ hàng tháng AWS FC Community Day tại Bitexco](/images/4-EventParticipated/4.3-Event3/IMG20260620130023.jpg)
-<!-- slide -->
-![Founder Steve Trần chia sẻ carry path bản thân và giải pháp cấu hình hệ thống Multi-Agent chuyên biệt](/images/4-EventParticipated/4.3-Event3/IMG20260620131540.jpg)
-<!-- slide -->
-![Slide đúc kết bài toán cốt lõi tối ưu chi phí FinOps tự động hóa bằng AI của công ty Cloud Thinker](/images/4-EventParticipated/4.3-Event3/IMG20260620134512.jpg)
-<!-- slide -->
-![Chuyên đề thiết kế hệ thống Voice AI và các thành phần cốt lõi xử lý âm thanh tiếng Việt thời gian thực](/images/4-EventParticipated/4.3-Event3/IMG20260620140506.jpg)
-<!-- slide -->
-![Sơ đồ kiến trúc đường ống 3 bước STT-LLM-TTS xử lý giọng nói tích hợp Tool Calling ngân hàng](/images/4-EventParticipated/4.3-Event3/IMG20260620141830.jpg)
-<!-- slide -->
-![Bạn Kiệt thực hiện phần Live Demo trợ lý thoại thông minh truy vấn cấu hình sản phẩm Apple MacBook Pro](/images/4-EventParticipated/4.3-Event3/IMG20260620144520.jpg)
-<!-- slide -->
-![Slide phân tích bài toán xử lý ngắt lời Interruption và accent vùng miền đặc thù của CEO R AI Trung Đỗ](/images/4-EventParticipated/4.3-Event3/IMG20260620150212.jpg)
-<!-- slide -->
-![Slide giới thiệu chuyên đề DevOps AI Agent giúp giảm thiểu chỉ số MTTR/MTTD hạ tầng của team Cloud Kinetics](/images/4-EventParticipated/4.3-Event3/IMG20260620153045.jpg)
-<!-- slide -->
-![Sơ đồ mô tả 6 trụ cột cốt lõi của một hệ thống DevOps Agent vận hành trong môi trường Enterprise](/images/4-EventParticipated/4.2-Event2/IMG20260620154812.jpg)
-<!-- slide -->
-![Hình ảnh giao diện Topology hệ thống tự động học và ánh xạ gần 300 mối quan hệ tài nguyên của DevOps Agent](/images/4-EventParticipated/4.3-Event3/IMG20260620160230.jpg)
-<!-- slide -->
-![Bảng thống kê 3 use-case thành công thực tế của trường đại học WGU, Zenchef và tập đoàn KDDI Nhật Bản](/images/4-EventParticipated/4.3-Event3/IMG20260620161559.jpg)
-<!-- slide -->
-![Slide trình bày các thách thức của phòng HR truyền thống và giải pháp tự động hóa thông minh từ team Noventics](/images/4-EventParticipated/4.3-Event3/IMG20260620163506.jpg)
-<!-- slide -->
-![Trình diễn giao diện Amazon Q bóc tách dữ liệu CV xuất báo cáo Talent Review Report trực quan dạng HTML](/images/4-EventParticipated/4.3-Event3/IMG20260620165040.jpg)
-<!-- slide -->
-![Slide tiêu đề chuyên đề bảo mật mạng khép kín Private Security cho AI Agent kết nối MCP Server](/images/4-EventParticipated/4.3-Event3/IMG20260620170012.jpg)
-<!-- slide -->
-![Sơ đồ kiến trúc bảo mật toàn diện tích hợp Route 53 Resolver, PrivateLink, Cognito và ALB mã hóa TLS](/images/4-EventParticipated/4.3-Event3/IMG20260620171545.jpg)
-<!-- slide -->
-![Màn hình thực hiện các câu lệnh truy vấn dữ liệu latency hệ thống thời gian thực qua mạng private của anh Toàn Nguyễn](/images/4-EventParticipated/4.3-Event3/IMG20260620172530.jpg)
-<!-- slide -->
-![Ảnh chụp cuốn sổ tay ghi chú cá nhân tóm tắt lại toàn bộ luồng đi và các keyword quan trọng của sự kiện](/images/4-EventParticipated/4.3-Event3/event3_note.png)
-<!-- slide -->
-![Bức ảnh tập thể toàn bộ diễn giả và khách mời chụp chung lưu niệm tại sảnh văn phòng AWS Bitexco](/images/4-EventParticipated/4.3-Event3/event3_group.jpg)
-````
+
 
 > Sự kiện đã đem lại những bài học công nghệ đắt giá cùng cơ hội giao lưu tuyệt vời, giúp tôi tự tin định hình và phát triển năng lực của mình trên con đường chinh phục điện toán đám mây và AI.
