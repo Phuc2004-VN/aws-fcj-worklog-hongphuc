@@ -36,7 +36,7 @@ Through the first week of practice and self-study, several valuable takeaways we
   + Completed 5 essential tasks on the Console (creating an EC2 instance, calling the Bedrock API via Claude 3, setting up Budgets alerts, running a Serverless Lambda, and launching a managed RDS database) to activate the remaining $100 credit, bringing the total to $200.
   + Learned a key FinOps habit: configure AWS Budgets early (notifying when costs exceed $1) and terminate active resources (EC2, RDS Aurora) immediately after labs to avoid unnecessary charges.
   
-  ![Budgets Configuration Screenshot](/images/1-Worklog/Week1/budget-success.png)
+  ![Budgets Configuration Screenshot](/images/1-Worklog/week1/budget-success.png)
   
 * **Account Security (IAM):**
   + Secured the Root Account using MFA and practiced creating IAM Users/Groups to manage access permissions for team members.

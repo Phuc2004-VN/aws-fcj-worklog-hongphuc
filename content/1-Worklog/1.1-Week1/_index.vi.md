@@ -36,7 +36,7 @@ Qua tuần đầu thực hành và tự học và bài học rút ra từ kinh n
   + Đã hoàn thành 5 nhiệm vụ cơ bản trên Console (tạo máy ảo EC2, gọi API Amazon Bedrock qua Claude 3, cấu hình cảnh báo Budgets, chạy Serverless Lambda và DB RDS Aurora) để kích hoạt đủ $200 AWS Credit.
   + Đúc kết được thói quen FinOps quan trọng là bật cảnh báo AWS Budgets sớm (gửi email cho ngay khi chi phí vượt quá $1) và tiến hành xóa/terminate tài nguyên (EC2, RDS Aurora) ngay sau khi làm lab xong để tránh phát sinh chi phí ngoài ý muốn.
   
-  ![Thiết lập AWS Budgets thành công](/images/1-Worklog/Week1/budget-success.png)
+  ![Thiết lập AWS Budgets thành công](/images/1-Worklog/week1/budget-success.png)
   
 * **Tư duy bảo mật hệ thống (IAM):**
   + Tự bản thân thiết lập MFA bảo vệ tài khoản Root và thực hành tạo IAM User, Group để quản lý quyền hạn của từng thành viên trong nhóm.
