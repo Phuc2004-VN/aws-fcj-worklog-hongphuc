@@ -6,35 +6,32 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Kỳ thực tập tại **AWS Việt Nam** từ ngày **17/04/2026** đến **10/07/2026** đã mang lại một khoảng thời gian vô cùng ý nghĩa để cọ xát thực tế, chuyển hóa những kiến thức học được ở giảng đường thành các giải pháp chạy trên môi trường đám mây doanh nghiệp.
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Nhiệm vụ chính trong giai đoạn này xoay quanh việc tham gia thiết kế, phát triển và kiểm thử dự án **Stock Alerts System** – hệ thống tự động hóa phân tích và cảnh báo giá cổ phiếu ứng dụng kiến trúc AWS Serverless kết hợp AI Agent (Amazon Bedrock). Qua dự án thực tế này, trình độ thiết kế hệ thống đám mây, lập trình Serverless, bảo mật hạ tầng cùng khả năng cộng tác nhóm và viết tài liệu kỹ thuật đã tiến bộ rõ rệt.
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Trong công việc hàng ngày, tinh thần trách nhiệm luôn được đặt lên hàng đầu thông qua việc hoàn thành các task đúng tiến độ, tuân thủ các quy định chung của công ty và chủ động trao đổi với đồng nghiệp để tìm phương án tối ưu nhất.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+Nhằm nhìn nhận lại hành trình vừa qua một cách khách quan nhất, kết quả tự đánh giá được đúc kết qua bảng tiêu chí dưới đây:
+
+| STT | Tiêu chí đánh giá chuyên biệt | Mô tả nội dung công việc thực tế | Tốt | Khá | Trung bình |
+| :-: | ----------------------------- | -------------------------------- | :-: | :-: | :--------: |
+| 1   | **Kiến thức chuyên môn AWS & Cloud** | Hiểu biết về các dịch vụ AWS, thiết kế kiến trúc hệ thống đám mây | ☐ | **X** | ☐ |
+| 2   | **Khả năng học hỏi & Nghiên cứu công nghệ mới** | Khả năng tự học các dịch vụ mới như Bedrock, SageMaker | **X** | ☐ | ☐ |
+| 3   | **Thực hành kỹ thuật & Code (Docker, Serverless)** | Chất lượng triển khai lab, viết mã Lambda, đóng gói container | ☐ | **X** | ☐ |
+| 4   | **Ý thức bảo mật (Security & Zero Trust)** | Áp dụng các best practice về IAM, WAF, KMS, VPC Endpoints | **X** | ☐ | ☐ |
+| 5   | **Quản lý chi phí tài nguyên (FinOps)** | Ý thức tối ưu chi phí, sử dụng Budgets để quản lý credit | **X** | ☐ | ☐ |
+| 6   | **Tinh thần tự giác & Tính chủ động** | Tự nghiên cứu, nhận nhiệm vụ trong nhóm mà không cần nhắc nhở | **X** | ☐ | ☐ |
+| 7   | **Kỷ luật & Tuân thủ quy trình** | Đi làm đúng giờ, tuân thủ quy định và quy trình họp nhóm | ☐ | **X** | ☐ |
+| 8   | **Kỹ năng làm việc nhóm & Hợp tác** | Hợp tác hiệu quả với các thành viên, hỗ trợ đồng nghiệp | **X** | ☐ | ☐ |
+| 9   | **Kỹ năng giao tiếp & Truyền đạt kỹ thuật** | Trình bày giải pháp, viết báo cáo tuần và chia sẻ kiến thức | ☐ | **X** | ☐ |
+| 10  | **Tư duy phân tích & Giải quyết lỗi (Troubleshooting)** | Tìm nguyên nhân gốc rễ qua logs, khắc phục sự cố hệ thống | ☐ | **X** | ☐ |
+| 11  | **Đóng góp vào dự án tốt nghiệp (Stock Alerts)** | Sáng kiến giải pháp, khối lượng công việc hoàn thành trong dự án | ☐ | **X** | ☐ |
+| 12  | **Tổng thể thái độ & Hiệu quả công việc** | Đánh giá chung về sự phát triển trong suốt kỳ thực tập | **X** | ☐ | ☐ |
 
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
+### Định hướng cải thiện và phát triển
 
-### Cần cải thiện
-
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+- **Tác phong làm việc và tính tự giác:** Cần nâng cao tính chủ động trong việc quản lý thời gian cá nhân, đi làm đúng giờ hơn và tuân thủ chặt chẽ các quy trình báo cáo của nhóm để tăng tính chuyên nghiệp.
+- **Phương pháp tiếp cận và giải quyết vấn đề:** Thay vì vội vã đi tìm giải pháp ngay khi gặp lỗi hệ thống, cần tập trung rèn luyện thói quen đọc hiểu log sâu sắc, phân tích nguyên nhân gốc rễ (Root Cause) một cách bài bản trước khi thực hiện các thay đổi.
+- **Kỹ năng truyền đạt và giao tiếp kỹ thuật:** Tiếp tục học cách tóm tắt và trình bày các vấn đề kỹ thuật phức tạp một cách cô đọng, dễ hiểu hơn để các thành viên ngoài nhóm kỹ thuật cũng có thể nắm bắt nhanh chóng.

@@ -5,40 +5,37 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+Trải qua kỳ thực tập đầy thách thức và ý nghĩa, dưới đây là những chia sẻ, đóng góp ý kiến khách quan về trải nghiệm tham gia chương trình First Cloud Journey (FCJ) nhằm hỗ trợ cải thiện và phát triển chất lượng chương trình cho các khóa tiếp theo:
 
 ### Đánh giá chung
 
-**1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+**1. Môi trường làm việc và học tập**  
+Không gian thực hành công nghệ tại AWS Việt Nam và cộng đồng FCJ mang lại cảm giác chuyên nghiệp, cởi mở và thúc đẩy sự sáng tạo. Việc tiếp xúc với môi trường doanh nghiệp thực tế giúp làm quen nhanh chóng với các tiêu chuẩn công nghiệp và quy trình làm việc chuẩn chỉnh.
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+**2. Sự hỗ trợ từ Mentor và Ban quản trị (Admin)**  
+Sự dẫn dắt từ mentor Nguyễn Gia Hưng mang lại giá trị rất lớn nhờ phương pháp định hướng gợi mở, tạo không gian tự do để thử nghiệm các kiến trúc đám mây và chủ động sửa lỗi (troubleshooting). Đội ngũ Admin luôn hỗ trợ kịp thời các thủ tục, giải đáp thắc mắc về tài nguyên Lab và tạo điều kiện tốt nhất để hoàn thành các cột mốc công việc.
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Các dự án và bài lab được thiết kế có tính liên kết chặt chẽ với chuyên ngành Kỹ thuật phần mềm và Hệ thống thông tin. Việc xây dựng giải pháp từ mức mạng cơ bản đến ứng dụng tích hợp AI là cơ hội tuyệt vời để chuyển hóa lý thuyết khô khan trên lớp thành các kỹ năng thực tế có thể vận hành trực tiếp.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+Chương trình mang lại cơ hội cọ xát với các công nghệ đám mây hiện đại nhất hiện nay (Serverless, Generative AI Bedrock, Containerization). Ngoài kiến thức chuyên môn, các kỹ năng mềm như tổ chức công việc cá nhân, làm việc nhóm dưới áp lực tiến độ và kỹ năng viết báo cáo kỹ thuật đều có sự cải thiện vượt bậc.
 
 **5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+Văn hóa chia sẻ tri thức (knowledge-sharing) là điểm sáng nổi bật nhất. Giữa các thành viên trong nhóm không có khoảng cách, luôn sẵn sàng hỗ trợ, cùng gỡ lỗi hệ thống và phối hợp ăn ý để đưa sản phẩm Stock Alerts System đi đến bước nghiệm thu cuối cùng.
 
 **6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Chính sách hỗ trợ tài khoản AWS thực hành (AWS Credit) dồi dào là điểm cộng lớn, giúp thoải mái lab và thử nghiệm các mô hình AI Agent mà không lo ngại chi phí. Ban tổ chức cũng hỗ trợ linh hoạt thời gian, giúp cân bằng hoàn hảo giữa lịch thi trên trường và tiến độ dự án tốt nghiệp.
 
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+### Nhìn nhận và Đúc kết cá nhân
 
+- **Điều hài lòng nhất trong thời gian thực tập:** Cơ hội được làm việc trực tiếp trên các dịch vụ AWS cao cấp và xây dựng hoàn chỉnh một sản phẩm thực tế kết hợp giữa Serverless và AI Agent. Đồng thời, việc tham gia các sự kiện cộng đồng lớn như AWS Community Day giúp mở rộng tầm nhìn về ngành công nghiệp điện toán đám mây.
+- **Điểm chương trình cần cải thiện cho các khóa sau:** Chương trình có thể bổ sung thêm các buổi chia sẻ kỹ thuật (tech sharing) định kỳ giữa các nhóm để học hỏi chéo các dự án khác nhau, từ đó có góc nhìn đa dạng hơn về các giải pháp kiến trúc đám mây.
+- **Lời khuyên cho các bạn thực tập sinh tiếp theo:** Đây chắc chắn là một chương trình thực tập vô cùng chất lượng cho bất kỳ ai muốn theo đuổi con đường Cloud/DevOps. Những thử thách thực tế sẽ giúp sinh viên trưởng thành nhanh chóng về cả tư duy kỹ thuật lẫn tác phong làm việc.
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+- **Đề xuất cải thiện trải nghiệm:** Nên cung cấp các sơ đồ kiến trúc mẫu hoặc tài liệu hướng dẫn nhanh về các lỗi phổ biến (common issues) đối với các dịch vụ phức tạp ở các tuần đầu tiên để tối ưu hóa thời gian thực hành.
+- **Định hướng trong tương lai:** Mong muốn tiếp tục đồng hành và đóng góp tích cực cho cộng đồng AWS Study Group/FCJ trong vai trò hỗ trợ thế hệ thực tập sinh tiếp theo, hoặc tham gia sâu hơn vào các hoạt động công nghệ của cộng đồng.

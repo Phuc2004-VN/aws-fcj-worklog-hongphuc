@@ -6,34 +6,32 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+The internship at **AWS Vietnam** from **April 17, 2026** to **July 10, 2026** provided an invaluable opportunity to gain hands-on experience and translate academic knowledge into cloud solutions running in an enterprise environment.
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+Primary tasks during this period focused on the design, development, and testing of the **Stock Alerts System** - an automated stock price analysis and recommendation solution leveraging AWS Serverless and AI Agents (Amazon Bedrock). Through this project, technical skills in cloud architecture, serverless programming, system security, as well as team collaboration and technical documentation, were significantly improved.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+In daily operations, a strong sense of responsibility was maintained by completing tasks on schedule, adhering to workplace guidelines, and actively communicating with team members to find optimal solutions.
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+To objectively reflect on this journey, a self-assessment has been conducted based on the following criteria:
 
-| No. | Criteria                            | Description                                                                                      | Good | Fair | Average |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
-| 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
-| 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ☐    | ✅    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
-| 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
-| 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ☐    | ☐    | ✅       |
-| 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ☐    | ✅    | ☐       |
-| 7   | **Communication**                   | Presenting ideas and reporting work clearly                                                      | ☐    | ✅    | ☐       |
-| 8   | **Teamwork**                        | Working effectively with colleagues and participating in teams                                   | ✅    | ☐    | ☐       |
-| 9   | **Professional conduct**            | Respecting colleagues, partners, and the work environment                                        | ✅    | ☐    | ☐       |
-| 10  | **Problem-solving skills**          | Identifying problems, proposing solutions, and showing creativity                                | ☐    | ✅    | ☐       |
-| 11  | **Contribution to project/team**    | Work effectiveness, innovative ideas, recognition from the team                                  | ✅    | ☐    | ☐       |
-| 12  | **Overall**                         | General evaluation of the entire internship period                                               | ✅    | ☐    | ☐       |
+| No. | Specialized Evaluation Criteria | Description of Actual Internship Tasks | Good | Fair | Average |
+| :-: | ------------------------------- | -------------------------------------- | :--: | :--: | :-----: |
+| 1   | **AWS Cloud & Specialized Knowledge** | Understanding of AWS services, cloud architecture design principles | ☐ | **X** | ☐ |
+| 2   | **Learning Capacity & Tech Research** | Ability to study and adopt new cloud technologies (Bedrock, SageMaker) | **X** | ☐ | ☐ |
+| 3   | **Practical Implementation & Coding (Docker, Serverless)** | Quality of lab deployments, Lambda scripts, and containerization | ☐ | **X** | ☐ |
+| 4   | **Security Awareness (Zero Trust)** | Application of IAM policies, WAF, KMS, and VPC Endpoint protections | **X** | ☐ | ☐ |
+| 5   | **Cloud Cost Management (FinOps)** | Proactiveness in resource cost control and utilizing AWS Budgets | **X** | ☐ | ☐ |
+| 6   | **Proactiveness & Personal Initiative** | Seeking out tasks and researching solutions without external prompts | **X** | ☐ | ☐ |
+| 7   | **Discipline & Operational Compliance** | Punctuality, office etiquette, and adherence to group meeting schedules | ☐ | **X** | ☐ |
+| 8   | **Team Collaboration & Support** | Working effectively in groups and assisting team members | **X** | ☐ | ☐ |
+| 9   | **Technical Communication & Reporting** | Articulating technical solutions, writing weekly logs, and sharing knowledge | ☐ | **X** | ☐ |
+| 10  | **Analytical & Troubleshooting Skills** | Troubleshooting issues systematically using logs and diagnostic tools | ☐ | **X** | ☐ |
+| 11  | **Graduation Project Contribution (Stock Alerts)** | Value added, system design initiatives, and codebase delivery | ☐ | **X** | ☐ |
+| 12  | **Overall Attitude & Performance** | General evaluation of work quality and professional growth throughout the internship | **X** | ☐ | ☐ |
 
-### Needs Improvement
 
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+### Areas for Improvement and Development
+
+- **Work ethic and self-discipline:** Need to enhance personal time management, improve punctuality, and strictly adhere to team reporting procedures to foster greater professionalism.
+- **Problem-solving methodology:** Instead of rushing to implement quick fixes when encountering system errors, focus should be placed on reading and analyzing logs systematically to understand root causes before making changes.
+- **Technical communication skills:** Continue learning to summarize and present complex technical issues in a concise, easy-to-understand manner so that non-technical stakeholders can follow along easily.

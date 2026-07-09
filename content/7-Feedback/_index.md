@@ -6,42 +6,37 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
+Having gone through a challenging and meaningful internship journey, below are objective reflections and feedback regarding the experience in the First Cloud Journey (FCJ) program to support future improvements and program development:
 
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**1. Working & Learning Environment**  
+The technological practice space at AWS Vietnam and the FCJ community offers a professional, open, and highly creative atmosphere. Gaining exposure to a real-world enterprise environment facilitates rapid adaptation to industry standards and structured workflows.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**2. Support from Mentor & Admin Team**  
+The guidance from mentor Nguyen Gia Hưng is highly valuable due to a supportive, inquiry-based approach that leaves room for hands-on experimentation with cloud architectures and proactive troubleshooting. The admin team consistently provides timely administrative support, resolves lab resource queries, and fosters optimal conditions for meeting project milestones.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The projects and lab tracks are tightly integrated with Software Engineering and Information Systems curricula. Building solutions from foundational networking to integrated AI applications provides an excellent opportunity to translate university theories into functional, deployable cloud skills.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+The program offers direct engagement with cutting-edge cloud technologies (Serverless, Generative AI via Bedrock, Containerization). Beyond technical domains, professional skills in task management, working under schedule constraints, and writing technical reports have significantly matured.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The knowledge-sharing culture stands out as a major highlight. Cooperation among team members is seamless, with everyone actively helping debug system issues and collaborating closely to guide the Stock Alerts System project to successful completion.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+The provisioning of generous AWS practice credits is a substantial benefit, enabling extensive lab work and testing of AI Agent models without budget constraints. The organizers also accommodate flexible hours, allowing a perfect balance between university exam schedules and graduation project timelines.
 
----
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+### Personal Reflections & Takeaways
 
----
+- **Most satisfying aspect during the internship:** Having the opportunity to work directly with advanced AWS services and build a complete end-to-end product combining Serverless architecture with AI Agents. Additionally, participating in major community events like AWS Community Day expanded insights into the cloud industry.
+- **Areas for program improvement for future cohorts:** The program could introduce periodic cross-team technical sharing sessions, allowing different cohorts to learn from one another's projects and gain diverse perspectives on cloud architecture.
+- **Advice for future interns:** This is highly recommended as a top-tier internship program for anyone pursuing a career as a Cloud or DevOps Engineer. The practical challenges help students grow rapidly in both technical mindset and professional conduct.
+
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+- **Suggestions for better experience:** Providing reference architecture diagrams or quick-start guides for common errors regarding complex services during the initial weeks would help optimize lab execution time.
+- **Future alignment:** The ambition is to continue engaging with and contributing to the AWS Study Group/FCJ community by mentoring the next generation of interns or participating in future AWS community initiatives.

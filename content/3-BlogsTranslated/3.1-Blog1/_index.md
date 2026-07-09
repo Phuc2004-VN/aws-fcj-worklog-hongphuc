@@ -5,122 +5,151 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Deploying a Backend to AWS EC2 and the Bug Caused by Capital Letters
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+**Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2184227519008875/)
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+When deploying a backend application from a local environment to AWS EC2, not every issue appears as a clear runtime error. The application may start successfully and the server may keep running, while some internal logic behaves incorrectly. In this case, the root cause came from a very small detail: uppercase and lowercase values in environment variables.
 
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+On a local Windows environment, the Node.js application read the `.env` file and handled configuration normally. However, after the source code was deployed to an EC2 instance running Ubuntu/Linux, several Boolean flags were no longer interpreted correctly. Some automated features stopped working, conditions returned false, and debugging took longer because the application did not throw an obvious error.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Environment Variables in Backend Applications
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+In backend projects, environment variables are commonly used to separate configuration from source code. Instead of hard-coding regions, secret keys, database passwords, or runtime modes into the application, developers can store them in a `.env` file.
 
----
+Example:
 
-## Technology Choices and Communication Scope
+```env
+ENV=development
+REGION=ap-southeast-1
+ENVIRONMENT_AUTO=True
+```
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+This approach makes it easier to switch between development and production, reduces source code changes during deployment, and keeps configuration in a more manageable place. When deploying to EC2, the `.env` file is often copied to or manually created on the server so the application can read it at runtime.
 
 ---
 
-## The Pub/Sub Hub
+## Initial Deployment Model
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+The first deployment model was simple: the developer pushed the source code and `.env` file from local machine to EC2 through SSH or Git, then ran the Node.js backend directly on the instance.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+![EC2 backend deployment with env file](/images/3-BlogsTranslated/3.1-Blog1/ec2-env-file-risk.png)
 
----
+The deployment flow included:
 
-## Core Microservice
+- Uploading source code to EC2.
+- Creating or editing the `.env` file directly on the server.
+- Starting the backend server with Node.js.
+- Letting the application read environment variables from `.env`.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Everything seemed fine until the application started processing Boolean values.
 
 ---
 
-## Front Door Microservice
+## The Issue After Deploying to EC2
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+Locally, this flag worked as expected:
+
+```env
+ENVIRONMENT_AUTO=True
+```
+
+However, when running on EC2 Ubuntu/Linux, some condition checks stopped working correctly. For example:
+
+```js
+if (process.env.ENVIRONMENT_AUTO === "true") {
+  // run auto configuration
+}
+```
+
+In this case, `"True"` and `"true"` are not the same value. If the code only compares against the lowercase string `"true"`, the condition fails even though the `.env` file was intended to enable the feature.
+
+This type of bug is easy to miss because the application does not crash. Instead, it causes business logic to behave incorrectly, such as:
+
+- Reading the wrong environment state.
+- Skipping automated features.
+- Treating Boolean configuration values incorrectly.
+- Running with unexpected behavior but without a clear stack trace.
 
 ---
 
-## Staging ER7 Microservice
+## Main Causes
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+### 1. Linux and runtime behavior are strongly case-sensitive
+
+When moving from Windows to Linux, developers need to pay closer attention to case sensitivity. Environment variable values, file names, strings, and framework-level `.env` parsing can all create differences.
+
+For Boolean values in `.env`, `True`, `TRUE`, and `true` are usually just different strings. If the application does not normalize the value before comparison, the logic can easily fail.
+
+### 2. Manually managing .env files on EC2 is error-prone
+
+Creating a `.env` file with `nano .env` on the server is quick, but it does not scale well as the system grows. This approach can lead to issues such as:
+
+- Typing the wrong variable name or format.
+- Missing variables across environments.
+- Difficulty keeping development, staging, and production synchronized.
+- Risk of exposing secrets if the instance is accessed improperly.
+
+Values such as database passwords, API tokens, and secret keys should not be managed long-term through a plain file stored directly on the server.
 
 ---
 
-## New Features in the Solution
+## Quick Fix
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+The first fix was to standardize all Boolean values in `.env` as lowercase:
+
+```env
+ENVIRONMENT_AUTO=true
+```
+
+In the application code, the value should be normalized before comparison:
+
+```js
+const autoEnv = process.env.ENVIRONMENT_AUTO?.toLowerCase() === "true";
+```
+
+After updating the format and making the type conversion explicit, the application correctly recognized the environment state and the automated features worked more reliably.
+
+---
+
+## AWS Best Practice Direction
+
+In the long term, storing `.env` directly on EC2 is not the best security practice. A better direction is to move configuration and secrets into a centralized service such as **AWS Systems Manager Parameter Store** or **AWS Secrets Manager**.
+
+![Using Parameter Store with EC2](/images/3-BlogsTranslated/3.1-Blog1/parameter-store-architecture.jpg)
+
+With this model:
+
+- The EC2 instance is assigned an appropriate IAM Role.
+- The application uses the AWS SDK to retrieve configuration at runtime.
+- Secrets do not need to live directly in source code or in a `.env` file on the server.
+- Access is controlled through IAM policies.
+
+Example flow:
+
+```text
+EC2 Instance -> IAM Role -> AWS Systems Manager Parameter Store
+```
+
+This approach makes environment configuration more centralized, improves security, scales better, and is more suitable for production workloads.
+
+---
+
+## Lessons Learned
+
+A small uppercase/lowercase mismatch can cause an application to behave incorrectly after deployment. From this experience, several lessons stand out:
+
+- Cloud Linux environments differ from local Windows environments more than expected.
+- Small issues such as case mismatch, wrong data types, or invalid `.env` format can take a long time to debug.
+- Environment variables are not just configuration; they affect security, operations, and scalability.
+- Secrets should be managed by dedicated services instead of being stored long-term in files on the server.
+
+---
+
+## Conclusion
+
+Deploying a backend to AWS EC2 is not only about running the application in the cloud. It is also about managing configuration consistently and securely. For small projects, a `.env` file may be enough to get started. However, as a system moves closer to production, AWS Systems Manager Parameter Store or AWS Secrets Manager should be considered for safer configuration and secret management.
+

@@ -6,17 +6,13 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+During the cloud computing learning and practice journey, three in-depth blog posts were compiled and shared with the community. These articles reflect real-world experiences in configuring infrastructure, troubleshooting system bugs, and researching application deployment models on AWS:
 
-This section will list and introduce the blogs you have translated. For example:
+### [Blog 1 - Deploying a Backend to AWS EC2 and the Bug Caused by Capital Letters](3.1-Blog1/)
+This post analyzes the case-sensitivity differences in `.env` configuration files when running applications on a local Windows environment compared to an Ubuntu Linux environment on AWS EC2. It highlights how Boolean flags were misinterpreted, leading to silent logic bugs without throwing runtime errors, and shares key lessons on maintaining environment configuration consistency.
 
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+### [Blog 2 - AWS Cost & AI: When Running Cloud Becomes a Cost Management Problem](3.2-Blog2/)
+This post shares practical experiences regarding cloud operational cost optimization (FinOps) when integrating AI/ML services (Amazon Bedrock, SageMaker, Comprehend) on AWS. It emphasizes the importance of managing budgets early with AWS Budgets and establishing the habit of terminating testing resources after labs to prevent unexpected cost spikes.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+### [Blog 3 - Deploying a Serverless Application with AWS Lambda and Amazon API Gateway](3.3-Blog3/)
+This post guides you through the migration from a traditional server-based architecture (EC2) to a serverless architecture using a combination of AWS Lambda and Amazon API Gateway. It analyzes the benefits of reducing system operational overhead, automatic scaling based on actual demand, and the cost-effective pay-as-you-go pricing model.

@@ -6,22 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> In this section, you should list and describe in detail the events you have participated in during your internship or work experience.  
-> 
-> Each event should be presented in the format Event 1, Event 2, Event 3…, along with the following details:
-> * Event name
-> * Date and time
-> * Location (if applicable)
-> * Your role in the event (attendee, event support, speaker, etc.)
-> * A brief description of the event’s content and main activities
-> * Outcomes or value gained (lessons learned, new skills, contribution to the team/project)
-> * This listing helps demonstrate your actual participation as well as the soft skills and experience you have gained from each event.
-
-During my internship, I participated in two events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
+The internship journey was enriched by participating in three prominent technology events, which offered hands-on learning experiences, deep technical insights, and valuable networking opportunities within the community.
 
 ### [Event 1](4.1-Event1/)  
 &emsp;**Event Name:** AWS Vietnam Community Day 2026 (Saturday Meetup)  
@@ -32,6 +17,10 @@ During my internship, I participated in two events. Each one was a memorable exp
 
 &emsp;**Role:** Attendee  
 
+&emsp;**Event Description:** A technical sharing session featuring real-world stories from large enterprises like GoTymeX, VPBank, and the LotusHacks team on system optimization, multi-agent AI design, CloudFront caching optimization, and managing LLM non-determinism in production environments.  
+
+&emsp;**Value Gained:** Acquired in-depth knowledge of CloudFront features (Regional Edge Cache, request collapsing, and the performance differences between CloudFront Functions and Lambda@Edge) and strategies for contextual AI application design. Also learned practical methodologies for developing Minimum Viable Products (MVPs) and collaborating under pressure.
+
 ---
 
 ### [Event 2](4.2-Event2/)  
@@ -41,4 +30,23 @@ During my internship, I participated in two events. Each one was a memorable exp
 
 &emsp;**Location:** 26th Floor, Bitexco Financial Tower, Ho Chi Minh City  
 
-&emsp;**Role:** Attendee
+&emsp;**Role:** Attendee  
+
+&emsp;**Event Description:** A technology day focused on AI solutions, cloud-native application patterns, and cloud career paths. Key presentations covered turn-based multiplayer game programming using API Gateway WebSockets, containerization with Docker, building GraphRAG search architectures using Amazon Bedrock and Neptune, and enhancing web security using Machine Learning models.  
+
+&emsp;**Value Gained:** Gained a solid understanding of WebSocket full-duplex communication, Docker image layering mechanics, GraphRAG implementations for multi-hop queries, and NIDS deployment patterns. In addition, learned the 4 golden rules of teamwork to enhance collaboration in group projects and mapped out a structured learning pathway.
+
+---
+
+### [Event 3](4.3-Event3/)  
+&emsp;**Event Name:** AWS FC Community Day 2026  
+
+&emsp;**Date & Time:** June 27, 2026 (13:00 - 17:30)  
+
+&emsp;**Location:** 26th and 36th Floor, Bitexco Financial Tower, Ho Chi Minh City (YouTube Livestream available)  
+
+&emsp;**Role:** Attendee  
+
+&emsp;**Event Description:** A specialized seminar analyzing infrastructure scale, FinOps cost optimization, and secure connectivity for enterprise-grade AI Agents. Featured topics included Multi-Agent platforms for cloud management, real-time speech processing for Vietnamese Voice AI, DevOps Agents for automatic root cause analysis, and establishing private connection paths using Private Subnets and VPC Endpoints.  
+
+&emsp;**Value Gained:** Developed a deep understanding of Zero Trust security principles and the "Human-in-the-loop" approval philosophy when integrating AI into cloud operations. Mastered secure routing architectures utilizing AWS PrivateLink, Route 53 Resolver, TLS-encrypted ALBs, and safe integration of the Model Context Protocol (MCP).

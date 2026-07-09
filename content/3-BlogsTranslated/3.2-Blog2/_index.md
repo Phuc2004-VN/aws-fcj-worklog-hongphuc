@@ -1,126 +1,146 @@
 ---
 title: "Blog 2"
 date: 2024-01-01
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# AWS Cost & AI: When Running Cloud Becomes a Cost Management Problem
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+**Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+During the early stage of learning and practicing with AWS, the focus is often technical: how to deploy an application to EC2, how to configure the backend environment, whether the server runs correctly, and whether the APIs respond as expected. However, once the system becomes more stable, another important topic becomes visible: cloud operating cost.
 
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In parallel with backend deployment, the team also started exploring AWS AI services such as **Amazon Bedrock**, **Amazon SageMaker**, and other AWS AI Services like **Amazon Comprehend**. From that point, the team realized that cloud is not only about whether an application can be deployed, but also about how much it costs to run every day.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Practice System Context
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+The initial practice system was simple:
 
----
+- An EC2 Ubuntu instance running a Node.js backend.
+- Several APIs for application logic.
+- Continuous requests and logging during testing.
+- Some extended experiments involving AI services.
 
-## Technology Choices and Communication Scope
+At first, because the environment was still within AWS Free Tier, the team assumed that a small EC2 instance could run without much concern. But as testing time increased, several factors started affecting cost: EC2 running 24/7, growing logs, EBS storage usage, helper resources that were left enabled, and AI API calls that were made more often than expected.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+![AWS Cost and AI practice architecture](/images/3-BlogsTranslated/3.2-Blog2/aws-cost-ai-architecture.png)
 
 ---
 
-## The Pub/Sub Hub
+## Free Tier Does Not Mean Free Forever
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+A common misunderstanding for new AWS users is assuming that Free Tier means no cost at all. In reality, Free Tier is limited by time and usage. Once those limits are exceeded, AWS starts charging immediately.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+During practice, costs can come from very familiar situations:
 
----
+- EC2 keeps running without being shut down.
+- Extra resources are created for testing and forgotten.
+- EBS volumes remain after an instance is no longer used.
+- Logs and requests grow over time.
+- AI services generate cost based on requests or processed data.
 
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+The important point is that these small charges can accumulate. Without regular monitoring, users may discover the problem too late.
 
 ---
 
-## Front Door Microservice
+## When AI Is Added to the System
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+Unlike EC2, the cost of AI services is often not based only on running time. Many AI services charge by request count, token usage, or the amount of data analyzed.
 
----
+Examples:
 
-## Staging ER7 Microservice
+- **Amazon Comprehend** can charge based on the amount of text processed.
+- **Amazon Bedrock** is often related to input and output tokens when invoking models.
+- **Amazon SageMaker** can generate cost from instances, endpoints, notebooks, or training jobs.
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+A single small API call may not matter much. But with repeated testing, longer prompts, larger datasets, or frequent model invocations, cost can increase faster than expected. Therefore, AI usage limits should be designed from the beginning.
 
 ---
 
-## New Features in the Solution
+## Main Reasons Costs Increased Quickly
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+### 1. Running resources were not controlled well
+
+During the learning stage, the team focused on making the system work and easily overlooked resource state. EC2 was not stopped after testing, EBS volumes were not cleaned up, and some supporting resources continued running even after they were no longer needed.
+
+### 2. Cost monitoring was missing
+
+At first, the team did not use tools such as **AWS Budgets**, **Billing Alarm**, or **Cost Explorer** consistently. Without dashboards and alerts, it is difficult to know how much the system costs each day.
+
+### 3. AI experiments had no clear limits
+
+AI service experiments can easily exceed expectations if there is no separate sandbox, no request limit, and no budget alert. With AI, “testing a few more times” can become more visible in cost compared with basic infrastructure services.
+
+---
+
+## Cost Optimization Direction
+
+### Control EC2 and supporting resources
+
+The team started changing how EC2 was used: only turn it on when testing, stop the instance after use, and delete resources that are no longer needed. For learning environments, automatic schedules can be used to stop instances outside working hours.
+
+### Set up AWS Cost Management
+
+Cost management tools should be enabled early:
+
+- **AWS Budgets** to define cost thresholds.
+- **Billing Alarm** to receive alerts when spending exceeds a limit.
+- **Cost Explorer** to analyze cost by day, service, and tag.
+
+These tools help shift from waiting for the bill to actively observing cost.
+
+### Separate an AI sandbox environment
+
+Instead of testing AI directly inside the main system flow, it is better to create a dedicated sandbox environment. This environment should have request limits, restricted permissions, and its own budget alerts to reduce unexpected cost risk.
+
+### Understand the pricing logic of each service
+
+Each AWS service has a different pricing model:
+
+- EC2 is usually charged by running time.
+- Storage is charged by stored capacity.
+- AI services are charged by requests, tokens, or processed data.
+- Load Balancers, NAT Gateways, endpoints, and logs can also create additional costs.
+
+Because of this, one cost assumption cannot be applied to every service. Before enabling a new service, its pricing model and usage limit should be understood.
+
+---
+
+## A Practical View of AWS AI
+
+AWS AI is powerful because it integrates well with the AWS ecosystem. A backend can call services through SDKs and combine them with IAM, VPC Endpoints, logging, and monitoring. However, this power also requires cost control.
+
+For generative AI in particular, the question is not only whether the model can be invoked, but also:
+
+- How much does each request cost?
+- Does the prompt need to be that long?
+- Should responses be cached?
+- Should API calls be rate-limited?
+- Are budget alerts already configured?
+
+If these questions are considered early, the system becomes easier to operate as it grows.
+
+---
+
+## Lessons Learned
+
+Cloud is not only about deployment; it is also about operations. A system that runs correctly but has no cost monitoring is not truly ready.
+
+AI is not as “free” as it may feel at the beginning. The more tests are run, the longer prompts become, and the more data is processed, the more cost needs to be controlled.
+
+Monitoring should be mandatory, not optional. Without monitoring, teams do not know how much they are spending, cannot control scale, and may exceed budget without noticing.
+
+Automation is also a mindset upgrade. Instead of manually stopping EC2, teams can use schedulers, EventBridge, or lifecycle automation to move from using AWS manually to operating AWS with control.
+
+---
+
+## Conclusion
+
+Through practicing AWS Cost management and exploring AI services, the team better understood that AWS is not only a place to deploy applications. It is an ecosystem that must be managed like a real operating system, where cost, performance, and architecture design are always connected.
+
+From a backend running on EC2 to AI service experiments, the most important lesson is to design systems with a cost-aware mindset from the beginning. With that approach, cloud does not only run; it runs sustainably and under control.
+

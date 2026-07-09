@@ -5,122 +5,151 @@ weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Deploy Backend lên AWS EC2 và lỗi chỉ vì chữ hoa
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+**Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2184227519008875/)
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Khi triển khai backend từ môi trường local lên AWS EC2, nhiều lỗi không xuất hiện ngay dưới dạng error rõ ràng. Ứng dụng vẫn khởi động, server vẫn chạy, nhưng một vài logic bên trong lại hoạt động sai. Trường hợp trong bài viết này đến từ một chi tiết rất nhỏ: cách viết hoa, viết thường của giá trị trong environment variables.
 
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Trong môi trường local Windows, ứng dụng Node.js đọc file `.env` và xử lý các biến cấu hình bình thường. Tuy nhiên, khi source code được deploy lên EC2 chạy Ubuntu/Linux, một số flag Boolean không còn được hiểu đúng. Các chức năng tự động không chạy, điều kiện kiểm tra trả về sai, và quá trình debug mất khá nhiều thời gian vì hệ thống không báo lỗi trực tiếp.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Environment Variables trong backend
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Trong các dự án backend, environment variables thường được dùng để tách cấu hình ra khỏi source code. Thay vì hard-code region, secret key, database password hoặc trạng thái môi trường vào code, developer có thể đặt chúng trong file `.env`.
 
----
+Ví dụ:
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+```env
+ENV=development
+REGION=ap-southeast-1
+ENVIRONMENT_AUTO=True
+```
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Cách làm này giúp ứng dụng dễ chuyển đổi giữa development và production, giảm việc chỉnh sửa source code khi deploy, đồng thời gom cấu hình vào một nơi dễ quản lý hơn. Khi deploy lên EC2, file `.env` thường được copy hoặc tạo thủ công trên server để ứng dụng đọc trong runtime.
 
 ---
 
-## The pub/sub hub
+## Mô hình triển khai ban đầu
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Mô hình triển khai ban đầu khá đơn giản: developer đẩy source code và file `.env` từ local lên EC2 thông qua SSH hoặc Git, sau đó chạy backend Node.js trực tiếp trên instance.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+![Mô hình deploy backend EC2 với file env](/images/3-BlogsTranslated/3.1-Blog1/ec2-env-file-risk.png)
 
----
+Luồng triển khai gồm:
 
-## Core microservice
+- Source code được upload lên EC2.
+- File `.env` được tạo hoặc chỉnh sửa trực tiếp trên server.
+- Backend server được start bằng Node.js.
+- Ứng dụng đọc biến môi trường từ file `.env`.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Mọi thứ tưởng như ổn cho đến khi ứng dụng bắt đầu xử lý các giá trị Boolean.
 
 ---
 
-## Front door microservice
+## Lỗi phát sinh sau khi deploy lên EC2
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Ở local, flag sau hoạt động đúng:
+
+```env
+ENVIRONMENT_AUTO=True
+```
+
+Nhưng khi chạy trên EC2 Ubuntu/Linux, một số đoạn kiểm tra điều kiện không còn đúng nữa. Ví dụ:
+
+```js
+if (process.env.ENVIRONMENT_AUTO === "true") {
+  // run auto configuration
+}
+```
+
+Trong trường hợp này, giá trị `"True"` và `"true"` không giống nhau. Nếu code chỉ so sánh với chuỗi lowercase `"true"`, điều kiện sẽ fail dù về mặt ý nghĩa người viết `.env` đang muốn bật tính năng đó.
+
+Đây là dạng lỗi dễ bị bỏ qua vì ứng dụng không crash. Nó chỉ khiến business logic chạy sai, ví dụ:
+
+- Không nhận đúng trạng thái môi trường.
+- Một số chức năng tự động không hoạt động.
+- Config Boolean luôn bị hiểu sai.
+- App chạy bất thường nhưng không có stack trace rõ ràng.
 
 ---
 
-## Staging ER7 microservice
+## Nguyên nhân chính
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+### 1. Linux và hệ sinh thái runtime xử lý case-sensitive chặt chẽ
+
+Khi deploy từ Windows sang Linux, developer cần cẩn thận hơn với case-sensitive. Bản thân environment variable, tên file, giá trị string và cách framework parse `.env` đều có thể tạo ra khác biệt.
+
+Với Boolean trong `.env`, `True`, `TRUE` và `true` thường chỉ là các chuỗi khác nhau. Nếu code không normalize dữ liệu trước khi so sánh, ứng dụng rất dễ chạy sai logic.
+
+### 2. Quản lý file .env thủ công trên EC2 dễ phát sinh lỗi
+
+Việc tạo file `.env` bằng `nano .env` trên server rất nhanh, nhưng không bền vững khi hệ thống lớn hơn. Cách làm này dễ gặp các vấn đề như:
+
+- Gõ sai tên biến hoặc sai format.
+- Thiếu biến giữa các môi trường.
+- Khó đồng bộ development, staging và production.
+- Có nguy cơ lộ secret nếu instance bị truy cập trái phép.
+
+Các giá trị như database password, API token hoặc secret key không nên được quản lý lâu dài bằng một file nằm trực tiếp trên server.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Cách khắc phục nhanh
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Cách xử lý đầu tiên là đồng bộ toàn bộ giá trị Boolean trong `.env` về lowercase:
+
+```env
+ENVIRONMENT_AUTO=true
+```
+
+Trong code, nên normalize dữ liệu trước khi so sánh:
+
+```js
+const autoEnv = process.env.ENVIRONMENT_AUTO?.toLowerCase() === "true";
+```
+
+Sau khi chỉnh lại format và ép kiểu rõ ràng, ứng dụng nhận đúng trạng thái môi trường và các chức năng tự động hoạt động ổn định hơn.
+
+---
+
+## Hướng tối ưu theo best practice AWS
+
+Về lâu dài, lưu `.env` trực tiếp trên EC2 không phải là cách tối ưu về bảo mật. Một hướng tốt hơn là đưa cấu hình và secret vào dịch vụ quản lý tập trung như **AWS Systems Manager Parameter Store** hoặc **AWS Secrets Manager**.
+
+![Mô hình sử dụng Parameter Store cho EC2](/images/3-BlogsTranslated/3.1-Blog1/parameter-store-architecture.jpg)
+
+Với mô hình này:
+
+- EC2 instance được gán IAM Role phù hợp.
+- Ứng dụng gọi AWS SDK để lấy cấu hình khi runtime.
+- Secret không cần nằm trực tiếp trong source code hoặc file `.env` trên server.
+- Quyền truy cập được kiểm soát bằng IAM policy.
+
+Ví dụ luồng xử lý:
+
+```text
+EC2 Instance -> IAM Role -> AWS Systems Manager Parameter Store
+```
+
+Cách tiếp cận này giúp quản lý biến môi trường tập trung hơn, tăng bảo mật, dễ scale và phù hợp hơn với môi trường production.
+
+---
+
+## Bài học rút ra
+
+Một lỗi nhỏ về chữ hoa và chữ thường có thể làm ứng dụng chạy sai hoàn toàn sau khi deploy. Từ trải nghiệm này, có một vài bài học quan trọng:
+
+- Cloud Linux khác local Windows nhiều hơn tưởng tượng.
+- Các lỗi nhỏ như sai case, sai kiểu dữ liệu hoặc sai format `.env` có thể tốn nhiều thời gian debug.
+- Environment variables không chỉ là cấu hình, mà còn liên quan trực tiếp đến bảo mật, khả năng vận hành và khả năng scale.
+- Secret nên được quản lý bằng dịch vụ chuyên dụng thay vì lưu lâu dài trong file trên server.
+
+---
+
+## Kết luận
+
+Qua quá trình deploy backend lên AWS EC2, bài học lớn nhất không chỉ là cách chạy ứng dụng trên cloud, mà còn là cách quản lý cấu hình một cách nhất quán và an toàn. Với những dự án nhỏ, file `.env` có thể đủ để bắt đầu. Tuy nhiên, khi hệ thống tiến gần hơn đến production, nên cân nhắc sử dụng AWS Systems Manager Parameter Store hoặc AWS Secrets Manager để quản lý cấu hình và secret theo hướng bảo mật hơn.
+

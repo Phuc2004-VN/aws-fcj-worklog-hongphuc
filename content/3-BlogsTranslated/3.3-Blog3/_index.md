@@ -1,126 +1,128 @@
 ---
 title: "Blog 3"
 date: 2024-01-01
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Deploying a Serverless Application with AWS Lambda and Amazon API Gateway
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+**Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203965220368438/)
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+After deploying a backend on Amazon EC2 and learning how to optimize cloud operating costs, the team started asking a new question: is there a way to deploy an API without directly managing servers?
 
----
+EC2 provides a high level of control. Users can configure the operating system, install runtimes, manage networking, storage, and security groups. However, this also comes with operational responsibilities such as monitoring instance health, updating software, patching the operating system, starting or stopping servers, and planning scalability.
 
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+While exploring other application deployment models on AWS, the team learned about **Serverless Computing**. The interesting part of this model is that developers can focus more on code and business logic, while AWS manages much of the underlying infrastructure.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## What Is Serverless?
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Serverless does not mean that there are no servers. Servers still exist, but users do not manage them directly.
 
----
+With a serverless model, AWS handles tasks such as:
 
-## Technology Choices and Communication Scope
+- Allocating compute resources.
+- Starting runtime environments.
+- Scaling automatically based on traffic.
+- Managing operating system and runtime updates behind the scenes.
+- Handling availability and load.
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+As a result, developers can focus on features instead of infrastructure administration. This is why serverless is commonly used for REST APIs, mobile app backends, chatbots, IoT, event processing, and AI pipelines.
 
 ---
 
-## The Pub/Sub Hub
+## Deployment Architecture
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+In a basic serverless model, the client sends an HTTP request to **Amazon API Gateway**. API Gateway acts as the entry point, receives the request, and forwards it to **AWS Lambda**. Lambda processes the business logic, reads or writes data to **Amazon DynamoDB** if needed, and returns the response through API Gateway.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+![Serverless Lambda API Gateway architecture](/images/3-BlogsTranslated/3.3-Blog3/serverless-lambda-api-gateway.png)
 
----
+The main components include:
 
-## Core Microservice
+- **Amazon API Gateway**: receives HTTP/REST requests from clients.
+- **AWS Lambda**: runs the function that handles business logic.
+- **Amazon DynamoDB**: stores data using a NoSQL model.
+- **AWS IAM Role**: grants Lambda permission to access required services.
+- **Amazon CloudWatch**: collects logs, metrics, and supports observability.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+Unlike EC2, users do not need to create or maintain always-running servers. The function is triggered only when a request or event occurs.
 
 ---
 
-## Front Door Microservice
+## Why Serverless Is Attractive
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### No server management
 
----
+This is the biggest difference compared with EC2. With EC2, users need to manage instances, CPU, memory, operating system updates, security patches, and scaling. With Lambda, AWS takes responsibility for most of these tasks.
 
-## Staging ER7 Microservice
+### Automatic scaling
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+When an application receives many requests at the same time, Lambda can automatically create additional execution environments to handle them. When traffic decreases, resources are released. This reduces the need to predict the number of servers in advance.
+
+### Pay-per-use pricing
+
+With Lambda, cost is based on the number of function invocations and execution duration. If the function is not running, there is almost no compute cost. This is very different from EC2, where an instance continues to generate cost based on running time even if no requests are processed.
+
+This model works well for systems with unpredictable traffic, experimental applications, MVPs, internal APIs, and learning projects.
 
 ---
 
-## New Features in the Solution
+## Limitations to Consider
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+### Cold start
+
+When a Lambda function has not been used for a while, its execution environment may be released. The next request may take additional time to initialize the function. This behavior is called a cold start.
+
+For APIs that require very fast and consistent response times, cold start should be considered during architecture design.
+
+### Execution time limits
+
+Lambda is designed for short, event-driven tasks. If an application needs to run continuously, process complex background jobs, or maintain long-lived connections, EC2 or ECS may be more suitable.
+
+### Cloud service dependency
+
+When using Lambda, the architecture is often closely connected with services such as API Gateway, IAM, CloudWatch, DynamoDB, and EventBridge. This makes AWS integration convenient, but also increases dependency on the cloud platform.
+
+---
+
+## Cost Perspective
+
+After learning about AWS Cost Management, the team noticed that serverless provides a clear cost optimization perspective.
+
+In the EC2 model:
+
+- Servers run continuously.
+- Cost is based on running time.
+- Scaling needs to be managed manually or configured separately.
+
+With Lambda:
+
+- If there are no requests, there is almost no compute cost.
+- The system scales automatically when needed.
+- There is no need to keep a server running 24/7.
+
+However, serverless is not always cheaper. If a system has very high traffic, long-running functions, or continuous API Gateway requests, the total cost of Lambda and API Gateway can become higher than EC2 or ECS. Therefore, architecture decisions should be based on the actual workload.
+
+---
+
+## Lessons Learned
+
+Serverless does not completely replace EC2. It is another architecture option that fits a different set of problems.
+
+If an application needs full operating system control, special configuration, long-running processes, or deep runtime customization, EC2 is still a reasonable choice.
+
+On the other hand, if the goal is fast deployment, less infrastructure management, automatic scaling, and cost optimization for APIs with variable traffic, AWS Lambda combined with Amazon API Gateway is worth considering.
+
+The most important lesson is not to think in terms of which service is always better. Each AWS service is designed to solve a specific group of problems. Understanding the characteristics of each service helps teams choose the right architecture from the beginning.
+
+---
+
+## Conclusion
+
+By learning about the serverless model, the team gained a more modern view of building applications on AWS. Combining Amazon API Gateway with AWS Lambda can significantly reduce infrastructure management work while taking advantage of automatic scaling and pay-per-use pricing.
+
+For learning projects, APIs with unstable traffic, MVPs, or applications that need fast deployment, this is an architecture worth exploring. In future work, the team can continue learning how to combine Lambda with Amazon DynamoDB, Amazon S3, and Amazon EventBridge to build more complete serverless systems.
+

@@ -6,23 +6,7 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
-
-
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+Hành trình thực tập được đồng hành cùng ba sự kiện công nghệ nổi bật, mở ra những cơ hội học hỏi thực chiến, tích lũy tri thức chuyên môn sâu rộng và kiến tạo các kết nối giá trị trong cộng đồng.
 
 ### [Event 1](4.1-Event1/)
 &emsp;**Tên sự kiện:** AWS Vietnam Community Day 2026 (Gặp gỡ Thứ Bảy)
@@ -33,6 +17,12 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 
+&emsp;**Mô tả sự kiện:** Chương trình chia sẻ các câu chuyện thực tế từ các doanh nghiệp lớn như GoTymeX, VPBank và đội thi LotusHacks về các bài toán tối ưu hệ thống, thiết kế AI đa tác nhân (Multi-Agent), tối ưu hoá bộ nhớ đệm CloudFront và kiểm soát tính phi xác định của LLM trong môi trường production.
+
+&emsp;**Kết quả đạt được:** Tích lũy được kiến thức chuyên sâu về CloudFront (Regional Edge Cache, request collapsing, sự khác biệt giữa CloudFront Functions và Lambda@Edge) và cách thiết kế ứng dụng AI có quản lý ngữ cảnh. Đồng thời học hỏi được phương pháp phát triển sản phẩm khả dụng tối thiểu (MVP) và kỹ năng làm việc nhóm hiệu quả dưới áp lực thời gian.
+
+---
+
 ### [Event 2](4.2-Event2/)
 &emsp;**Tên sự kiện:** AWS First Cloud Journey AI
 
@@ -42,3 +32,21 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 
+&emsp;**Mô tả sự kiện:** Ngày hội tập trung vào các giải pháp công nghệ AI, ứng dụng cloud-native và các định hướng phát triển sự nghiệp trong ngành đám mây. Các nội dung chính bao gồm lập trình game multiplayer qua WebSockets và API Gateway, tối ưu hóa container với Docker, xây dựng kiến trúc GraphRAG trên Bedrock và Neptune, và nâng cao bảo mật bằng Machine Learning.
+
+&emsp;**Kết quả đạt được:** Nắm vững nguyên lý kết nối hai chiều WebSockets, cơ chế phân lớp của Docker Container, giải pháp truy vấn dữ liệu liên kết thông qua GraphRAG và mô hình phát hiện xâm nhập mạng NIDS. Đặc biệt, tiếp thu thêm 4 quy tắc vàng để tối ưu hóa hiệu quả làm việc nhóm và định hình rõ ràng hơn lộ trình học tập, phát triển bản thân.
+
+---
+
+### [Event 3](4.3-Event3/)
+&emsp;**Tên sự kiện:** AWS FC Community Day 2026
+
+&emsp;**Thời gian:** 27/06/2026 (Từ 13:00 đến 17:30)
+
+&emsp;**Địa điểm:** Tầng 26 và Tầng 36, Bitexco Financial Tower, TP. Hồ Chí Minh (Có Livestream trên YouTube)
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự 
+
+&emsp;**Mô tả sự kiện:** Hội thảo tập trung phân tích chuyên sâu các bài toán hạ tầng, tối ưu chi phí FinOps và bảo mật kết nối cho AI Agents cấp doanh nghiệp. Chương trình giới thiệu các giải pháp đột phá như Multi-Agent giám sát hệ thống cloud, xử lý tiếng Việt thời gian thực cho Voice AI, DevOps Agent tự động hóa điều tra sự cố, và thiết lập kết nối mạng nội bộ an toàn qua Private Subnet và VPC Endpoints.
+
+&emsp;**Kết quả đạt được:** Hiểu sâu sắc tư duy bảo mật Zero Trust và triết lý "Human-in-the-loop" (con người kiểm duyệt) khi ứng dụng AI vào vận hành hệ thống đám mây. Nắm vững cơ chế định tuyến an toàn qua AWS PrivateLink, Route 53 Resolver, ALB mã hóa TLS và cách tích hợp giao thức MCP để mở rộng tri thức cho AI Agent một cách bảo mật.

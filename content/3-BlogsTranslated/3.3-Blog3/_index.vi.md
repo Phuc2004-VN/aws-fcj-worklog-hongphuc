@@ -1,127 +1,128 @@
 ---
 title: "Blog 3"
 date: 2024-01-01
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Triển khai ứng dụng Serverless với AWS Lambda và Amazon API Gateway
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+**Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203965220368438/)
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Sau khi đã triển khai backend trên Amazon EC2 và tìm hiểu cách tối ưu chi phí khi vận hành hệ thống trên AWS, nhóm bắt đầu đặt ra một câu hỏi mới: liệu có thể triển khai API mà không cần tự quản lý máy chủ hay không?
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+EC2 mang lại rất nhiều quyền kiểm soát. Người dùng có thể chủ động cấu hình hệ điều hành, cài runtime, quản lý networking, storage và security group. Tuy nhiên, đi kèm với đó là nhiều công việc vận hành như theo dõi trạng thái instance, cập nhật phần mềm, vá lỗi hệ điều hành, khởi động hoặc tắt server, và tự thiết kế khả năng mở rộng.
 
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Khi tìm hiểu thêm về các mô hình triển khai ứng dụng trên AWS, nhóm tiếp cận với một kiến trúc khác: **Serverless Computing**. Điểm hấp dẫn của mô hình này là developer có thể tập trung nhiều hơn vào code và logic nghiệp vụ, trong khi phần hạ tầng phía sau được AWS quản lý.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Serverless là gì?
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Serverless không có nghĩa là hoàn toàn không có server. Server vẫn tồn tại, nhưng người dùng không trực tiếp quản lý chúng.
 
----
+Với mô hình serverless, AWS đảm nhiệm các phần như:
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+- Cấp phát tài nguyên.
+- Khởi động môi trường chạy.
+- Tự động mở rộng theo lưu lượng.
+- Cập nhật hệ điều hành và runtime phía sau.
+- Quản lý khả năng chịu tải.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Nhờ vậy, developer có thể tập trung vào việc phát triển tính năng thay vì quản trị hạ tầng. Đây cũng là lý do serverless thường được sử dụng cho REST API, backend mobile app, chatbot, IoT, event processing hoặc AI pipeline.
 
 ---
 
-## The pub/sub hub
+## Kiến trúc triển khai
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Trong mô hình serverless cơ bản, người dùng gửi HTTP request đến **Amazon API Gateway**. API Gateway đóng vai trò entry point, tiếp nhận request và chuyển tiếp đến **AWS Lambda**. Lambda xử lý nghiệp vụ, đọc/ghi dữ liệu với **Amazon DynamoDB** nếu cần, sau đó trả kết quả ngược lại thông qua API Gateway.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+![Kiến trúc Serverless Lambda API Gateway](/images/3-BlogsTranslated/3.3-Blog3/serverless-lambda-api-gateway.png)
 
----
+Các thành phần chính gồm:
 
-## Core microservice
+- **Amazon API Gateway**: tiếp nhận HTTP/REST request từ client.
+- **AWS Lambda**: chạy function xử lý nghiệp vụ.
+- **Amazon DynamoDB**: lưu trữ dữ liệu theo mô hình NoSQL.
+- **AWS IAM Role**: cấp quyền để Lambda truy cập các dịch vụ cần thiết.
+- **Amazon CloudWatch**: thu thập log, metrics và hỗ trợ quan sát hệ thống.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Khác với EC2, người dùng không cần tạo hoặc duy trì máy chủ chạy liên tục. Function chỉ được kích hoạt khi có request hoặc event.
 
 ---
 
-## Front door microservice
+## Vì sao Serverless hấp dẫn?
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+### Không cần quản lý server
 
----
+Đây là điểm khác biệt lớn nhất so với EC2. Với EC2, người dùng phải quan tâm đến instance, CPU, RAM, hệ điều hành, update, security patch và scaling. Với Lambda, AWS chịu trách nhiệm phần lớn các công việc này.
 
-## Staging ER7 microservice
+### Tự động mở rộng
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Khi ứng dụng nhận nhiều request cùng lúc, Lambda có thể tự động tạo thêm môi trường thực thi để xử lý. Khi lưu lượng giảm, tài nguyên sẽ được thu hồi. Điều này giúp giảm nhu cầu dự đoán trước số lượng server cần chạy.
+
+### Thanh toán theo mức sử dụng
+
+Với Lambda, chi phí được tính theo số lần gọi function và thời gian thực thi. Nếu function không chạy, gần như không phát sinh chi phí compute. Cách tính này rất khác với EC2, nơi instance vẫn phát sinh chi phí theo thời gian chạy dù không có request nào.
+
+Mô hình này phù hợp với các hệ thống có lưu lượng không ổn định, ứng dụng thử nghiệm, MVP, API nội bộ hoặc các bài thực hành nghiên cứu.
 
 ---
 
-## Tính năng mới trong giải pháp
+## Một số hạn chế cần lưu ý
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+### Cold Start
+
+Khi Lambda không được sử dụng trong một khoảng thời gian, môi trường thực thi có thể bị giải phóng. Request đầu tiên sau đó cần thêm thời gian để khởi tạo function. Hiện tượng này được gọi là cold start.
+
+Đối với các API yêu cầu phản hồi cực nhanh và ổn định, cold start là yếu tố cần cân nhắc khi thiết kế.
+
+### Giới hạn thời gian thực thi
+
+Lambda phù hợp với các tác vụ ngắn và event-driven. Nếu ứng dụng cần chạy liên tục, xử lý nền phức tạp hoặc duy trì kết nối lâu dài, EC2 hoặc ECS có thể phù hợp hơn.
+
+### Phụ thuộc vào dịch vụ cloud
+
+Khi sử dụng Lambda, kiến trúc thường gắn với các dịch vụ như API Gateway, IAM, CloudWatch, DynamoDB và EventBridge. Điều này giúp tích hợp rất thuận tiện trong AWS, nhưng cũng làm tăng mức độ phụ thuộc vào nền tảng cloud.
+
+---
+
+## Góc nhìn chi phí
+
+Sau khi tìm hiểu AWS Cost Management, nhóm nhận thấy serverless mang lại một góc nhìn tối ưu chi phí rất rõ.
+
+Ở mô hình EC2:
+
+- Server hoạt động liên tục.
+- Chi phí tính theo thời gian chạy.
+- Cần tự quản lý scaling.
+
+Trong khi đó với Lambda:
+
+- Không có request thì gần như không phát sinh chi phí compute.
+- Hệ thống tự động mở rộng khi cần.
+- Không cần duy trì server chạy 24/7.
+
+Tuy nhiên, serverless không phải lúc nào cũng rẻ hơn. Nếu hệ thống có lưu lượng rất lớn, function chạy lâu hoặc API Gateway nhận request liên tục, tổng chi phí Lambda và API Gateway có thể cao hơn so với EC2 hoặc ECS. Vì vậy, lựa chọn kiến trúc cần dựa trên đặc điểm workload thực tế.
+
+---
+
+## Bài học rút ra
+
+Serverless không thay thế hoàn toàn EC2. Đây là một lựa chọn kiến trúc khác, phù hợp với một nhóm bài toán khác.
+
+Nếu cần toàn quyền kiểm soát hệ điều hành, cấu hình đặc biệt, tiến trình chạy lâu dài hoặc môi trường runtime tùy chỉnh sâu, EC2 vẫn là lựa chọn hợp lý.
+
+Ngược lại, nếu mục tiêu là triển khai nhanh, ít quản trị hạ tầng, tự động mở rộng và tối ưu chi phí cho API có lưu lượng biến động, AWS Lambda kết hợp Amazon API Gateway là một mô hình rất đáng cân nhắc.
+
+Điều quan trọng nhất là không nên nhìn dịch vụ theo hướng “dịch vụ nào tốt hơn”, mà nên hiểu mỗi dịch vụ AWS được thiết kế để giải quyết một nhóm bài toán cụ thể. Hiểu đúng đặc điểm của từng dịch vụ sẽ giúp chọn kiến trúc phù hợp ngay từ đầu.
+
+---
+
+## Kết luận
+
+Thông qua việc tìm hiểu mô hình serverless, nhóm có thêm một góc nhìn hiện đại hơn về cách xây dựng ứng dụng trên AWS. Việc kết hợp Amazon API Gateway với AWS Lambda giúp giảm đáng kể khối lượng công việc liên quan đến quản trị hạ tầng, đồng thời tận dụng khả năng tự động mở rộng và cơ chế thanh toán theo mức sử dụng.
+
+Đối với các dự án học tập, API có lưu lượng không ổn định, MVP hoặc ứng dụng cần triển khai nhanh, đây là một kiến trúc đáng để trải nghiệm. Trong các bước tiếp theo, nhóm có thể tiếp tục tìm hiểu cách kết hợp Lambda với Amazon DynamoDB, Amazon S3 và Amazon EventBridge để xây dựng hệ thống serverless hoàn chỉnh hơn.
+

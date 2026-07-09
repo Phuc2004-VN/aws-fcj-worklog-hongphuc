@@ -9,9 +9,9 @@ pre: " <b> 1.11. </b> "
 # FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 11 Goals and Plan
-This week, I focused on system testing, troubleshooting data flow errors, and consolidating my personal worklog documentation compiled throughout the bootcamp:
+This week, focus was placed on system testing, troubleshooting data flow errors, and consolidating personal worklog documentation compiled throughout the bootcamp:
 * Performing comprehensive end-to-end testing and patching bugs within the data pipeline.
-* Consolidating and finalizing the personal weekly worklogs covering my learning journey.
+* Consolidating and finalizing the personal weekly worklogs covering the learning journey.
 
 ## 2. Tasks to Implement in the Week
 Below is the summary of activities performed from June 29th to July 5th, 2026:
@@ -25,12 +25,12 @@ Below is the summary of activities performed from June 29th to July 5th, 2026:
 | Sun (Jul 5) | Personal Summary | - Compiled and polished all individual weekly worklogs from Week 1 to Week 11 | Created a uniform, comprehensive technical journal of the internship. | Project Directory |
 
 ## 3. Results Achieved
-During this week's testing, bug resolution, and personal archive consolidation, I gained several key takeaways:
+During this week's testing, bug resolution, and personal archive consolidation, several key takeaways were gained:
 
 * **Troubleshooting and Resilient Architecture (Bug Fixing):**
   + Comprehensive integration testing coupled with structured logging makes locating serverless stack failures simple and fast.
   + Takeaway: Implementing proper error retry configurations on SQS queues provides high resilience against transient network anomalies.
 
 * **Internship Archive Consolidation:**
-  + Reviewing my weekly logs systematically offers a great opportunity to track my technical growth from first AWS steps to advanced architecture.
+  + Reviewing weekly logs systematically offers a great opportunity to track technical growth from first AWS steps to advanced architecture.
   + Takeaway: Maintaining structured logs cuts down reporting overhead when submitting final results to university evaluators.
