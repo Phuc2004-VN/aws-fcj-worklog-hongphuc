@@ -13,8 +13,8 @@ Having gone through a challenging and meaningful internship journey, below are o
 **1. Working & Learning Environment**  
 The technological practice space at AWS Vietnam and the FCJ community offers a professional, open, and highly creative atmosphere. Gaining exposure to a real-world enterprise environment facilitates rapid adaptation to industry standards and structured workflows.
 
-**2. Support from Mentor & Admin Team**  
-The guidance from mentor Nguyen Gia Hưng is highly valuable due to a supportive, inquiry-based approach that leaves room for hands-on experimentation with cloud architectures and proactive troubleshooting. The admin team consistently provides timely administrative support, resolves lab resource queries, and fosters optimal conditions for meeting project milestones.
+**2. Support from the AWS Team (Mentors & Admins)**  
+The guidance from the entire AWS team is highly valuable due to a supportive, inquiry-based approach that leaves room for hands-on experimentation with cloud architectures and proactive troubleshooting. Additionally, the admin team consistently provides timely administrative support, resolves lab resource queries, and fosters optimal conditions for meeting project milestones.
 
 **3. Relevance of Work to Academic Major**  
 The projects and lab tracks are tightly integrated with Software Engineering and Information Systems curricula. Building solutions from foundational networking to integrated AI applications provides an excellent opportunity to translate university theories into functional, deployable cloud skills.
@@ -38,5 +38,5 @@ The provisioning of generous AWS practice credits is a substantial benefit, enab
 
 ### Suggestions & Expectations
 
-- **Suggestions for better experience:** Providing reference architecture diagrams or quick-start guides for common errors regarding complex services during the initial weeks would help optimize lab execution time.
-- **Future alignment:** The ambition is to continue engaging with and contributing to the AWS Study Group/FCJ community by mentoring the next generation of interns or participating in future AWS community initiatives.
+- **Suggestions for better experience:** Providing detailed reference architecture diagrams and quick-start guides for troubleshooting common issues regarding complex services during the initial weeks of the internship would help. Furthermore, organizing periodic technical Q&A or short office hours would help interns troubleshoot issues faster and optimize hands-on lab practice.
+- **Future expectations:** Aspiring to continue learning, keeping up with new cloud technologies, and actively participating in events and activities within the AWS Study Group / FCJ community. Additionally, hoping that this internship worklog will serve as a helpful reference resource for future students.
