@@ -15,7 +15,7 @@ This project proposes building a **Stock Alerts System** - an automated stock an
 
 The key design principle is to separate two types of tasks:
 
-- **Quantitative calculation** is handled by Python code running on AWS Lambda to keep indicators such as RSI, MACD, and moving averages consistent.
+- **Quantitative calculation** is handled by Node.js code running on AWS Lambda to keep indicators such as RSI, MACD, and moving averages consistent.
 - **Natural language reasoning and recommendation explanation** are handled by an AI Agent on Amazon Bedrock using normalized data as context.
 
 This approach reduces the risk of AI hallucination or incorrect math, while preserving a **Human-in-the-loop** workflow where traders approve recommendations before sending them to clients.
@@ -33,7 +33,7 @@ Using a general AI model directly for financial analysis also introduces risk. A
 The system solves this problem through a separated pipeline:
 
 - Ingestion Lambda retrieves market data from Yahoo Finance or a finance API.
-- Processing Lambda calculates technical indicators using Python logic.
+- Processing Lambda calculates technical indicators using Node.js logic.
 - Raw data is stored in Amazon S3, while analysis results and recommendations are stored in DynamoDB.
 - Amazon Bedrock receives the processed data as context and generates reasoning-based analysis.
 - Traders sign in to the dashboard through Amazon Cognito, review the AI reasoning, edit if needed, and approve the final content before sending it to clients.
@@ -91,7 +91,7 @@ The frontend is built with JavaScript and deployed as a static website on Amazon
 
 EventBridge triggers Lambda based on market schedules. Lambda retrieves data from Yahoo Finance or another finance API and stores raw JSON in S3. When a new object appears, S3 sends an event to SQS so Processing Lambda can process data in a controlled way.
 
-Processing Lambda uses Python to calculate indicators such as RSI, MACD, and moving averages. Performing these calculations in code ensures that quantitative results do not depend on AI reasoning.
+Processing Lambda uses Node.js to calculate indicators such as RSI, MACD, and moving averages. Performing these calculations in code ensures that quantitative results do not depend on AI reasoning.
 
 #### AI Analytics Engine
 
@@ -99,10 +99,11 @@ Amazon Bedrock receives normalized technical data as context. The prompt is desi
 
 - Action recommendation.
 - Confidence score.
+- Risk assessment (`risk_level`: LOW, MEDIUM, HIGH) and risk reasons (`risk_reasons`).
 - Reasoning trace.
-- Risk factors to consider.
+- Technical or macroeconomic risk factors to consider.
 
-Signals with low confidence scores can be filtered out or placed into manual review.
+The system integrates safety guardrails against Prompt Injection and input parameter filtering to prevent malicious activities. Signals with low confidence scores will be filtered out or placed in manual review status.
 
 #### Database & Security
 
@@ -110,10 +111,10 @@ DynamoDB stores analysis results using a time-series query pattern. A suggested 
 
 ```text
 PK: TICKER#<Stock_Symbol>
-SK: TIMESTAMP#<YYYYMMDD-HHMMSS>
+SK: TIMEFRAME#<Timeframe>#TIMESTAMP#<Timestamp_ISO>
 ```
 
-Data is encrypted with AWS KMS. API keys and sensitive configuration are stored in AWS Systems Manager Parameter Store instead of being hard-coded in source code.
+The system implements strict input validation using Regex at API Gateway and Lambda, and matches the Cognito login session email (BOLA mitigation) to protect data. Data is encrypted with AWS KMS. API keys and sensitive configuration are stored in AWS Systems Manager Parameter Store instead of being hard-coded in source code.
 
 #### Observability & Alerting
 
@@ -168,7 +169,13 @@ Data sources such as yfinance/Yahoo Finance may fail temporarily or throttle req
 
 AI may over-interpret signals or produce reasoning that does not fully match the data.
 
-**Mitigation:** separate quantitative calculations from AI, enforce structured JSON output, use confidence scoring, and require trader approval before sending recommendations to clients.
+**Mitigation:** separate quantitative calculations from AI, enforce structured JSON output, integrate risk assessment (`risk_level`), use confidence scores, and require trader approval before sending recommendations to clients.
+
+#### Risk 5: Prompt Injection attacks & Input parameter exploits
+
+Malicious users may attempt to inject unauthorized instructions through stock tickers or forge IDs to access other users' data (BOLA).
+
+**Mitigation:** Perform strict input data format validation using regex at the API and Lambda, verify the session email matches the Cognito JWT, and instruct Bedrock to ignore instructions that attempt to alter system prompts.
 
 ### 8. Expected Outcomes
 
