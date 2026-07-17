@@ -187,3 +187,7 @@ The project is expected to build a fault-tolerant asynchronous workflow includin
 
 Traders gain an AI assistant that helps summarize market data, explain signals, and generate reviewable recommendations. The solution saves analysis time, improves consistency in decision-making, and preserves safety through the Human-in-the-loop approval process.
 
+### 9. Project Source Code
+
+The complete source code of the Stock Alerts System is hosted on GitHub:
+- **GitHub Repository**: [aws-stock-analyzer-serverless](https://github.com/DaoPhanXuanThien/aws-stock-analyzer-serverless)

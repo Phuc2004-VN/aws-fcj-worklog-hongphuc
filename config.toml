@@ -28,6 +28,12 @@ weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Project Source Code"
+identifier = "Project Source Code"
+url = "https://github.com/DaoPhanXuanThien/aws-stock-analyzer-serverless"
+weight = 10
+
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
 identifier = "AWS Study Group"
 url = "https://awsstudygroup.com"
@@ -43,6 +49,12 @@ weight = 20
 title = "Báo cáo thực tập"
 weight = 2
 languageName = "Tiếng Việt"
+
+[[Languages.vi.menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Mã nguồn dự án"
+identifier = "Project Source Code"
+url = "https://github.com/DaoPhanXuanThien/aws-stock-analyzer-serverless"
+weight = 10
 
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"

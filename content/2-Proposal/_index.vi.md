@@ -187,3 +187,7 @@ Hệ thống kỳ vọng xây dựng được workflow bất đồng bộ có kh
 
 Trader có một trợ lý AI hỗ trợ tổng hợp dữ liệu, giải thích tín hiệu và tạo khuyến nghị có thể kiểm duyệt. Giải pháp giúp tiết kiệm thời gian phân tích, tăng tính nhất quán trong quy trình ra quyết định và vẫn giữ an toàn nhờ cơ chế Human-in-the-loop.
 
+### 9. Mã nguồn dự án
+
+Toàn bộ mã nguồn của hệ thống Stock Alerts System được lưu trữ trên GitHub:
+- **GitHub Repository**: [aws-stock-analyzer-serverless](https://github.com/DaoPhanXuanThien/aws-stock-analyzer-serverless)
