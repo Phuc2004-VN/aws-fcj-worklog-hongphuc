@@ -15,7 +15,7 @@ Dự án đề xuất xây dựng **Stock Alerts System** - hệ thống phân t
 
 Điểm cốt lõi của giải pháp là tách rõ hai nhóm tác vụ:
 
-- **Tính toán định lượng** do code Node.js trên AWS Lambda xử lý để đảm bảo các chỉ số như RSI, MACD, moving average được tính nhất quán.
+- **Tính toán định lượng** do code Node.js/JavaScript trên AWS Lambda xử lý để đảm bảo các chỉ số như RSI, MACD, moving average được tính nhất quán.
 - **Lập luận ngôn ngữ và giải thích khuyến nghị** do AI Agent trên Amazon Bedrock thực hiện dựa trên dữ liệu đã được chuẩn hóa.
 
 Cách tiếp cận này giúp giảm rủi ro AI tự bịa dữ liệu hoặc tính toán sai, đồng thời giữ cơ chế **Human-in-the-loop** để Trader kiểm duyệt khuyến nghị trước khi gửi cho khách hàng cuối.
@@ -91,7 +91,7 @@ Frontend được xây dựng bằng JavaScript và triển khai dưới dạng 
 
 EventBridge kích hoạt Lambda theo lịch thị trường. Lambda lấy dữ liệu từ Yahoo Finance hoặc API tài chính, lưu raw JSON vào S3. Khi object mới xuất hiện, S3 gửi event sang SQS để Processing Lambda xử lý có kiểm soát.
 
-Processing Lambda dùng Node.js để tính toán chỉ báo kỹ thuật như RSI, MACD và moving average. Việc tính toán bằng code giúp đảm bảo kết quả định lượng không phụ thuộc vào suy luận của AI.
+Processing Lambda dùng Node.js/JavaScript để tính toán chỉ báo kỹ thuật như RSI, MACD và moving average. Việc tính toán bằng code giúp đảm bảo kết quả định lượng không phụ thuộc vào suy luận của AI.
 
 #### AI Analytics Engine
 

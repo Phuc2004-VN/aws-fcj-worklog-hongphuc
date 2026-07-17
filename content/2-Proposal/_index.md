@@ -15,7 +15,7 @@ This project proposes building a **Stock Alerts System** - an automated stock an
 
 The key design principle is to separate two types of tasks:
 
-- **Quantitative calculation** is handled by Node.js code running on AWS Lambda to keep indicators such as RSI, MACD, and moving averages consistent.
+- **Quantitative calculation** is handled by Node.js/JavaScript code running on AWS Lambda to keep indicators such as RSI, MACD, and moving averages consistent.
 - **Natural language reasoning and recommendation explanation** are handled by an AI Agent on Amazon Bedrock using normalized data as context.
 
 This approach reduces the risk of AI hallucination or incorrect math, while preserving a **Human-in-the-loop** workflow where traders approve recommendations before sending them to clients.
@@ -91,7 +91,7 @@ The frontend is built with JavaScript and deployed as a static website on Amazon
 
 EventBridge triggers Lambda based on market schedules. Lambda retrieves data from Yahoo Finance or another finance API and stores raw JSON in S3. When a new object appears, S3 sends an event to SQS so Processing Lambda can process data in a controlled way.
 
-Processing Lambda uses Node.js to calculate indicators such as RSI, MACD, and moving averages. Performing these calculations in code ensures that quantitative results do not depend on AI reasoning.
+Processing Lambda uses Node.js/JavaScript to calculate indicators such as RSI, MACD, and moving averages. Performing these calculations in code ensures that quantitative results do not depend on AI reasoning.
 
 #### AI Analytics Engine
 
