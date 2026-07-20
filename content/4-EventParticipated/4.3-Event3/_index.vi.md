@@ -11,8 +11,9 @@ pre: " <b> 4.3. </b> "
 | Thông tin sự kiện | Chi tiết |
 | :--- | :--- |
 | **Tên sự kiện** | AWS FC Community Day 2026 |
-| **Thời gian** | 27/06/2026 (Từ 13:00 đến 17:30) |
-| **Địa điểm** | Tầng 26 và Tầng 36, Bitexco Financial Tower, TP. Hồ Chí Minh (Có Livestream trên YouTube) |
+| **Thời gian** | 27/06/2026 (Từ 09:00 đến 12:00) |
+| **Địa điểm** | Tầng 26 và Tầng 36, Bitexco Financial Tower, TP. Hồ Chí Minh |
+| **Hình thức tham gia** | Trực tuyến (YouTube Livestream) |
 | **Vai trò** | Người tham dự |
 
 ### Mục Đích Của Sự Kiện
@@ -119,14 +120,14 @@ Khoảnh khắc thú vị nhất là phiên chạy thử nghiệm trực tiếp 
 Tận mắt nhìn thấy quy trình Amazon Q bóc tách file scan CV và xuất ra một trang báo cáo HTML phân tích benchmark năng lực ứng viên sắc bén của team Noventics. Cơ chế tính toán chi phí vận hành mạng private (ALB, Route 53 Resolver, EC2) dao động từ 250 đến 350 USD một tháng được anh Toàn Nguyễn mổ xẻ tường tận trong phiên QA giúp tôi định hình được tư duy tối ưu hóa chi phí hạ tầng của một kiến trúc sư giải pháp thực thụ.
 
 ### Kết nối và trao đổi
-Không gian sự kiện tại văn phòng AWS Bitexco vô cùng náo nhiệt và cởi mở. Trong giờ giải lao giữa hiệp, tôi đã tranh thủ giao lưu với các bạn sinh viên trường Swinburne và chủ động kết nối LinkedIn với anh Toàn Nguyễn để hỏi thêm về tài liệu cấu hình mạng kết nối VPC Connection. Buổi trò chuyện giúp tôi mở rộng mạng lưới học tập và tự tin hơn trong việc học hỏi từ những người đi trước.
+Dù tham gia theo hình thức Livestream trực tuyến, tôi vẫn cảm nhận được không khí vô cùng náo nhiệt và cởi mở của sự kiện đang diễn ra tại văn phòng AWS Bitexco. Trong và sau sự kiện, tôi đã chủ động kết nối LinkedIn với anh Toàn Nguyễn để hỏi thêm về tài liệu cấu hình mạng kết nối VPC Connection cũng như tương tác cùng các bạn sinh viên. Buổi trò chuyện giúp tôi mở rộng mạng lưới học tập và tự tin hơn trong việc học hỏi từ những người đi trước.
 
 ### Bài học rút ra & Đóng góp cá nhân
 - **Bài học rút ra**:
   + Một hệ thống công nghệ Enterprise thành công không nằm ở việc sử dụng những mô hình AI phức tạp nhất, mà nằm ở khả năng giải quyết triệt để nỗi đau của doanh nghiệp (giảm chỉ số MTTR, bảo mật dữ liệu tuyệt đối) với mức chi phí tối ưu nhất.
   + Tham gia các ngày hội lớn như AWS Community Day là cơ hội vàng để sinh viên Kỹ thuật Phần mềm liên tục cập nhật dòng chảy công nghệ, trang bị cho mình cả "đồ chơi" kỹ thuật lẫn tư duy nghiệp vụ thực tế trước khi ra trường.
 - **Đóng góp và Tương tác cá nhân**:
-  + Tích cực tham gia thảo luận và đặt câu hỏi cho diễn giả Toàn Nguyễn trong phiên chia sẻ về Private Security để làm rõ chi tiết chi phí vận hành mạng private (ALB, Route 53 Resolver, EC2) trong môi trường thực tế.
+  + Tích cực theo dõi qua Livestream và đặt câu hỏi cho diễn giả Toàn Nguyễn trong phiên chia sẻ về Private Security để làm rõ chi tiết chi phí vận hành mạng private (ALB, Route 53 Resolver, EC2) trong môi trường thực tế.
   + Giao lưu, kết nối LinkedIn với các diễn giả và các bạn sinh viên Swinburne để chia sẻ tài liệu và cùng nhau hỗ trợ học tập công nghệ đám mây.
 
 ### Một số hình ảnh khi tham gia sự kiện

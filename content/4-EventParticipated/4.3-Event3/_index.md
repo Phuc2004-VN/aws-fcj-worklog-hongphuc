@@ -11,8 +11,9 @@ pre: " <b> 4.3. </b> "
 | Event Information | Details |
 | :--- | :--- |
 | **Event Name** | AWS FC Community Day 2026 |
-| **Date & Time** | June 27, 2026 (13:00 - 17:30) |
-| **Location** | 26th and 36th Floor, Bitexco Financial Tower, Ho Chi Minh City (YouTube Livestream available) |
+| **Date & Time** | June 27, 2026 (09:00 - 12:00) |
+| **Location** | 26th and 36th Floor, Bitexco Financial Tower, Ho Chi Minh City |
+| **Attendance Mode** | Online (YouTube Livestream) |
 | **Role** | Attendee |
 
 ### Event Objectives
@@ -119,14 +120,14 @@ The most exciting moment was the live demonstration by Kiet showing the Voice Ag
 Seeing Amazon Q parse scanned CVs and output a structured candidate comparison report in HTML was a highlight. Moreover, the detailed breakdown of private network infrastructure costs (ALB, Route 53 Resolver, EC2) totaling 250 to 350 USD per month shared by Toan Nguyen during the Q&A helped shape my understanding of real-world solution design and cost estimation.
 
 ### Networking and discussions
-The event at the AWS office in Bitexco was packed and full of energy. During the networking break, I chatted with Swinburne students and connected on LinkedIn with Toan Nguyen to ask for more resources regarding VPC Connection network configurations. The session helped expand my learning network and built my confidence in communicating with industry veterans.
+Although participating via Livestream, I could feel the dynamic atmosphere of the event being held at the AWS office in Bitexco. During and after the session, I connected on LinkedIn with speaker Toan Nguyen to ask for more resources regarding VPC Connection network configurations and interacted with fellow attendees. The session helped expand my learning network and built my confidence in communicating with industry veterans.
 
 ### Lessons learned & Personal Engagement
 - **Lessons Learned**:
   + A successful enterprise tech system is not measured by the complexity of its AI models, but by how effectively it addresses business pain points (minimizing MTTR, absolute security) at the lowest cost.
   + Participating in events like AWS Community Day is a golden opportunity for Software Engineering students to stay updated on technology trends and gain industry perspective before graduating.
 - **Personal Engagement & Contribution**:
-  + Actively participated and asked speaker Toan Nguyen questions during the Private Security QA session to clarify the operational costs of deploying private networks (ALB, Route 53 Resolver, EC2) in real-world scenarios.
+  + Actively followed via Livestream and asked speaker Toan Nguyen questions during the Private Security Q&A session to clarify the operational costs of deploying private networks (ALB, Route 53 Resolver, EC2) in real-world scenarios.
   + Exchanged LinkedIn contacts with Swinburne students and speakers to share cloud learning resources and form study groups.
 
 ### Event Photos
