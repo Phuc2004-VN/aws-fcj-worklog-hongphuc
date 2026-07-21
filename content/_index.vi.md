@@ -7,7 +7,7 @@ chapter: false
 
 
 
-## Báo cáo thực tập
+# BÁO CÁO THỰC TẬP
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Hà Nguyễn Hồng Phúc
 
