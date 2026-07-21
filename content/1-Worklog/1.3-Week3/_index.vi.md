@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Mục tiêu chính tuần này là tìm hiểu và xây dựng một kiến trúc mạng phức tạp hơn, mô phỏng môi trường thực tế của doanh nghiệp:

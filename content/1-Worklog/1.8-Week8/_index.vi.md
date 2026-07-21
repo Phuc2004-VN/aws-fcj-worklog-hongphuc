@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này tập hoàn toàn vào việc thiết kế kiến trúc chi tiết và chuẩn bị kế hoạch triển khai dự án tốt nghiệp:

@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Deploying a Backend to AWS EC2 and the Bug Caused by Capital Letters
+
+
+## Deploying a Backend to AWS EC2 and the Bug Caused by Capital Letters
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2184227519008875/)
 

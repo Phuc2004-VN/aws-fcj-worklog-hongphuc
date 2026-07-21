@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 05 Goals and Plan
 This week, focus was placed on container technologies, hybrid cloud storage solutions, and community networking:

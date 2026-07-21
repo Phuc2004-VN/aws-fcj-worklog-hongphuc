@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# Stock Analysis and Alert System
+
+
+## Stock Analysis and Alert System
 ## An AWS Serverless & AI Agent Solution for Traders
 
 ### 1. Executive Summary

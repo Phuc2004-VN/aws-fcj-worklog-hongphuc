@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-# Bài thu hoạch AWS FC Community Day – Solutions for Enterprise AI Agents & Security
+## Bài thu hoạch AWS FC Community Day – Solutions for Enterprise AI Agents & Security
 
 | Thông tin sự kiện | Chi tiết |
 | :--- | :--- |

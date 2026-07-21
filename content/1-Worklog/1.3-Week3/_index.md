@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 03 Goals and Plan
 The primary goal this week was to design and build a more complex network architecture simulating a real-world enterprise environment:

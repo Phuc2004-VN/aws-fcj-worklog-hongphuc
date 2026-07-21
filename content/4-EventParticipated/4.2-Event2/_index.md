@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Report: AWS First Cloud Journey AI
+## Report: AWS First Cloud Journey AI
 
 | Event Information | Details |
 | :--- | :--- |
@@ -151,51 +151,51 @@ The AWS office environment was highly professional and welcoming. During the net
 Here are some of the real moments captured during the AWS First Cloud Journey AI event:
 
 ![Slide showing three discussion questions for the AWS AI Director panel on AI trends, critical skills for young developers, and bridging enterprise capability gaps](/images/4-EventParticipated/4.2-Event2/IMG20260606090407.jpg)
-<!-- slide -->
+
 ![AWS AI Director presenting on how cloud computing and AI are lowering the barrier of entry for young technology builders](/images/4-EventParticipated/4.2-Event2/IMG20260606091540.jpg)
-<!-- slide -->
+
 ![Title slide of the presentation 'Multiplayer in the Cloud: Connecting Godot Clients with AWS WebSockets' by speaker Nguyen Quoc Bao](/images/4-EventParticipated/4.2-Event2/IMG20260606092843.jpg)
-<!-- slide -->
+
 ![Agenda slide (Table of Contents) for the multiplayer game WebSocket connection session](/images/4-EventParticipated/4.2-Event2/IMG20260606092927.jpg)
-<!-- slide -->
+
 ![Slide detailing the DynamoDB Database Schema design for storing player and opponent matchmaking states](/images/4-EventParticipated/4.2-Event2/IMG20260606093539.jpg)
-<!-- slide -->
+
 ![Slide summarizing technical challenges including Stale Connections, DynamoDB Scan costs, and Lambda statelesness](/images/4-EventParticipated/4.2-Event2/IMG20260606095009.jpg)
-<!-- slide -->
+
 ![Title slide of the presentation 'Docker — A containerization technology' by speaker Huynh Bao](/images/4-EventParticipated/4.2-Event2/IMG20260606095859.jpg)
-<!-- slide -->
+
 ![Agenda slide outlining the main sections of the Docker sharing session](/images/4-EventParticipated/4.2-Event2/IMG20260606100049.jpg)
-<!-- slide -->
+
 ![Slide analyzing the benefits of virtualization and the need for containerization to optimize server resources](/images/4-EventParticipated/4.2-Event2/IMG20260606100430.jpg)
-<!-- slide -->
+
 ![Slide comparing Virtual Machines vs Containers in terms of system architecture, size, and resource footprint](/images/4-EventParticipated/4.2-Event2/IMG20260606101230.jpg)
-<!-- slide -->
+
 ![Kasane Teto themed slide wrapping up the Docker presentation by Huynh Bao](/images/4-EventParticipated/4.2-Event2/IMG20260606103701.jpg)
-<!-- slide -->
+
 ![Agenda slide introducing the structure of the GraphRAG session by speaker Viet Phat](/images/4-EventParticipated/4.2-Event2/IMG20260606103959.jpg)
-<!-- slide -->
+
 ![Title slide of the session 'WAF + ML for Cyber Attack Detection: Machine Learning-based Network Intrusion Detection System (NIDS) on AWS' by speaker Le Hoang Gia Dai](/images/4-EventParticipated/4.2-Event2/IMG20260606105006.jpg)
-<!-- slide -->
+
 ![Slide explaining web application protection capabilities of AWS WAF (Web Application Firewall)](/images/4-EventParticipated/4.2-Event2/IMG20260606105132.jpg)
-<!-- slide -->
+
 ![System diagram showing how NIDS works, connecting web traffic, machine learning models, databases, and alerting](/images/4-EventParticipated/4.2-Event2/IMG20260606105920.jpg)
-<!-- slide -->
+
 ![Cloud architecture diagram detailing integration of AWS WAF, Lambda, S3, Kinesis Firehose, CloudWatch, and AWS security services](/images/4-EventParticipated/4.2-Event2/IMG20260606110049.jpg)
-<!-- slide -->
+
 ![Slide summarizing experimental results, future improvements with Bedrock, and lessons learned by Le Hoang Gia Dai](/images/4-EventParticipated/4.2-Event2/IMG20260606110335.jpg)
-<!-- slide -->
+
 ![Title slide of the session 'From IT Helpdesk to Senior Sysadmin' by speaker Tran Trung Vinh at Central Retail Group](/images/4-EventParticipated/4.2-Event2/IMG20260606111037.jpg)
-<!-- slide -->
+
 ![Agenda slide outlining the career progression path from Helpdesk to Sysadmin and Cloud/DevOps](/images/4-EventParticipated/4.2-Event2/IMG20260606111212.jpg)
-<!-- slide -->
+
 ![Slide highlighting skills learned from Helpdesk and the turning point of building hands-on labs for Linux & Networking](/images/4-EventParticipated/4.2-Event2/IMG20260606111433.jpg)
-<!-- slide -->
+
 ![Slide detailing Sysadmin role realities and key lessons about never testing on production environments](/images/4-EventParticipated/4.2-Event2/IMG20260606111742.jpg)
-<!-- slide -->
+
 ![Slide illustrating the Modern DevOps Roadmap with eight key stages from Linux to Monitoring & Observability](/images/4-EventParticipated/4.2-Event2/IMG20260606112554.jpg)
-<!-- slide -->
+
 ![Contact details and connection QR code slide for speaker Tran Trung Vinh](/images/4-EventParticipated/4.2-Event2/IMG20260606113609.jpg)
-<!-- slide -->
+
 ![Photo of my hand-written notebook summarizing speaker details and sequence during the event](/images/4-EventParticipated/4.2-Event2/note.png)
 
 > The event provided valuable knowledge and technology inspiration, serving as a solid asset for my future studies and work.

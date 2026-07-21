@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 11 Goals and Plan
 This week, focus was placed on system testing, troubleshooting data flow errors, and consolidating personal worklog documentation compiled throughout the bootcamp:

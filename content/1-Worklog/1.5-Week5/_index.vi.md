@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này làm quen với công nghệ Container, các giải pháp lưu trữ dữ liệu lai và kết nối cộng đồng:

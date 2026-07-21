@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 12 Goals and Plan
 This week, focus was placed on finalizing the graduation project, drafting the final internship report, and completing the evaluation and stamping procedures with AWS Vietnam:

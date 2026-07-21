@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này đánh dấu bước chuyển giao quan trọng khi bắt đầu chuẩn bị cho dự án tốt nghiệp cuối khóa bên cạnh việc tiếp tục học các kiến thức kỹ thuật:

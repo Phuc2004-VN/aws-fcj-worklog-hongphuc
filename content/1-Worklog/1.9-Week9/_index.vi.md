@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Tổng quan Mục tiêu và Kế hoạch Tuần 09
 Tuần này tập trung hoàn thành hồ sơ thiết kế dự án tốt nghiệp và nghiên cứu cách tích hợp mô hình AI/ML lên hạ tầng đám mây:

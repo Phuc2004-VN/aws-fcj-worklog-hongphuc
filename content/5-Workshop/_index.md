@@ -6,14 +6,14 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Project Report: Stock Alerts System
+## Project Report: Stock Alerts System
 
 This section summarizes the research, development, and deployment of the **Stock Alerts System** graduation project using AWS Serverless architecture and Generative AI (Amazon Bedrock). The content is organized into the following key parts:
 
-### 1. [Project Overview](5.1-Workshop-overview/)
-Introduces the project objectives, target clients, and the business problems solved by the system to assist traders in automating market analysis.
+### 1. [Project Overview & Architecture](5.1-Workshop-overview/)
+Introduces the project objectives, architecture diagram, target clients, and the business problems solved by the system to assist traders in automating market analysis.
 
-### 2. [Prerequisites & Infrastructure Deployment](5.2-Prerequiste/)
+### 2. [Prerequisites & Infrastructure Deployment](5.2-prerequisite/)
 Provides a step-by-step guide to configuring and deploying AWS services within the architecture (S3, SQS, Lambda, KMS, DynamoDB, CloudFront, WAF, Cognito, API Gateway, Bedrock).
 
 ### 3. [Why Choose These Services?](5.3-Why_Choose_Services/)

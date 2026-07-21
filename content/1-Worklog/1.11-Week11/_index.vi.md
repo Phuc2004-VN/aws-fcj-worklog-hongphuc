@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Tổng quan Mục tiêu và Kế hoạch Tuần 11
 Tuần này tập trung vào hoạt động tối ưu hóa hạ tầng, thực hiện kiểm thử liên thông hệ thống để xử lý các lỗi phát sinh (bug fixes) và chuẩn bị tổng kết cá nhân kết thúc kỳ thực tập:

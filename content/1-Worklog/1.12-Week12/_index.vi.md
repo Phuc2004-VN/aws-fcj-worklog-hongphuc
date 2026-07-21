@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Tổng quan Mục tiêu và Kế hoạch Tuần 12
 Tuần này, trọng tâm công việc là nghiệm thu, bàn giao sản phẩm dự án tốt nghiệp, viết báo cáo tổng kết thực tập và hoàn thành các thủ tục xác nhận tại doanh nghiệp AWS:

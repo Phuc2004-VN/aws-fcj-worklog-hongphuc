@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.9. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 09 Goals and Plan
 This week, focus was placed on finalizing the graduation project design documentation and researching how to integrate AI/ML models into the cloud infrastructure:

@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 06 Goals and Plan
 This week, focus was placed on automating security compliance and optimizing EC2 instance operational costs:

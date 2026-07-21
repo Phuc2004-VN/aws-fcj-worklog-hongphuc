@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# Deploying a Serverless Application with AWS Lambda and Amazon API Gateway
+
+
+## Deploying a Serverless Application with AWS Lambda and Amazon API Gateway
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203965220368438/)
 

@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 07 Goals and Plan
 This week marks a major transition as preparation began for the final graduation project while continuing to acquire technical skills:

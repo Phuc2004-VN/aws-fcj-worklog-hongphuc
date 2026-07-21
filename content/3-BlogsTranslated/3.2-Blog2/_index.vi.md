@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# AWS Cost & AI: Khi chạy cloud không còn chỉ là vấn đề kỹ thuật
+
+
+## AWS Cost & AI: Khi chạy cloud không còn chỉ là vấn đề kỹ thuật
 
 **Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
 

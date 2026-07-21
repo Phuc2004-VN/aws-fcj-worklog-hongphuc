@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này tập trung học cách tự động hóa sao lưu dữ liệu và quản trị mạng ở quy mô lớn hơn:

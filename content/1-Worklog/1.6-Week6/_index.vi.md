@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này tập trung nâng cao khả năng bảo mật tự động hóa và tối ưu chi phí vận hành máy chủ EC2:

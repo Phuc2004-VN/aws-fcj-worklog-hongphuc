@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 10 Goals and Plan
 This week, focus was placed on researching serverless architectures, drafting the dashboard interface, setting up API endpoints, and building a fully functional demo flow for data ingestion and AI processing:

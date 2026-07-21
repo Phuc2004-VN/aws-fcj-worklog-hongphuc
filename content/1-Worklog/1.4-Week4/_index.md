@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Overview of Week 04 Goals and Plan
 This week, the focus was on learning how to automate data backups and manage networking at a larger scale:

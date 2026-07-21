@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# AWS Cost & AI: When Running Cloud Becomes a Cost Management Problem
+
+
+## AWS Cost & AI: When Running Cloud Becomes a Cost Management Problem
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
 

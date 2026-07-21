@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Tổng quan Mục tiêu và Kế hoạch Tuần 10
 Tuần này tập trung nghiên cứu kiến trúc Serverless, phác thảo giao diện Dashboard, thiết lập luồng API và xây dựng Demo hoàn thiện luồng Ingestion và AI xử lý dữ liệu:

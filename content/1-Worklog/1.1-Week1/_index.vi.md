@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Bắt đầu hành trình First Cloud AI Journey (FCAJ), bản thân đặt ra các mục tiêu để làm quen với môi trường Cloud của AWS:

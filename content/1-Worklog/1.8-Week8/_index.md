@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Weekly Goals
 This week, the team focused entirely on detailed architectural design and preparing the implementation plan for the graduation project:

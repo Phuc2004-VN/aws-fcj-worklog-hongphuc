@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Deploy Backend lên AWS EC2 và lỗi chỉ vì chữ hoa
+
+
+## Deploy Backend lên AWS EC2 và lỗi chỉ vì chữ hoa
 
 **Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2184227519008875/)
 

@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Weekly Goals
 Starting the First Cloud AI Journey (FCAJ), the following goals were set to adapt to the AWS Cloud environment:

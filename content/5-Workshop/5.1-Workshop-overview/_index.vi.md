@@ -11,6 +11,18 @@ Hệ thống được xây dựng nhằm hỗ trợ quá trình phân tích cổ
 
 Hệ thống sẽ tự động thu thập dữ liệu thị trường, tính toán các chỉ báo kỹ thuật như RSI, MACD, MA và Volume, sau đó gửi các chỉ số đã tính cho Amazon Bedrock để tạo ra phân tích và khuyến nghị đầu tư. Kết quả phân tích sẽ được hiển thị trên Dashboard để trader xem xét, phê duyệt hoặc từ chối trước khi gửi thông báo đến khách hàng qua email.
 
+#### Kiến trúc Hệ thống
+
+![Mô hình Kiến trúc Hệ thống Stock Alerts](/images/5-Workshop/5.1-Workshop-overview/stock-alerts-architecture.png)
+
+Kiến trúc hệ thống được thiết kế theo mô hình Microservices Serverless bất đồng bộ, tách biệt các thành phần qua hàng đợi và bộ đệm lưu trữ:
+
+1. **Tầng Thu thập Dữ liệu (Data Ingestion Tier)**: Amazon EventBridge kích hoạt Lambda Ingestion định kỳ để thu thập dữ liệu giá từ Yahoo Finance và lưu trữ dữ liệu thô định dạng JSON vào Amazon S3.
+2. **Tầng Bộ đệm & Xử lý (Buffering & Processing Tier)**: Khi S3 tiếp nhận dữ liệu mới, S3 Event Notification đẩy thông điệp vào Amazon SQS Queue. Lambda Processing nhận sự kiện từ hàng đợi, thực hiện tính toán các chỉ báo kỹ thuật (RSI, MACD, MA) và chuẩn bị dữ liệu ngữ cảnh.
+3. **Tầng Phân tích AI (AI Analysis Tier)**: Lambda Processing gọi dịch vụ Amazon Bedrock (mô hình Claude 3.5 / Titan) để tổng hợp các chỉ số kỹ thuật và đưa ra khuyến nghị phân tích cổ phiếu tự động.
+4. **Tầng Lưu trữ & Hiển thị (Persistence & Presentation Tier)**: Kết quả phân tích được ghi vào Amazon DynamoDB. Giao diện Dashboard (được host trên Amazon S3 & CloudFront kết hợp xác thực Cognito và bảo vệ bởi AWS WAF) hiển thị kết quả cho Chuyên viên tài chính / Trader duyệt.
+5. **Tầng Cảnh báo & Thông báo (Notification Tier)**: Sau khi Trader bấm phê duyệt, Amazon SES / SNS tự động gửi báo cáo khuyến nghị đến email của khách hàng đã đăng ký.
+
 #### Khách hàng là ai?
 Khách hàng của hệ thống là những người quan tâm đến việc theo dõi và đầu tư cổ phiếu, bao gồm:
 *   Nhà đầu tư cá nhân muốn nhận gợi ý phân tích cổ phiếu.

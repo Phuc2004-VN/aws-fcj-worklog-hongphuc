@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Mục tiêu tuần
 Tuần này tập trung vào thiết lập mạng Custom VPC và hoàn tất các thủ tục hành chính:

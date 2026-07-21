@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Report: AWS Vietnam Community Day 2026
+## Report: AWS Vietnam Community Day 2026
 
 | Event Information | Details |
 | :--- | :--- |
@@ -112,39 +112,38 @@ The atmosphere at Bitexco was energetic. During breaks, I spoke with senior syst
 Here are some of the real moments captured during the AWS Vietnam Community Day 2026 event:
 
 ![Slide "What's Next" for UTMorpho project by Team VIB, showing QR codes to access their Devpost and GitHub repositories](/images/4-EventParticipated/4.1-Event1/IMG20260523105858.jpg)
-<!-- slide -->
-![Slide explaining LLM configuration parameters: Top-P and Top-K with a QR code for interactive visualization](/images/4-EventParticipated/4.1-Event1/IMG20260523111358.jpg)
-<!-- slide -->
-![Slide showing the research reality: performance of LLMs tested on various NLP tasks](/images/4-EventParticipated/4.1-Event1/IMG20260523111644.jpg)
-<!-- slide -->
-![Slide explaining the technical root cause of LLM non-determinism, highlighting floating-point non-associativity in IEEE 754 on GPUs and parallel thread execution order](/images/4-EventParticipated/4.1-Event1/IMG20260523112629.jpg)
-<!-- slide -->
-![Slide proposing mitigation strategies for LLM non-determinism, including multiple runs/voting, structured outputs, and self-hosted models](/images/4-EventParticipated/4.1-Event1/IMG20260523112744.jpg)
-<!-- slide -->
-![Slide summarizing LLM configuration tips: greedy decoding loop risks, the temperature 0.1 sweet spot, and repeat penalty settings](/images/4-EventParticipated/4.1-Event1/IMG20260523113044.jpg)
-<!-- slide -->
-![Slide "Tips" for LLM configuration, featuring red handwritten overlay notes emphasizing setting temperature to 0.1 to avoid repetition](/images/4-EventParticipated/4.1-Event1/IMG_20260523_113141.jpg)
-<!-- slide -->
-![Slide showing the Key Takeaways: designing applications with variance in mind and focusing on thorough testing](/images/4-EventParticipated/4.1-Event1/IMG20260523113240.jpg)
-<!-- slide -->
-![Slide displaying a QR code referencing the research paper "LLM Settings" by Rebecca J. Passonneau](/images/4-EventParticipated/4.1-Event1/IMG20260523113404.jpg)
-<!-- slide -->
-![Slide showing the Agenda for enterprise-grade Multi-Agent architecture for credit assessment](/images/4-EventParticipated/4.1-Event1/IMG20260523114740.jpg)
-<!-- slide -->
-![Slide explaining why multi-agent architecture works, highlighting specialized expertise, checks & balances, and fault tolerance](/images/4-EventParticipated/4.1-Event1/IMG20260523120206.jpg)
-<!-- slide -->
-![Slide outlining the six pillars of enterprise-grade AI: Security, Data Governance, Network, Operations, Human Factors, and Compliance](/images/4-EventParticipated/4.1-Event1/IMG20260523120612.jpg)
-<!-- slide -->
-![Slide presenting the proposed deployment approach, detailing steps from local app to AWS services](/images/4-EventParticipated/4.1-Event1/IMG20260523121833.jpg)
-<!-- slide -->
-![Architecture diagram showing the basic deployment flow from the local developer environment to AWS cloud infrastructure](/images/4-EventParticipated/4.1-Event1/IMG20260523121900.jpg)
-<!-- slide -->
-![Slide listing the workshop exercises: configuring authentication, implementing Guardrails, MCP, and Terraform](/images/4-EventParticipated/4.1-Event1/IMG20260523122352.jpg)
-<!-- slide -->
-![Slide listing workshop exercises, overlayed with a red handwritten note highlighting that building a system is not just about making it run, but making it run securely](/images/4-EventParticipated/4.1-Event1/IMG_20260523_123205.jpg)
-<!-- slide -->
-![Group photo of all participants and speakers at the end of the event](/images/4-EventParticipated/4.1-Event1/event1.jpg)
-<!-- slide -->
-![My selfie taken at the event before leaving](/images/4-EventParticipated/4.1-Event1/event1.1.jpg)
 
->The meetup provided valuable knowledge and technology inspiration, serving as a solid asset for my future studies and work.
+![Slide explaining LLM configuration parameters: Top-P and Top-K with a QR code for interactive visualization](/images/4-EventParticipated/4.1-Event1/IMG20260523111358.jpg)
+
+![Slide showing the research reality: performance of LLMs tested on various NLP tasks](/images/4-EventParticipated/4.1-Event1/IMG20260523111644.jpg)
+
+![Slide explaining the technical root cause of LLM non-determinism, highlighting floating-point non-associativity in IEEE 754 on GPUs and parallel thread execution order](/images/4-EventParticipated/4.1-Event1/IMG20260523112629.jpg)
+
+![Slide proposing mitigation strategies for LLM non-determinism, including multiple runs/voting, structured outputs, and self-hosted models](/images/4-EventParticipated/4.1-Event1/IMG20260523112744.jpg)
+
+![Slide summarizing LLM configuration tips: greedy decoding loop risks, the temperature 0.1 sweet spot, and repeat penalty settings](/images/4-EventParticipated/4.1-Event1/IMG20260523113044.jpg)
+
+![Slide "Tips" for LLM configuration, featuring red handwritten overlay notes emphasizing setting temperature to 0.1 to avoid repetition](/images/4-EventParticipated/4.1-Event1/IMG_20260523_113141.jpg)
+
+![Slide showing the Key Takeaways: designing applications with variance in mind and focusing on thorough testing](/images/4-EventParticipated/4.1-Event1/IMG20260523113240.jpg)
+
+![Slide displaying a QR code referencing the research paper "LLM Settings" by Rebecca J. Passonneau](/images/4-EventParticipated/4.1-Event1/IMG20260523113404.jpg)
+
+![Slide showing the Agenda for enterprise-grade Multi-Agent architecture for credit assessment](/images/4-EventParticipated/4.1-Event1/IMG20260523114740.jpg)
+
+![Slide explaining why multi-agent architecture works, highlighting specialized expertise, checks & balances, and fault tolerance](/images/4-EventParticipated/4.1-Event1/IMG20260523120206.jpg)
+
+![Slide outlining the six pillars of enterprise-grade AI: Security, Data Governance, Network, Operations, Human Factors, and Compliance](/images/4-EventParticipated/4.1-Event1/IMG20260523120612.jpg)
+
+![Slide presenting the proposed deployment approach, detailing steps from local app to AWS services](/images/4-EventParticipated/4.1-Event1/IMG20260523121833.jpg)
+
+![Architecture diagram showing the basic deployment flow from the local developer environment to AWS cloud infrastructure](/images/4-EventParticipated/4.1-Event1/IMG20260523121900.jpg)
+
+![Slide listing the workshop exercises: configuring authentication, implementing Guardrails, MCP, and Terraform](/images/4-EventParticipated/4.1-Event1/IMG20260523122352.jpg)
+
+![Slide listing workshop exercises, overlayed with a red handwritten note highlighting that building a system is not just about making it run, but making it run securely](/images/4-EventParticipated/4.1-Event1/IMG_20260523_123205.jpg)
+
+![Group photo of all participants and speakers at the end of the event](/images/4-EventParticipated/4.1-Event1/event1.jpg)
+
+> The meetup provided valuable knowledge and technology inspiration, serving as a solid asset for my future studies and work.
+

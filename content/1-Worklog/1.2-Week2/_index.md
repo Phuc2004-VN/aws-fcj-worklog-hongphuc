@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-# FIRST CLOUD AI JOURNEY (FCAJ)
+
+
+## FIRST CLOUD AI JOURNEY (FCAJ)
 
 ## 1. Weekly Goals
 This week, focus was placed on network design and completing official office onboarding documentation:

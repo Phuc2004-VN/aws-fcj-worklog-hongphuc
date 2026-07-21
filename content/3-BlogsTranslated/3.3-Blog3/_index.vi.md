@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# Triển khai ứng dụng Serverless với AWS Lambda và Amazon API Gateway
+
+
+## Triển khai ứng dụng Serverless với AWS Lambda và Amazon API Gateway
 
 **Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203965220368438/)
 

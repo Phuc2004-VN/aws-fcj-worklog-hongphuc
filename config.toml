@@ -1,5 +1,5 @@
 baseURL = "https://Phuc2004-VN.github.io/aws-fcj-worklog-hongphuc/"
-relativeURLs = false
+relativeURLs = true
 canonifyURLs = false
 defaultContentLanguage = "en"
 

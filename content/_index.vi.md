@@ -5,7 +5,9 @@ weight: 1
 chapter: false
 ---
 
-# Báo cáo thực tập
+
+
+## Báo cáo thực tập
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Hà Nguyễn Hồng Phúc
 

@@ -6,7 +6,9 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch AWS Vietnam Community Day 2026
+
+
+## Bài thu hoạch AWS Vietnam Community Day 2026
 
 | Thông tin sự kiện | Chi tiết |
 | :--- | :--- |
@@ -81,70 +83,51 @@ Nhờ các trợ lý AI này, việc viết mã nguồn, tối ưu hóa code và
 
 ### Ứng Dụng Vào Công Việc
 - Trong các bài thực hành workshop tiếp theo (ví dụ như dự án IoT Weather Platform), tôi sẽ thử cấu hình Amazon CloudFront đứng trước backend để kiểm chứng khả năng tăng tốc độ tải dữ liệu biểu đồ thời tiết thời gian thực và bảo vệ hệ thống bằng AWS Shield.
-- Tôi sẽ triển khai thử nghiệm mô hình hosting website tĩnh sử dụng kết hợp CloudFront và Amazon S3, cấu hình Origin Access Control (OAC) để chặn hoàn toàn truy cập trực tiếp từ internet vào S3, tăng cường tính bảo mật cho trang web cá nhân của bản thân.
-- Áp dụng kiến thức RAG và quản lý ngữ cảnh để xây dựng một công cụ tìm kiếm tài liệu AWS cá nhân, giúp việc ôn thi các chứng chỉ AWS sau này hiệu quả hơn.
-- Tích hợp sâu Amazon Q Developer vào IDE viết code hàng ngày (VS Code) để tận dụng AI trong việc gợi ý mã nguồn, tối ưu hóa thuật toán và viết test cases tự động.
+Amazon Q Developer and the G-AsiaPacific AI assistant suite, Amazon Quick (Quick Chat, Quick Flow, Quick Spaces, Quick Sight), demonstrated how AI can optimize the Software Development Lifecycle (SDLC).
 
-### Trải nghiệm trong event
+These tools assist with code generation, performance optimization, and writing unit tests. Notably, Quick Sight allows business users with no coding background to query raw database tables and generate analytical dashboards using natural language chat prompts, accelerating business decisions.
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-Các bài thuyết trình của các anh chị diễn giả rất cuốn hút vì chứa đựng nhiều kinh nghiệm thực tế xương máu. Tôi vô cùng ấn tượng với phần chia sẻ về CloudFront của anh Nguyễn Tuấn Thịnh. Với 12 chứng chỉ AWS và danh hiệu AWS Champion Instructor, anh đã giải thích cơ chế phân phối dữ liệu từ Mỹ về Việt Nam qua các ví dụ thực tế rất sinh động và trực quan, giúp một sinh viên như tôi có thể nắm bắt bản chất vấn đề một cách nhanh chóng mà không bị ngợp bởi các thuật ngữ phức tạp.
+### Bài Học Rút Ra & Định Hướng Áp Dụng
 
-#### Trải nghiệm kỹ thuật thực tế
-Tôi được xem trực tiếp các bản demo chạy thực tế của hệ thống Multi-Agent chấm điểm tín dụng và cách điều phối công việc giữa các Agent trong Ủy ban tín dụng ảo của VPBank. Đồng thời, những chia sẻ chân thực của nhóm VIB về những khó khăn, lỗi hệ thống gặp phải trong đêm thi LotusHacks và cách họ vượt qua áp lực thời gian mang lại cho bản thân tôi nhiều kinh nghiệm quý báu về kỹ năng làm việc nhóm và giải quyết vấn đề dưới áp lực cao.
-
-#### Ứng dụng công cụ hiện đại
-Tận mắt chứng kiến sức mạnh của Amazon QuickSight Q và bộ trợ lý AI thông minh trong phần demo của anh Phạm Nguyễn Hải Anh. Chỉ bằng việc nhập các câu hỏi tự nhiên như "Doanh thu tháng trước tăng trưởng thế nào?", AI đã tự động phân tích dữ liệu thô và xuất ra biểu đồ trực quan trong tích tắc. Đây thực sự là bước tiến lớn giúp thu hẹp khoảng cách giữa người dùng nghiệp vụ và kỹ thuật dữ liệu.
-
-### Kết nối và trao đổi
-Không gian sự kiện tại Bitexco vô cùng rộng mở và náo nhiệt. Trong giờ giải lao, tôi đã tranh thủ trò chuyện với một vài anh chị kỹ sư hệ thống đi trước và các anh chị AWS Community Builders. Mọi người rất thân thiện và nhiệt tình giải đáp những thắc mắc của tôi về cơ hội nghề nghiệp cũng như cách học AWS hiệu quả. Buổi gặp gỡ giúp bản thân tôi cảm nhận rõ nét sự năng động và phát triển mạnh mẽ của cộng đồng AWS tại Việt Nam.
-
-### Bài học rút ra & Đóng góp cá nhân
-- **Bài học rút ra**:
-  + Một bài trình bày kỹ thuật thành công không nằm ở việc khoe khoang công nghệ phức tạp, mà nằm ở việc diễn giả có thể đơn giản hóa những khái niệm trừu tượng thành những câu chuyện thực tế gần gũi với người nghe.
-  + Việc tối ưu hóa hệ thống từ biên mạng và tích hợp trí tuệ nhân tạo có ngữ cảnh là hai yếu tố then chốt tạo nên lợi thế cạnh tranh cho các ứng dụng công nghệ hiện đại.
-- **Đóng góp và Tương tác cá nhân**:
-  + Tích cực trao đổi, thảo luận và đặt câu hỏi cho diễn giả Nguyễn Tuấn Thịnh trong phiên chia sẻ về CloudFront, cụ thể là tìm hiểu sâu hơn về sự khác biệt hiệu năng giữa CloudFront Functions và Lambda@Edge khi chạy thực tế.
-  + Chủ động kết nối với các AWS Community Builders tại sự kiện để học hỏi kinh nghiệm thực tế, cách học AWS hiệu quả và tìm kiếm cơ hội tham gia các thử thách công nghệ tiếp theo.
+#### Tư Duy Thiết Kế System Mindset
+- Hiểu rõ CloudFront không chỉ là bộ nhớ đệm (Cache) cho hình ảnh tĩnh, mà là lá chắn bảo vệ backend (Origin Cloaking) và giảm tải truy cập.
+- Xây dựng "Bộ não thứ hai" (Second Brain) với bộ nhớ dài hạn qua RAG cho các ứng dụng AI.
+- Thiết kế hệ thống phải bám sát miền nghiệp vụ (Business-first).
 
 ### Một số hình ảnh khi tham gia sự kiện
 
 Dưới đây là một số hình ảnh thực tế ghi lại những khoảnh khắc đáng nhớ của bản thân khi tham gia sự kiện AWS Vietnam Community Day 2026:
 
 ![Slide "What's Next" giới thiệu dự án UTMorpho của nhóm VIB với mã QR truy cập Devpost và GitHub](/images/4-EventParticipated/4.1-Event1/IMG20260523105858.jpg)
-<!-- slide -->
-![Slide giới thiệu các tham số cấu hình mô hình ngôn ngữ lớn (LLM): Top-P và Top-K cùng mã QR trải nghiệm trực quan](/images/4-EventParticipated/4.1-Event1/IMG20260523111358.jpg)
-<!-- slide -->
-![Slide phân tích thực tế nghiên cứu hiệu năng của các mô hình LLM trên nhiều tác vụ xử lý ngôn ngữ tự nhiên (NLP) khác nhau](/images/4-EventParticipated/4.1-Event1/IMG20260523111644.jpg)
-<!-- slide -->
-![Slide giải thích nguyên nhân kỹ thuật gây ra tính phi xác định ở LLM từ phép tính dấu phẩy động IEEE 754 trên GPU và thứ tự thực thi thread song song](/images/4-EventParticipated/4.1-Event1/IMG20260523112629.jpg)
-<!-- slide -->
-![Slide đề xuất các chiến lược giảm thiểu tính phi xác định của LLM như chạy nhiều lần, định dạng đầu ra cấu trúc và tự host model](/images/4-EventParticipated/4.1-Event1/IMG20260523112744.jpg)
-<!-- slide -->
-![Slide tổng hợp các mẹo (Tips) cấu hình mô hình LLM: rủi ro lặp của greedy decoding, giá trị tối ưu nhiệt độ và repeat penalty](/images/4-EventParticipated/4.1-Event1/IMG20260523113044.jpg)
-<!-- slide -->
-![Slide "Tips" cấu hình LLM có thêm ghi chú màu đỏ về việc chọn nhiệt độ 0.1 để tránh lặp nội dung](/images/4-EventParticipated/4.1-Event1/IMG_20260523_113141.jpg)
-<!-- slide -->
-![Slide tổng kết các bài học cốt lõi (Key Takeaways) về việc thiết kế ứng dụng thích ứng với độ lệch và chú trọng kiểm thử](/images/4-EventParticipated/4.1-Event1/IMG20260523113240.jpg)
-<!-- slide -->
-![Slide hiển thị mã QR liên kết đến bài báo nghiên cứu chuyên sâu về các thiết lập của mô hình ngôn ngữ lớn (LLM Settings)](/images/4-EventParticipated/4.1-Event1/IMG20260523113404.jpg)
-<!-- slide -->
-![Slide chương trình (Agenda) giới thiệu cấu trúc đa tác nhân (Multi-Agent) cấp doanh nghiệp ứng dụng trong thẩm định tín dụng](/images/4-EventParticipated/4.1-Event1/IMG20260523114740.jpg)
-<!-- slide -->
-![Slide phân tích lý do kiến trúc đa tác nhân hoạt động hiệu quả nhờ tính chuyên môn hóa, kiểm tra chéo và khả năng chịu lỗi](/images/4-EventParticipated/4.1-Event1/IMG20260523120206.jpg)
-<!-- slide -->
-![Slide giới thiệu 6 trụ cột của hệ thống AI cấp doanh nghiệp: Bảo mật, Quản trị dữ liệu, Mạng, Vận hành, Con người và Tuân thủ](/images/4-EventParticipated/4.1-Event1/IMG20260523120612.jpg)
-<!-- slide -->
-![Slide đề xuất quy trình triển khai ứng dụng Multi-Agent chi tiết qua từng bước từ local app đến hạ tầng AWS](/images/4-EventParticipated/4.1-Event1/IMG20260523121833.jpg)
-<!-- slide -->
-![Sơ đồ kiến trúc mô tả luồng triển khai cơ bản (Basic Deployment Flow) từ môi trường local lên hạ tầng cloud AWS](/images/4-EventParticipated/4.1-Event1/IMG20260523121900.jpg)
-<!-- slide -->
-![Slide danh sách các bài thực hành workshop từ cơ bản đến nâng cao bao gồm xác thực, Guardrails, MCP và Terraform](/images/4-EventParticipated/4.1-Event1/IMG20260523122352.jpg)
-<!-- slide -->
-![Slide bài thực hành workshop có thêm ghi chú màu đỏ nhấn mạnh việc xây dựng hệ thống không chỉ cần chạy được mà phải an toàn](/images/4-EventParticipated/4.1-Event1/IMG_20260523_123205.jpg)
-<!-- slide -->
-![Bức ảnh tập thể các thành viên chụp chung lưu niệm khi kết thúc sự kiện](/images/4-EventParticipated/4.1-Event1/event1.jpg)
-<!-- slide -->
-![Bức ảnh selfie của tôi tại sự kiện trước khi ra về](/images/4-EventParticipated/4.1-Event1/event1.1.jpg)
 
->Sự kiện đã mang lại cho bản thân rất nhiều kiến thức giá trị cùng nguồn cảm hứng công nghệ to lớn, làm chắc chắn cho quá trình học tập và làm việc sau này.
+![Slide giới thiệu các tham số cấu hình mô hình ngôn ngữ lớn (LLM): Top-P và Top-K cùng mã QR trải nghiệm trực quan](/images/4-EventParticipated/4.1-Event1/IMG20260523111358.jpg)
+
+![Slide phân tích thực tế nghiên cứu hiệu năng của các mô hình LLM trên nhiều tác vụ xử lý ngôn ngữ tự nhiên (NLP) khác nhau](/images/4-EventParticipated/4.1-Event1/IMG20260523111644.jpg)
+
+![Slide giải thích nguyên nhân kỹ thuật gây ra tính phi xác định ở LLM từ phép tính dấu phẩy động IEEE 754 trên GPU và thứ tự thực thi thread song song](/images/4-EventParticipated/4.1-Event1/IMG20260523112629.jpg)
+![Slide đề xuất các chiến lược giảm thiểu tính phi xác định của LLM như chạy nhiều lần, định dạng đầu ra cấu trúc và tự host model](/images/4-EventParticipated/4.1-Event1/IMG20260523112744.jpg)
+![Slide tổng hợp các mẹo (Tips) cấu hình mô hình LLM: rủi ro lặp của greedy decoding, giá trị tối ưu nhiệt độ và repeat penalty](/images/4-EventParticipated/4.1-Event1/IMG20260523113044.jpg)
+![Slide "Tips" cấu hình LLM có thêm ghi chú màu đỏ về việc chọn nhiệt độ 0.1 để tránh lặp nội dung](/images/4-EventParticipated/4.1-Event1/IMG_20260523_113141.jpg)
+
+![Slide tổng kết các bài học cốt lõi (Key Takeaways) về việc thiết kế ứng dụng thích ứng với độ lệch và chú trọng kiểm thử](/images/4-EventParticipated/4.1-Event1/IMG20260523113240.jpg)
+
+![Slide hiển thị mã QR liên kết đến bài báo nghiên cứu chuyên sâu về các thiết lập của mô hình ngôn ngữ lớn (LLM Settings)](/images/4-EventParticipated/4.1-Event1/IMG20260523113404.jpg)
+
+![Slide chương trình (Agenda) giới thiệu cấu trúc đa tác nhân (Multi-Agent) cấp doanh nghiệp ứng dụng trong thẩm định tín dụng](/images/4-EventParticipated/4.1-Event1/IMG20260523114740.jpg)
+
+![Slide phân tích lý do kiến trúc đa tác nhân hoạt động hiệu quả nhờ tính chuyên môn hóa, kiểm tra chéo và khả năng chịu lỗi](/images/4-EventParticipated/4.1-Event1/IMG20260523120206.jpg)
+
+![Slide giới thiệu 6 trụ cột của hệ thống AI cấp doanh nghiệp: Bảo mật, Quản trị dữ liệu, Mạng, Vận hành, Con người và Tuân thủ](/images/4-EventParticipated/4.1-Event1/IMG20260523120612.jpg)
+
+![Slide đề xuất quy trình triển khai ứng dụng Multi-Agent chi tiết qua từng bước từ local app đến hạ tầng AWS](/images/4-EventParticipated/4.1-Event1/IMG20260523121833.jpg)
+
+![Sơ đồ kiến trúc mô tả luồng triển khai cơ bản (Basic Deployment Flow) từ môi trường local lên hạ tầng cloud AWS](/images/4-EventParticipated/4.1-Event1/IMG20260523121900.jpg)
+
+![Slide danh sách các bài thực hành workshop từ cơ bản đến nâng cao bao gồm xác thực, Guardrails, MCP và Terraform](/images/4-EventParticipated/4.1-Event1/IMG20260523122352.jpg)
+
+![Slide bài thực hành workshop có thêm ghi chú màu đỏ nhấn mạnh việc xây dựng hệ thống không chỉ cần chạy được mà phải an toàn](/images/4-EventParticipated/4.1-Event1/IMG_20260523_123205.jpg)
+
+![Bức ảnh tập thể các thành viên chụp chung lưu niệm khi kết thúc sự kiện](/images/4-EventParticipated/4.1-Event1/event1.jpg)
+
+> Sự kiện đã mang lại cho bản thân rất nhiều kiến thức giá trị cùng nguồn cảm hứng công nghệ to lớn, làm chắc chắn cho quá trình học tập và làm việc sau này.
+
