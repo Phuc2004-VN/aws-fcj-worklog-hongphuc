@@ -8,7 +8,7 @@ chapter: false
     
 
 
-## Internship Report
+# Internship Report
 ### Student Information:
 &emsp; **Full Name:** Ha Nguyen Hong Phuc
 

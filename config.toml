@@ -15,7 +15,7 @@ home = [ "HTML", "RSS", "JSON"]
   themeVariant = "workshop"
   # Git hub repo link
   editURL = ""
-  description = ""
+  description = "Báo cáo thực tập FCJ Cloud Intern - Hà Nguyễn Hồng Phúc"
   author = "hanguyenhongphuc4.com"
   showVisitedLinks = true
   disableBreadcrumb = false
