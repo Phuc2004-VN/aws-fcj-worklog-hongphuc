@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Nhật ký công việc ghi lại tiến trình và chi tiết các hoạt động thực tập của sinh viên **Hà Nguyễn Hồng Phúc** trong thời gian làm việc với vai trò **FCJ Cloud Intern** tại **Công ty TNHH Amazon Web Services Vietnam** từ ngày **17/04/2026 đến ngày 30/07/2026**.
+Nhật ký công việc ghi lại tiến trình và chi tiết các hoạt động thực tập của sinh viên **Hà Nguyễn Hồng Phúc** trong thời gian làm việc với vai trò **FCJ Cloud Intern** tại **Công ty TNHH Amazon Web Services Vietnam** từ ngày **17/04/2026 đến ngày 10/07/2026**.
 
 Chương trình thực tập được hoàn thành trong vòng **12 tuần** (khoảng 3 tháng) tập trung vào việc thiết lập hạ tầng đám mây, thiết kế mạng hybrid, tự động hóa hệ thống, kiểm toán tuân thủ bảo mật và tích hợp mô hình máy học trên AWS.
 
