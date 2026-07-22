@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-This worklog documents the weekly activities, training labs, and milestones completed by **Ha Nguyen Hong Phuc** during the internship as an **FCJ Cloud Intern** at **Amazon Web Services Vietnam Co., Ltd.** from **17/04/2026 to 10/07/2026**.
+This worklog documents the weekly activities, training labs, and milestones completed by **Ha Nguyen Hong Phuc** during the internship as an **FCJ Cloud Intern** at **Amazon Web Services Vietnam Co., Ltd.** from **17/04/2026 to 30/07/2026**.
 
 The program was completed over **12 weeks** (approximately 3 months) focusing on cloud infrastructure setup, hybrid networking designs, system automations, security compliance auditing, and machine learning models integration on AWS.
 

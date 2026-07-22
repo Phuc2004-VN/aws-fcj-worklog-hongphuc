@@ -41,7 +41,7 @@ The internship journey was enriched by participating in three prominent technolo
 ### [Event 3](4.3-Event3/)  
 &emsp;**Event Name:** AWS FC Community Day 2026  
 
-&emsp;**Date & Time:** June 27, 2026 (13:00 - 17:30)  
+&emsp;**Date & Time:** June 27, 2026 (09:00 - 12:00)  
 
 &emsp;**Location:** 26th and 36th Floor, Bitexco Financial Tower, Ho Chi Minh City (YouTube Livestream available)  
 
