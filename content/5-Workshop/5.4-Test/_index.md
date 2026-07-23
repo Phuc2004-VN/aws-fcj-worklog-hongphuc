@@ -10,8 +10,6 @@ pre: " <b> 5.4. </b> "
 
 After deploying the complete Serverless infrastructure and Database, we perform functional testing steps to verify the end-to-end flow of the system from the user interface to backend processing services.
 
----
-
 #### 1. System Login via Amazon Cognito
 Access the system Dashboard page. The login interface is integrated with Amazon Cognito User Pool for user authentication.
 
@@ -19,21 +17,15 @@ Access the system Dashboard page. The login interface is integrated with Amazon 
 
 *Note:* Since the trader's account was previously created in the User Pool, the login process is direct and secure.
 
----
-
 #### 2. Financial Management Dashboard Interface
 After successful login, the Dashboard interface displays the list of monitored stock tickers. Initially, the Dashboard only displays sample data (e.g., ticker `FPT`).
 
 ![Initial Dashboard Interface](/images/5-Workshop/5.4-Test/image2.png)
 
----
-
 #### 3. Performing Analysis on a New Stock Ticker
 To run an analysis, the trader selects the desired stock ticker (e.g., `VNM` - Vinamilk) from the toolbar and clicks the **Analyze** button.
 
 ![Selecting VNM ticker for analysis](/images/5-Workshop/5.4-Test/image3.png)
-
----
 
 #### 4. Asynchronous Backend Processing Flow
 When the **Analyze** button is clicked, the system triggers the following asynchronous processing flow:
@@ -53,14 +45,10 @@ When the **Analyze** button is clicked, the system triggers the following asynch
 
 ![Empty SQS Queue after processing](/images/5-Workshop/5.4-Test/image6.png)
 
----
-
 #### 5. Storing Analysis Results in Amazon DynamoDB
 After calculating technical indicators and calling the AI model for recommendations, the final results are saved into the DynamoDB table `Stock_reports_1`.
 
 ![Stored Results in DynamoDB](/images/5-Workshop/5.4-Test/image7.png)
-
----
 
 #### 6. Displaying Analysis Report on Dashboard
 Returning to the Dashboard page, ticker `VNM` information appears along with detailed technical indicator parameters. 
@@ -70,8 +58,6 @@ Returning to the Dashboard page, ticker `VNM` information appears along with det
 
 ![Technical Indicator Details on Dashboard](/images/5-Workshop/5.4-Test/image9.png)
 
----
-
 #### 7. Checking System Logs on Amazon CloudWatch
 Access Amazon CloudWatch Logs to monitor detailed activities of Processing Lambda and check for any arising errors.
 
@@ -80,8 +66,6 @@ Access Amazon CloudWatch Logs to monitor detailed activities of Processing Lambd
 Logs record that the execution flow succeeded according to the designed business logic.
 
 ![Detailed Successful Execution Logs](/images/5-Workshop/5.4-Test/image11.png)
-
----
 
 #### 8. Token Quota Limit Exceeded Issue at Amazon Bedrock
 During testing, the system recorded an error from Amazon Bedrock: **"Too many tokens per day, please try again."** (Exceeded daily token quota limit).
@@ -96,8 +80,6 @@ During testing, the system recorded an error from Amazon Bedrock: **"Too many to
 *   **Resolution:** Submit a Request Quota to increase limits for the Claude 3.5 Sonnet v2 model on the Amazon Bedrock management console.
     
     ![Bedrock Request Quota Interface](/images/5-Workshop/5.4-Test/image14.png)
-
----
 
 #### 9. Final Review (Human-in-the-Loop)
 After resolving the quota issue, Bedrock can successfully analyze and return a high confidence score. Reports with clear signals such as **STRONG BUY** or **STRONG SELL** will be reviewed by the trader on the Dashboard once more before clicking the button to send official email notifications to clients.

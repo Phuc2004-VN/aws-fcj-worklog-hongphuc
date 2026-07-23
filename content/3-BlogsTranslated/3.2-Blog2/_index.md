@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-
-
 ## AWS Cost & AI: When Running Cloud Becomes a Cost Management Problem
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
@@ -15,8 +13,6 @@ pre: " <b> 3.2. </b> "
 During the early stage of learning and practicing with AWS, the focus is often technical: how to deploy an application to EC2, how to configure the backend environment, whether the server runs correctly, and whether the APIs respond as expected. However, once the system becomes more stable, another important topic becomes visible: cloud operating cost.
 
 In parallel with backend deployment, the team also started exploring AWS AI services such as **Amazon Bedrock**, **Amazon SageMaker**, and other AWS AI Services like **Amazon Comprehend**. From that point, the team realized that cloud is not only about whether an application can be deployed, but also about how much it costs to run every day.
-
----
 
 ## Practice System Context
 
@@ -30,8 +26,6 @@ The initial practice system was simple:
 At first, because the environment was still within AWS Free Tier, the team assumed that a small EC2 instance could run without much concern. But as testing time increased, several factors started affecting cost: EC2 running 24/7, growing logs, EBS storage usage, helper resources that were left enabled, and AI API calls that were made more often than expected.
 
 ![AWS Cost and AI practice architecture](/images/3-BlogsTranslated/3.2-Blog2/aws-cost-ai-architecture.png)
-
----
 
 ## Free Tier Does Not Mean Free Forever
 
@@ -47,8 +41,6 @@ During practice, costs can come from very familiar situations:
 
 The important point is that these small charges can accumulate. Without regular monitoring, users may discover the problem too late.
 
----
-
 ## When AI Is Added to the System
 
 Unlike EC2, the cost of AI services is often not based only on running time. Many AI services charge by request count, token usage, or the amount of data analyzed.
@@ -60,8 +52,6 @@ Examples:
 - **Amazon SageMaker** can generate cost from instances, endpoints, notebooks, or training jobs.
 
 A single small API call may not matter much. But with repeated testing, longer prompts, larger datasets, or frequent model invocations, cost can increase faster than expected. Therefore, AI usage limits should be designed from the beginning.
-
----
 
 ## Main Reasons Costs Increased Quickly
 
@@ -76,8 +66,6 @@ At first, the team did not use tools such as **AWS Budgets**, **Billing Alarm**,
 ### 3. AI experiments had no clear limits
 
 AI service experiments can easily exceed expectations if there is no separate sandbox, no request limit, and no budget alert. With AI, “testing a few more times” can become more visible in cost compared with basic infrastructure services.
-
----
 
 ## Cost Optimization Direction
 
@@ -110,8 +98,6 @@ Each AWS service has a different pricing model:
 
 Because of this, one cost assumption cannot be applied to every service. Before enabling a new service, its pricing model and usage limit should be understood.
 
----
-
 ## A Practical View of AWS AI
 
 AWS AI is powerful because it integrates well with the AWS ecosystem. A backend can call services through SDKs and combine them with IAM, VPC Endpoints, logging, and monitoring. However, this power also requires cost control.
@@ -126,8 +112,6 @@ For generative AI in particular, the question is not only whether the model can 
 
 If these questions are considered early, the system becomes easier to operate as it grows.
 
----
-
 ## Lessons Learned
 
 Cloud is not only about deployment; it is also about operations. A system that runs correctly but has no cost monitoring is not truly ready.
@@ -137,8 +121,6 @@ AI is not as “free” as it may feel at the beginning. The more tests are run,
 Monitoring should be mandatory, not optional. Without monitoring, teams do not know how much they are spending, cannot control scale, and may exceed budget without noticing.
 
 Automation is also a mindset upgrade. Instead of manually stopping EC2, teams can use schedulers, EventBridge, or lifecycle automation to move from using AWS manually to operating AWS with control.
-
----
 
 ## Conclusion
 

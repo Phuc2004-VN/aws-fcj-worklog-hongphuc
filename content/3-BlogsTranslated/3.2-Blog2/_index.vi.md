@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-
-
 ## AWS Cost & AI: Khi chạy cloud không còn chỉ là vấn đề kỹ thuật
 
 **Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
@@ -15,8 +13,6 @@ pre: " <b> 3.2. </b> "
 Trong quá trình học và thực hành trên AWS, giai đoạn đầu thường xoay quanh các câu hỏi kỹ thuật: làm sao deploy application lên EC2, cấu hình backend như thế nào, server có chạy ổn không, API có phản hồi đúng không. Tuy nhiên, khi hệ thống bắt đầu hoạt động ổn định hơn, một vấn đề khác xuất hiện rõ ràng hơn: chi phí vận hành trên cloud.
 
 Song song với việc triển khai backend, nhóm cũng bắt đầu tìm hiểu các dịch vụ AI trên AWS như **Amazon Bedrock**, **Amazon SageMaker** và một số AWS AI Services như **Amazon Comprehend**. Từ đó, nhóm nhận ra rằng cloud không chỉ là “deploy được hay không”, mà còn là “chạy như vậy tốn bao nhiêu tiền mỗi ngày”.
-
----
 
 ## Bối cảnh hệ thống thực hành
 
@@ -30,8 +26,6 @@ Hệ thống thực hành ban đầu khá đơn giản:
 Ở giai đoạn đầu, vì còn nằm trong AWS Free Tier, nhóm khá chủ quan với suy nghĩ rằng EC2 nhỏ có thể chạy thoải mái. Nhưng khi thời gian test tăng lên, nhiều yếu tố bắt đầu ảnh hưởng đến chi phí: EC2 uptime 24/7, log phát sinh liên tục, EBS tăng dung lượng theo thời gian, tài nguyên phụ trợ quên tắt, và các API AI được gọi nhiều hơn dự kiến.
 
 ![Kiến trúc thực hành AWS Cost và AI](/images/3-BlogsTranslated/3.2-Blog2/aws-cost-ai-architecture.png)
-
----
 
 ## Free Tier không có nghĩa là miễn phí mãi
 
@@ -47,8 +41,6 @@ Trong quá trình thực hành, chi phí có thể phát sinh từ các tình hu
 
 Điểm quan trọng là các khoản nhỏ này có thể cộng dồn. Nếu không theo dõi thường xuyên, người dùng rất dễ phát hiện muộn.
 
----
-
 ## Khi AI được đưa vào hệ thống
 
 Khác với EC2, chi phí của các dịch vụ AI thường không chỉ phụ thuộc vào thời gian chạy. Nhiều dịch vụ AI tính phí theo số request, số token, hoặc lượng dữ liệu được phân tích.
@@ -60,8 +52,6 @@ Ví dụ:
 - **Amazon SageMaker** có thể phát sinh chi phí theo instance, endpoint, notebook hoặc training job.
 
 Một API call nhỏ có thể không đáng kể. Nhưng khi test liên tục, prompt dài hơn, dữ liệu nhiều hơn hoặc gọi model nhiều lần, chi phí có thể tăng nhanh hơn dự kiến. Vì vậy, khi đưa AI vào hệ thống, cần thiết kế giới hạn sử dụng ngay từ đầu.
-
----
 
 ## Nguyên nhân khiến chi phí tăng nhanh
 
@@ -76,8 +66,6 @@ Ban đầu nhóm chưa sử dụng đầy đủ các công cụ như **AWS Budge
 ### 3. Thử nghiệm AI chưa có giới hạn rõ ràng
 
 Các thử nghiệm với AI service nếu không có sandbox riêng, không giới hạn số request và không đặt budget alert thì rất dễ vượt mức dự kiến. Với AI, việc “test thêm vài lần” có thể tạo ra chi phí rõ rệt hơn so với các dịch vụ hạ tầng cơ bản.
-
----
 
 ## Hướng giải quyết và tối ưu chi phí
 
@@ -110,8 +98,6 @@ Mỗi dịch vụ AWS có cách tính phí khác nhau:
 
 Vì vậy, không thể dùng một cách suy nghĩ chung cho mọi dịch vụ. Trước khi bật một service mới, cần đọc pricing model và xác định giới hạn sử dụng.
 
----
-
 ## Góc nhìn thực tế về AWS AI
 
 AWS AI rất mạnh ở khả năng tích hợp với hệ sinh thái AWS. Backend có thể gọi service thông qua SDK, kết hợp với IAM, VPC Endpoint, logging và monitoring. Tuy nhiên, sức mạnh này đi kèm trách nhiệm kiểm soát chi phí.
@@ -126,8 +112,6 @@ AWS AI rất mạnh ở khả năng tích hợp với hệ sinh thái AWS. Backe
 
 Nếu các câu hỏi này được đặt ra từ đầu, hệ thống sẽ dễ vận hành hơn khi mở rộng.
 
----
-
 ## Bài học rút ra
 
 Cloud không chỉ là kỹ thuật deploy, mà còn là vận hành. Một hệ thống chạy được nhưng không được theo dõi chi phí thì vẫn chưa thật sự sẵn sàng.
@@ -137,8 +121,6 @@ AI cũng không “miễn phí” như cảm giác ban đầu. Càng test nhiề
 Monitoring nên là phần bắt buộc, không phải phần thêm sau. Không có monitoring đồng nghĩa với việc không biết hệ thống đang tiêu bao nhiêu, không kiểm soát được scale và dễ vượt budget mà không nhận ra.
 
 Automation cũng là một bước nâng cấp tư duy. Thay vì tắt EC2 thủ công, có thể dùng scheduler, EventBridge hoặc lifecycle automation để chuyển từ cách dùng AWS thủ công sang cách vận hành có kiểm soát.
-
----
 
 ## Kết luận
 

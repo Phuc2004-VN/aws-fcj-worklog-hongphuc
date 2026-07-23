@@ -10,14 +10,10 @@ pre: " <b> 5.3. </b> "
 
 The architecture model was selected based on four key criteria: **low cost**, **deployment simplicity**, **utilization of Managed/Serverless services**, and **high scalability**.
 
----
-
 #### 1. Cost Efficiency
 Services such as Lambda, S3, SQS, DynamoDB, API Gateway, CloudFront, and SES align perfectly with the pay-as-you-go model. The system does not require renting servers running continuously, keeping the initial cost extremely low and ideal for student projects.
 
 *Example:* When user traffic is low, Lambda only incurs costs per request, SQS charges per message, DynamoDB charges based on storage and read/write capacity, and S3 charges by data size. This makes the system significantly cheaper than running a 24/7 EC2 instance.
-
----
 
 #### 2. Simplicity and Serverless Architecture
 The project leverages a serverless architecture to minimize operational overhead. Instead of manually provisioning servers, installing runtimes, managing scaling, updating operating systems, and monitoring resources, the core components are deployed using serverless services:
@@ -29,8 +25,6 @@ The project leverages a serverless architecture to minimize operational overhead
 
 Consequently, the team can focus entirely on the core business logic: fetching stock data, calculating technical indicators, invoking Amazon Bedrock, and building the trader approval workflow.
 
----
-
 #### 3. Managed Services
 Most services in the model are managed services, meaning AWS takes responsibility for operating the underlying infrastructure. This increases system stability and reduces operational risks.
 
@@ -41,8 +35,6 @@ Specifically:
 *   **Amazon SES:** Sends reliable email notifications without configuring mail servers.
 *   **AWS KMS:** Manages data encryption keys without designing custom encryption mechanisms.
 
----
-
 #### 4. Scalability
 The architecture scales seamlessly because components are decoupled by task. As the number of monitored stocks or users increases, the system can scale components independently without impacting the overall design.
 
@@ -52,8 +44,6 @@ The architecture scales seamlessly because components are decoupled by task. As 
 *   If more reports need to be saved, DynamoDB and S3 scale automatically to handle the storage and throughput.
 *   If dashboard traffic increases, CloudFront caches and delivers the frontend faster, reducing S3 load.
 *   If security needs to be tightened, AWS WAF rules can be dynamically added to block malicious requests in real-time.
-
----
 
 ### Future Enhancements
 

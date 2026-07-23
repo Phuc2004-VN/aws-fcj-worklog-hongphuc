@@ -10,14 +10,10 @@ pre: " <b> 5.3. </b> "
 
 Mô hình được lựa chọn dựa trên 4 tiêu chí chính: **chi phí thấp**, **đơn giản khi triển khai**, **sử dụng Managed Service/Serverless** và **có khả năng mở rộng tốt**.
 
----
-
 #### 1. Chi phí
 Các dịch vụ như Lambda, S3, SQS, DynamoDB, API Gateway, CloudFront và SES đều phù hợp với mô hình trả tiền theo mức sử dụng (Pay-as-you-go). Hệ thống không cần thuê máy chủ chạy liên tục, nên chi phí ban đầu thấp và phù hợp với đồ án sinh viên.
 
 *Ví dụ:* Khi chưa có nhiều người dùng, Lambda chỉ phát sinh chi phí khi có request, SQS chỉ tính theo số lượng message, DynamoDB tính theo dung lượng và lượt đọc/ghi, còn S3 tính theo dung lượng lưu trữ. Điều này giúp hệ thống tiết kiệm hơn nhiều so với việc triển khai một server EC2 chạy 24/7.
-
----
 
 #### 2. Độ đơn giản và Serverless
 Project sử dụng kiến trúc Serverless để giảm khối lượng vận hành hệ thống. Thay vì phải tự cấu hình server, cài đặt runtime, quản lý scaling, cập nhật hệ điều hành và giám sát tài nguyên, các thành phần chính được triển khai bằng dịch vụ serverless như:
@@ -29,8 +25,6 @@ Project sử dụng kiến trúc Serverless để giảm khối lượng vận h
 
 Nhờ đó, nhóm có thể tập trung hoàn toàn vào nghiệp vụ chính của project: lấy dữ liệu cổ phiếu, tính toán chỉ báo kỹ thuật, gọi Amazon Bedrock và xây dựng luồng phê duyệt của trader.
 
----
-
 #### 3. Managed Service
 Các dịch vụ trong mô hình phần lớn là Managed Service, nghĩa là AWS chịu trách nhiệm vận hành hạ tầng nền bên dưới. Điều này giúp hệ thống ổn định hơn và giảm rủi ro lỗi vận hành.
 
@@ -41,8 +35,6 @@ Cụ thể:
 *   **Amazon SES:** Hỗ trợ gửi email thông báo đáng tin cậy mà không cần tự cấu hình mail server.
 *   **AWS KMS:** Quản lý khóa mã hóa dữ liệu mà không cần tự xây dựng cơ chế mã hóa riêng.
 
----
-
 #### 4. Khả năng mở rộng
 Mô hình có khả năng mở rộng tốt vì các thành phần được tách rời theo từng nhiệm vụ. Khi số lượng mã cổ phiếu hoặc số lượng người dùng tăng lên, hệ thống có thể mở rộng từng phần mà không ảnh hưởng toàn bộ kiến trúc.
 
@@ -52,8 +44,6 @@ Mô hình có khả năng mở rộng tốt vì các thành phần được tác
 *   Nếu cần lưu nhiều báo cáo hơn, DynamoDB và S3 có thể tự động mở rộng theo dung lượng và lưu lượng truy cập.
 *   Nếu nhiều người truy cập Dashboard, CloudFront giúp phân phối frontend nhanh hơn và giảm tải cho S3.
 *   Nếu cần tăng khả năng bảo vệ ứng dụng, AWS WAF có thể bổ sung rule để chặn request độc hại theo thời gian thực.
-
----
 
 ### Các bước cải tiến trong tương lai
 

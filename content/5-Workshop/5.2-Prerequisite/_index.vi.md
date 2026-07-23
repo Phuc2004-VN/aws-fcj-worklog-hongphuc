@@ -10,8 +10,6 @@ pre: " <b> 5.2. </b> "
 
 Để triển khai dự án **Hệ thống Phân tích và Cảnh báo Giá Cổ phiếu (Stock Alerts System)**, chúng ta cần chuẩn bị và thiết lập các dịch vụ trên AWS theo các bước dưới đây.
 
----
-
 #### 1. Tài khoản AWS & Sơ đồ kiến trúc
 
 *   **Tài khoản AWS:** Sử dụng tài khoản AWS (ví dụ AWS Free Tier) để quản trị và thiết lập tài nguyên.
@@ -21,8 +19,6 @@ pre: " <b> 5.2. </b> "
 *   **Sơ đồ kiến trúc:** Sơ đồ kết nối giữa các dịch vụ trong hệ thống.
     
     ![Sơ đồ kiến trúc](/images/5-Workshop/5.2-Prerequisite/image2.png)
-
----
 
 #### 2. Quá trình triển khai dịch vụ
 
@@ -59,8 +55,6 @@ Yahoo Finance là nguồn dữ liệu thị trường chính của hệ thống.
     
     ![IAM Role list](/images/5-Workshop/5.2-Prerequisite/image9.png)
 
----
-
 ##### C. Triển khai Cơ sở dữ liệu (Database)
 
 *   **AWS KMS (Quản lý khóa mã hóa):** Tạo mã khóa KMS để mã hóa dữ liệu nhạy cảm.
@@ -78,8 +72,6 @@ Yahoo Finance là nguồn dữ liệu thị trường chính của hệ thống.
     *   **Bảo mật bảng DynamoDB bằng AWS KMS:**
         
         ![DynamoDB Encryption with KMS](/images/5-Workshop/5.2-Prerequisite/image12.png)
-
----
 
 ##### D. Triển khai Frontend & Bảo mật (Frontend Deployment)
 
@@ -108,8 +100,6 @@ Yahoo Finance là nguồn dữ liệu thị trường chính của hệ thống.
     *   **Giao diện đăng nhập quản trị qua Cognito:**
         
         ![Cognito Login UI](/images/5-Workshop/5.2-Prerequisite/image18.png)
-
----
 
 ##### E. Triển khai Cổng API & Kết nối AI (API & AI Services)
 

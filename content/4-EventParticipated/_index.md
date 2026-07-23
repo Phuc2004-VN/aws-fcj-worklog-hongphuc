@@ -21,8 +21,6 @@ The internship journey was enriched by participating in three prominent technolo
 
 &emsp;**Value Gained:** Acquired in-depth knowledge of CloudFront features (Regional Edge Cache, request collapsing, and the performance differences between CloudFront Functions and Lambda@Edge) and strategies for contextual AI application design. Also learned practical methodologies for developing Minimum Viable Products (MVPs) and collaborating under pressure.
 
----
-
 ### [Event 2](4.2-Event2/)  
 &emsp;**Event Name:** AWS First Cloud Journey AI  
 
@@ -35,8 +33,6 @@ The internship journey was enriched by participating in three prominent technolo
 &emsp;**Event Description:** A technology day focused on AI solutions, cloud-native application patterns, and cloud career paths. Key presentations covered turn-based multiplayer game programming using API Gateway WebSockets, containerization with Docker, building GraphRAG search architectures using Amazon Bedrock and Neptune, and enhancing web security using Machine Learning models.  
 
 &emsp;**Value Gained:** Gained a solid understanding of WebSocket full-duplex communication, Docker image layering mechanics, GraphRAG implementations for multi-hop queries, and NIDS deployment patterns. In addition, learned the 4 golden rules of teamwork to enhance collaboration in group projects and mapped out a structured learning pathway.
-
----
 
 ### [Event 3](4.3-Event3/)  
 &emsp;**Event Name:** AWS FC Community Day 2026  

@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-
-
 ## Deploying a Backend to AWS EC2 and the Bug Caused by Capital Letters
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2184227519008875/)
@@ -15,8 +13,6 @@ pre: " <b> 3.1. </b> "
 When deploying a backend application from a local environment to AWS EC2, not every issue appears as a clear runtime error. The application may start successfully and the server may keep running, while some internal logic behaves incorrectly. In this case, the root cause came from a very small detail: uppercase and lowercase values in environment variables.
 
 On a local Windows environment, the Node.js application read the `.env` file and handled configuration normally. However, after the source code was deployed to an EC2 instance running Ubuntu/Linux, several Boolean flags were no longer interpreted correctly. Some automated features stopped working, conditions returned false, and debugging took longer because the application did not throw an obvious error.
-
----
 
 ## Environment Variables in Backend Applications
 
@@ -32,8 +28,6 @@ ENVIRONMENT_AUTO=True
 
 This approach makes it easier to switch between development and production, reduces source code changes during deployment, and keeps configuration in a more manageable place. When deploying to EC2, the `.env` file is often copied to or manually created on the server so the application can read it at runtime.
 
----
-
 ## Initial Deployment Model
 
 The first deployment model was simple: the developer pushed the source code and `.env` file from local machine to EC2 through SSH or Git, then ran the Node.js backend directly on the instance.
@@ -48,8 +42,6 @@ The deployment flow included:
 - Letting the application read environment variables from `.env`.
 
 Everything seemed fine until the application started processing Boolean values.
-
----
 
 ## The Issue After Deploying to EC2
 
@@ -76,8 +68,6 @@ This type of bug is easy to miss because the application does not crash. Instead
 - Treating Boolean configuration values incorrectly.
 - Running with unexpected behavior but without a clear stack trace.
 
----
-
 ## Main Causes
 
 ### 1. Linux and runtime behavior are strongly case-sensitive
@@ -97,8 +87,6 @@ Creating a `.env` file with `nano .env` on the server is quick, but it does not 
 
 Values such as database passwords, API tokens, and secret keys should not be managed long-term through a plain file stored directly on the server.
 
----
-
 ## Quick Fix
 
 The first fix was to standardize all Boolean values in `.env` as lowercase:
@@ -114,8 +102,6 @@ const autoEnv = process.env.ENVIRONMENT_AUTO?.toLowerCase() === "true";
 ```
 
 After updating the format and making the type conversion explicit, the application correctly recognized the environment state and the automated features worked more reliably.
-
----
 
 ## AWS Best Practice Direction
 
@@ -138,8 +124,6 @@ EC2 Instance -> IAM Role -> AWS Systems Manager Parameter Store
 
 This approach makes environment configuration more centralized, improves security, scales better, and is more suitable for production workloads.
 
----
-
 ## Lessons Learned
 
 A small uppercase/lowercase mismatch can cause an application to behave incorrectly after deployment. From this experience, several lessons stand out:
@@ -148,8 +132,6 @@ A small uppercase/lowercase mismatch can cause an application to behave incorrec
 - Small issues such as case mismatch, wrong data types, or invalid `.env` format can take a long time to debug.
 - Environment variables are not just configuration; they affect security, operations, and scalability.
 - Secrets should be managed by dedicated services instead of being stored long-term in files on the server.
-
----
 
 ## Conclusion
 

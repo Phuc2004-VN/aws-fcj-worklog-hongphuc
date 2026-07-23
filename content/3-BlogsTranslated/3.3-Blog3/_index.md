@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-
-
 ## Deploying a Serverless Application with AWS Lambda and Amazon API Gateway
 
 **Blog post link:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2203965220368438/)
@@ -17,8 +15,6 @@ After deploying a backend on Amazon EC2 and learning how to optimize cloud opera
 EC2 provides a high level of control. Users can configure the operating system, install runtimes, manage networking, storage, and security groups. However, this also comes with operational responsibilities such as monitoring instance health, updating software, patching the operating system, starting or stopping servers, and planning scalability.
 
 While exploring other application deployment models on AWS, the team learned about **Serverless Computing**. The interesting part of this model is that developers can focus more on code and business logic, while AWS manages much of the underlying infrastructure.
-
----
 
 ## What Is Serverless?
 
@@ -33,8 +29,6 @@ With a serverless model, AWS handles tasks such as:
 - Handling availability and load.
 
 As a result, developers can focus on features instead of infrastructure administration. This is why serverless is commonly used for REST APIs, mobile app backends, chatbots, IoT, event processing, and AI pipelines.
-
----
 
 ## Deployment Architecture
 
@@ -52,8 +46,6 @@ The main components include:
 
 Unlike EC2, users do not need to create or maintain always-running servers. The function is triggered only when a request or event occurs.
 
----
-
 ## Why Serverless Is Attractive
 
 ### No server management
@@ -70,8 +62,6 @@ With Lambda, cost is based on the number of function invocations and execution d
 
 This model works well for systems with unpredictable traffic, experimental applications, MVPs, internal APIs, and learning projects.
 
----
-
 ## Limitations to Consider
 
 ### Cold start
@@ -87,8 +77,6 @@ Lambda is designed for short, event-driven tasks. If an application needs to run
 ### Cloud service dependency
 
 When using Lambda, the architecture is often closely connected with services such as API Gateway, IAM, CloudWatch, DynamoDB, and EventBridge. This makes AWS integration convenient, but also increases dependency on the cloud platform.
-
----
 
 ## Cost Perspective
 
@@ -108,8 +96,6 @@ With Lambda:
 
 However, serverless is not always cheaper. If a system has very high traffic, long-running functions, or continuous API Gateway requests, the total cost of Lambda and API Gateway can become higher than EC2 or ECS. Therefore, architecture decisions should be based on the actual workload.
 
----
-
 ## Lessons Learned
 
 Serverless does not completely replace EC2. It is another architecture option that fits a different set of problems.
@@ -119,8 +105,6 @@ If an application needs full operating system control, special configuration, lo
 On the other hand, if the goal is fast deployment, less infrastructure management, automatic scaling, and cost optimization for APIs with variable traffic, AWS Lambda combined with Amazon API Gateway is worth considering.
 
 The most important lesson is not to think in terms of which service is always better. Each AWS service is designed to solve a specific group of problems. Understanding the characteristics of each service helps teams choose the right architecture from the beginning.
-
----
 
 ## Conclusion
 

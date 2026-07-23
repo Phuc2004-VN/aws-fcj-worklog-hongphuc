@@ -10,8 +10,6 @@ pre: " <b> 5.2. </b> "
 
 To deploy the **Stock Alerts System** project, we need to prepare and configure the AWS services according to the steps below.
 
----
-
 #### 1. AWS Account & Architecture Diagram
 
 *   **AWS Account:** Use an AWS account (e.g. AWS Free Tier) to manage and provision resources.
@@ -21,8 +19,6 @@ To deploy the **Stock Alerts System** project, we need to prepare and configure 
 *   **Architecture Diagram:** System component connections.
     
     ![Architecture Diagram](/images/5-Workshop/5.2-Prerequisite/image2.png)
-
----
 
 #### 2. Service Deployment Process
 
@@ -59,8 +55,6 @@ Yahoo Finance is the primary market data source for the system. The system uses 
     
     ![IAM Role List](/images/5-Workshop/5.2-Prerequisite/image9.png)
 
----
-
 ##### C. Database Deployment
 
 *   **AWS KMS (Key Management Service):** Create a KMS key to encrypt sensitive data.
@@ -78,8 +72,6 @@ Yahoo Finance is the primary market data source for the system. The system uses 
     *   **Secure DynamoDB Table with AWS KMS:**
         
         ![DynamoDB Encryption with KMS](/images/5-Workshop/5.2-Prerequisite/image12.png)
-
----
 
 ##### D. Frontend & Security Deployment
 
@@ -108,8 +100,6 @@ Yahoo Finance is the primary market data source for the system. The system uses 
     *   **Cognito Login UI:**
         
         ![Cognito Login UI](/images/5-Workshop/5.2-Prerequisite/image18.png)
-
----
 
 ##### E. API Gateway & AI Services
 
