@@ -226,3 +226,18 @@ div.notices.info p {
   border-top: 30px solid #fd9827;
   background: #fff2db;
 }
+
+/* Auto spacing for section headings */
+#body-inner h2,
+#body-inner h3,
+#body-inner h4 {
+  margin-top: 2.2rem !important;
+  padding-top: 0.5rem;
+}
+
+#body-inner h2:first-of-type,
+#body-inner h3:first-of-type,
+#body-inner h4:first-of-type {
+  margin-top: 1rem !important;
+}
+

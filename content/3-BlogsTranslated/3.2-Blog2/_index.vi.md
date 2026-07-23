@@ -10,9 +10,9 @@ pre: " <b> 3.2. </b> "
 
 **Link bài viết:** [Facebook - AWS Study Group FCJ](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2199844680780492/)
 
-Trong quá trình học và thực hành trên AWS, giai đoạn đầu thường xoay quanh các câu hỏi kỹ thuật: làm sao deploy application lên EC2, cấu hình backend như thế nào, server có chạy ổn không, API có phản hồi đúng không. Tuy nhiên, khi hệ thống bắt đầu hoạt động ổn định hơn, một vấn đề khác xuất hiện rõ ràng hơn: chi phí vận hành trên cloud.
+Trong quá trình học và thực hành trên AWS, giai đoạn đầu thường xoay quanh các câu hỏi kỹ thuật như kiểu: làm sao deploy application lên EC2, cấu hình backend như thế nào, server có chạy ổn không, API có phản hồi đúng không. Tuy nhiên, khi hệ thống bắt đầu hoạt động ổn định hơn, một vấn đề khác xuất hiện rõ ràng hơn: chi phí vận hành trên cloud.
 
-Song song với việc triển khai backend, nhóm cũng bắt đầu tìm hiểu các dịch vụ AI trên AWS như **Amazon Bedrock**, **Amazon SageMaker** và một số AWS AI Services như **Amazon Comprehend**. Từ đó, nhóm nhận ra rằng cloud không chỉ là “deploy được hay không”, mà còn là “chạy như vậy tốn bao nhiêu tiền mỗi ngày”.
+Song song với việc triển khai backend, nhóm cũng bắt đầu tìm hiểu các dịch vụ AI trên AWS như **Amazon Bedrock**, **Amazon SageMaker** và một số AWS AI Services như **Amazon Comprehend**. Từ đó, nhóm nhận ra rằng cloud không chỉ là “deploy được hay không”, mà nó còn vấn đề “chạy như vậy tốn bao nhiêu tiền mỗi ngày”.
 
 ## Bối cảnh hệ thống thực hành
 
